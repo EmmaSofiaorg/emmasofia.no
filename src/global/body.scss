@@ -1,0 +1,32 @@
+@import 'variables.scss';
+
+/* apply a natural box layout model to all elements, but allowing components to change */
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  font-family: $font--primary-regular;
+  background: $color--gray-light;
+  color: $color--primary;
+  font-size: 18px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body,
+.smooth-container {
+  scroll-behavior: smooth;
+}
+
+img,
+svg {
+  max-width: 100%;
+  max-height: 100%;
+}
