@@ -15,9 +15,18 @@ export default {
     }).then(response => response.items
         .map(item => item.fields))
   },
-  getEntry: function (entryId) {
-    return client.getEntry(entryId)
-      .then(response => response.items
-        .map(item => item.fields))
+  getEntryById: function (entryId) {
+    // Use getEntries to get linked assets (images etc) resolved inside response. getEntry only gives you a reference ID.
+    return client.getEntries({'sys.id': entryId})
+      .then(response => response.items[0].fields)
+  },
+  getEntryBySlug: function (contentType, slug) {
+    return client.getEntries({
+      content_type: contentType,
+      'fields.slug': slug
+    })
+    .then(response => response.items
+      .map(item => item.fields)[0])
+    .catch(console.error)
   }
 }

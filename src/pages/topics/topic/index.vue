@@ -6,7 +6,7 @@
 
   <main class="container --wide">
     <section class="block --mt">
-      {{publication.title}}
+      {{topic.title}}
     </section>
   </main>
 
@@ -18,12 +18,12 @@ import db from '@/database'
 
 export default {
   mounted() {
-    db.getEntryBySlug('publication', this.$route.params.slug)
-      .then(response => this.publication = response); // Map fields from response and set av events
+    db.getEntryBySlug('topic', this.$route.params.slug)
+      .then(response => this.topic = response); // Map fields from response and set av events
   },
   data() {
     return {
-      publication: []
+      topic: []
     }
   }
 }

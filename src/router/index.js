@@ -8,6 +8,9 @@ import Event from '@/pages/events/event'
 import News from '@/pages/news'
 import Article from '@/pages/news/article'
 
+import Topics from '@/pages/topics'
+import Topic from '@/pages/topics/topic'
+
 import Publications from '@/pages/publications'
 import Publication from '@/pages/publications/publication'
 
@@ -31,9 +34,24 @@ export default new Router({
       component: News
     },
     {
+      path: '/topics',
+      name: 'topics',
+      component: Topics
+    },
+    {
+      path: '/topic/:slug',
+      name: 'topic',
+      component: Topic
+    },
+    {
       path: '/publications',
       name: 'publications',
       component: Publications
+    },
+    {
+      path: '/publication/:slug',
+      name: 'publication',
+      component: Publication
     },
   ]
 })

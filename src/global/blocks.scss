@@ -2,8 +2,8 @@
 
 .block {
   width: 100%;
-  padding-left: $spacing--larger;
-  padding-right: $spacing--larger;
+  padding-left: $spacing;
+  padding-right: $spacing;
 
   &.--full {
     width: 100%;
@@ -11,19 +11,19 @@
   }
 
   &.--mt {
-    margin-top: $spacing;
+    margin-top: $spacing--large;
   }
 
   &.--mb {
-    margin-bottom: $spacing;
+    margin-bottom: $spacing--large;
   }
 
   &.--pt {
-    padding-top: $spacing;
+    padding-top: $spacing--large;
   }
 
   &.--pb {
-    padding-bottom: $spacing;
+    padding-bottom: $spacing--large;
   }
 
 }

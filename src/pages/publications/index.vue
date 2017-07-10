@@ -4,12 +4,15 @@
 
 <template lang="html">
 
-  <div>
-    <h1>Publications</h1>
-    <div v-for="publication in publications">
-      {{publication.title}}
-    </div>
-  </div>
+  <main class="container --wide">
+    <section class="block --mt">
+      <h1>Publications</h1>
+      <div v-for="publication in publications">
+        {{publication.title}}
+        <router-link :to="{ name: 'publication', params: { slug: publication.slug }}">Link</router-link>
+      </div>
+    </section>
+  </main>
 
 </template>
 

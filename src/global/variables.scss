@@ -1,6 +1,6 @@
 /* Fonts */
 
-$font--primary-regular: Helvetica, sans-serif;
+$font--primary-regular: 'Cousine', Helvetica, sans-serif;
 
 /* Fixed sizes */
 
@@ -8,16 +8,16 @@ $header-height: 60px;
 
 /* Colors */
 
-$color--primary: #0F2B49;
-$color--primary-light: #174371;
+$color-primary: #0F2B49;
+$color-primary--light: #174371;
 
-$color--secondary: #333;
+$color-secondary: #333;
 
-$color--white: #fff;
-$color--gray-light: #fafafa;
-$color--gray: #cdcdcd;
-$color--gray-dark: #4e4d4d;
-$color--black: #000;
+$color-white: #fff;
+$color-gray-light: #fafafa;
+$color-gray: #e6e6e6;
+$color-gray-dark: #4e4d4d;
+$color-black: #000;
 
 /* Box-shadow */
 
@@ -29,7 +29,11 @@ $spacing--smallest: 6px;
 $spacing--smaller: 12px;
 $spacing--small: 18px;
 $spacing: 24px;
-$spacing--large: 36px;
-$spacing--larger: 48px;
+$spacing--large: 50px;
+$spacing--larger: 70px;
+
+/* Container widths */
+
+$container--wide: 1200px;
 
 /* Breakpoints */
