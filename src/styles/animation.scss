@@ -33,7 +33,21 @@
   }
 }
 
-@keyframes slide-background { 
+@keyframes pop-in {
+  0% {
+    transform: scale(0.8);
+  }
+
+  70% {
+    transform: scale(1.4);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes slide-background {
     0%{background-position:0% 50%}
     50%{background-position:100% 50%}
     100%{background-position:0% 50%}

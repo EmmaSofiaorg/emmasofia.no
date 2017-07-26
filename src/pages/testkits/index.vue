@@ -1,4 +1,4 @@
-<style lang="css" scoped>
+<style lang="scss" scoped>
 
 .hero {
   min-height: 400px;
@@ -25,13 +25,17 @@
       </div>
     </div>
 
-    <section class="container --wide">
+    <section class="container --wide" style="position: relative">
+
+      <cart-button v-show="cart.lineItemCount" :toggleCart="toggleCart.bind(this)" />
+
+      <cart-overlay :cart="cart" :class="{'--hidden': !cartShown}" />
 
       <div class="block --mt">
-        <div class="row">
-            <div class="col-xs-12 col-md-4" v-for="drug in drugs">
+        <div class="row" v-if="testkits.length > 0">
+            <div class="col-xs-12 col-md-3" v-for="testkit in testkits">
               <article>
-                <drug :drug="drug" />
+                <testkit :testkit="testkit" :addToCart="addToCart.bind(this)" />
               </article>
             </div>
         </div>
@@ -45,21 +49,31 @@
 <script>
 
 import db from '@/database'
+import shop from '@/shopify';
 
 import Filters from '@/components/global/filters';
 import Hero from '@/components/global/hero';
-import Drug from '@/components/cards/drug';
+import Testkit from '@/components/cards/testkit';
+import CartOverlay from '@/components/shop/cart';
+import CartButton from '@/components/shop/cart-button';
 
 export default {
   store: ['loading'],
-  components: { Filters, Hero, Drug },
+  components: { Filters, Hero, Testkit, CartOverlay, CartButton },
   mounted() {
     this.getPageDetails();
     this.getAllEvents();
+    shop.initCart().then(newCart => {
+      this.cart = newCart;
+      console.log(this.cart);
+    });
+    this.getAllProducts();
   },
   data() {
     return {
-      drugs: [],
+      testkits: [],
+      cartShown: false,
+      cart: {},
       page: {},
     }
   },
@@ -78,6 +92,20 @@ export default {
           this.loading = false;
           this.drugs = response;
         });
+    },
+    getAllProducts() {
+      shop.getAllProducts()
+        .then(products => {
+          this.testkits = products;
+        });
+    },
+    addToCart(variant, quantity) {
+      console.log(variant);
+      this.cart.createLineItemsFromVariants({variant, quantity});
+      console.log('newcart', this.cart);
+    },
+    toggleCart() {
+      this.cartShown = !this.cartShow;
     },
   },
 }
