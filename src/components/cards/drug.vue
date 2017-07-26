@@ -1,0 +1,77 @@
+<style lang="scss">
+
+.card-drug {
+  display: block;
+  transition: all 0.2s ease;
+  margin-bottom: $spacing;
+
+  &:hover {
+    text-decoration: none;
+    transform: translateY(-3px);
+    transition: all 0.2s ease;
+
+    .card-drug__image {
+      box-shadow: $box-shadow;
+      transition: box-shadow 0.2s ease;
+    }
+  }
+
+  &__image {
+    background: #eee;
+    height: 120px;
+    width: 100%;
+    position: relative;
+    border-radius: 5px;
+    overflow: hidden;
+    transition: all 0.2s ease;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    @media(min-width: $desktop) {
+      height: 200px;
+    }
+  }
+
+  &__overlay {
+    spacing: $spacing;
+    text-align: center;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(#3a0e52, 0.3);
+    color: $color-white;
+    font-size: 18px;
+    transition: all 0.2s ease;
+
+    &:hover {
+      background: rgba(#481165, 0.2);
+      transition: all 0.2s ease;
+    }
+  }
+}
+
+</style>
+
+<template lang="html">
+  <router-link :to="{ name: 'drug', params: {slug: drug.slug}}" class="card" >
+    <div
+      class="card-drug__image"
+      :style="`background-image: url(${drug.image.fields.file.url})`">
+      <div class="card-drug__overlay">
+        <h3>{{drug.name}}</h3>
+      </div>
+    </div>
+
+  </router-link>
+
+</template>
+
+<script>
+export default {
+  props: ['drug']
+}
+</script>

@@ -1,7 +1,7 @@
 <style lang="css" scoped>
 
 .hero {
-  min-height: 450px;
+  min-height: 400px;
 }
 
 </style>
@@ -28,20 +28,12 @@
     <section class="container --wide">
 
       <div class="block --mt">
-      <filters
-        :title="'Filter'"
-        :filterBy="'drug'"
-        :updateFilters="filterByDrug.bind(this)" />
-      </div>
-
-      <div class="col --main">
-        <div class="block">
-          <article v-for="publication in publications">
-            <publication :publication="publication" />
-          </article>
-        </div>
-        <div class="block --mb" v-if="publications.length < 1">
-          <h4>Ingen studier funnet.</h4>
+        <div class="row">
+            <div class="col-xs-12 col-md-4" v-for="drug in drugs">
+              <article>
+                <drug :drug="drug" />
+              </article>
+            </div>
         </div>
       </div>
 
@@ -56,45 +48,36 @@ import db from '@/database'
 
 import Filters from '@/components/global/filters';
 import Hero from '@/components/global/hero';
-import Publication from '@/components/cards/publication';
+import Drug from '@/components/cards/drug';
 
 export default {
   store: ['loading'],
-  components: { Filters, Hero, Publication },
+  components: { Filters, Hero, Drug },
   mounted() {
     this.getPageDetails();
     this.getAllEvents();
   },
   data() {
     return {
-      publications: [],
+      drugs: [],
       page: {},
     }
   },
   methods: {
     getPageDetails() {
-      db.getEntryById('Sq3vqEz8MmOAaoGAuGOuU')
+      db.getEntryById('7uwxBTxh5uUIkGU6466Ism')
         .then(response => {
+          this.loading = false;
           this.page = response;
         });
     },
     getAllEvents() {
       this.loading = true;
-      db.getEntries('publication', 10, 0)
+      db.getEntries('drug', 10, 0)
         .then(response => {
           this.loading = false;
-          this.publications = response;
+          this.drugs = response;
         });
-    },
-    filterByDrug(query) {
-      if(query === 'All') {
-        this.getAllEvents();
-      } else {
-        db.getEntriesByDrug('publication', query, 1, 0)
-          .then(response => {
-            this.publications = response;
-          });
-      };
     },
   },
 }

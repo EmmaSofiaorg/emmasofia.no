@@ -1,6 +1,7 @@
 /* Fonts */
 
-$font--primary-regular: 'Cousine', Helvetica, sans-serif;
+$font-primary: 'Lora', Helvetica, sans-serif;
+$font-secondary: 'Muli', Helvetica, sans-serif;
 
 /* Fixed sizes */
 
@@ -8,10 +9,10 @@ $header-height: 60px;
 
 /* Colors */
 
-$color-primary: #0F2B49;
-$color-primary--light: #174371;
+$color-primary: #4d2482;
+$color-primary--light: #7f289e;
 
-$color-secondary: #333;
+$color-secondary: #1f3285;
 
 $color-white: #fff;
 $color-gray-light: #fafafa;
@@ -21,7 +22,7 @@ $color-black: #000;
 
 /* Box-shadow */
 
-$box-shadow: 0px 5px 32px 0px rgba(0, 0, 0, 0.21);
+$box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.2);
 
 /* Spacing */
 
@@ -32,8 +33,14 @@ $spacing: 24px;
 $spacing--large: 50px;
 $spacing--larger: 70px;
 
-/* Container widths */
+/* Breakpoints */
+
+$desktop: 1024px;
+
+/* Widths and heights */
 
 $container--wide: 1200px;
+
+$header-height: 71px;
 
 /* Breakpoints */

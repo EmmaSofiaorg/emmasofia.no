@@ -1,9 +1,7 @@
 var contentful = require('contentful')
 var client = contentful.createClient({
-  // This is the space ID. A space is like a project folder in Contentful terms
-  space: 'haxffs0abx3c',
-  // This is the access token for this space. Normally you get both ID and the token in the Contentful web app
-  accessToken: 'd8ed91ef55f55c89c58a175d4da46cc08b96f605446ddf0cba3c231553921558'
+  space: 'lcexepslu397',
+  accessToken: 'c44517e368b43891776490a25672f3838f93351f766134befcdba687d2b18cc4'
 })
 
 export default {
@@ -15,8 +13,19 @@ export default {
     }).then(response => response.items
         .map(item => item.fields))
   },
+  getEntriesByDrug: function (contentType, drugTitle, limit, skip) {
+    return client.getEntries({
+      content_type: contentType,
+      'fields.drug.sys.contentType.sys.id': 'drug',
+      'fields.drug.fields.name[match]': drugTitle,
+      limit,
+      skip,
+    }).then(response => response.items
+        .map(item => item.fields))
+      .catch(console.error)
+  },
   getEntryById: function (entryId) {
-    // Use getEntries to get linked assets (images etc) resolved inside response. getEntry only gives you a reference ID.
+    // Here we use getEntries, instead of getEntry to get linked assets (images etc) resolved inside response.
     return client.getEntries({'sys.id': entryId})
       .then(response => response.items[0].fields)
   },

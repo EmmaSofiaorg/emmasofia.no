@@ -5,18 +5,26 @@ import FrontPage from '@/pages'
 import Events from '@/pages/events'
 import Event from '@/pages/events/event'
 
-import News from '@/pages/news'
-import Article from '@/pages/news/article'
-
-import Topics from '@/pages/topics'
-import Topic from '@/pages/topics/topic'
-
 import Publications from '@/pages/publications'
 import Publication from '@/pages/publications/publication'
+
+import Testkits from '@/pages/testkits'
+import Testkit from '@/pages/testkits/testkit'
+
+import Drugs from '@/pages/drugs'
+import Drug from '@/pages/drugs/drug'
 
 Vue.use(Router)
 
 export default new Router({
+  mode: 'history',
+  scrollBehavior (to, from, savedPosition) {
+    if (savedPosition) {
+      return savedPosition
+    } else {
+      return { x: 0, y: 0 }
+    }
+  },
   routes: [
     {
       path: '/',
@@ -29,29 +37,29 @@ export default new Router({
       component: Events
     },
     {
-      path: '/news',
-      name: 'news',
-      component: News
-    },
-    {
-      path: '/topics',
-      name: 'topics',
-      component: Topics
-    },
-    {
-      path: '/topic/:slug',
-      name: 'topic',
-      component: Topic
-    },
-    {
       path: '/publications',
       name: 'publications',
       component: Publications
     },
     {
-      path: '/publication/:slug',
-      name: 'publication',
-      component: Publication
+      path: '/testkits',
+      name: 'testkits',
+      component: Testkits
+    },
+    {
+      path: '/testkit/:slug',
+      name: 'testkit',
+      component: Testkit
+    },
+    {
+      path: '/drugs',
+      name: 'drugs',
+      component: Drugs
+    },
+    {
+      path: '/drug/:slug',
+      name: 'drug',
+      component: Drug
     },
   ]
 })

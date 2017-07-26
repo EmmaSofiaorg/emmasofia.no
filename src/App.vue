@@ -1,24 +1,38 @@
 <template>
   <div id="app">
+    <spinner v-if="loading" />
     <main-header />
-    <router-view></router-view>
+    <keep-alive exclude="drug,publication">
+      <router-view></router-view>
+    </keep-alive>
   </div>
 </template>
 
 <script>
 import MainHeader from '@/components/global/header';
+import Spinner from '@/components/global/spinner';
 
 export default {
-  components: { MainHeader },
-  name: 'app'
-}
+  components: { MainHeader, Spinner },
+  store: ['loading'],
+  name: 'app',
+};
 </script>
 
 <style lang="scss">
-@import './global/body.scss';
-@import './global/container.scss';
-@import './global/blocks.scss';
-@import './global/sanitize.scss';
-@import './global/typography.scss';
-@import './global/variables.scss';
+@import './styles/body.scss';
+@import './styles/layout.scss';
+@import './styles/blocks.scss';
+@import './styles/sanitize.scss';
+@import './styles/typography.scss';
+@import './styles/animation.scss';
+@import './styles/cards.scss';
+@import './styles/buttons.scss';
+@import './styles/hero.scss';
+@import './styles/flexbox-grid.scss';
+
+main {
+  //animation-name: fade-in;
+  // animation-duration: 0.5s;
+}
 </style>

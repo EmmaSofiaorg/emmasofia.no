@@ -1,0 +1,44 @@
+.container {
+  max-width: 690px;
+  margin: 0 auto;
+
+  &.--wide {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+}
+
+.col {
+  display: block;
+  float: left;
+
+  &.--main {
+    width: 100%;
+    padding-right: 0;
+
+    @media (min-width: $desktop) {
+      width: 60%;
+      padding-right: $spacing;
+    }
+
+  }
+
+  &.--sidebar {
+    width: 100%;
+    float: left;
+
+    @media (min-width: $desktop) {
+      width: 40%;
+      float: right;
+    }
+  }
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-right {
+  text-align: right;
+}

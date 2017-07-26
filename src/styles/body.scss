@@ -1,5 +1,3 @@
-@import 'variables.scss';
-
 /* apply a natural box layout model to all elements, but allowing components to change */
 html {
   box-sizing: border-box;
@@ -12,12 +10,14 @@ html {
 }
 
 body {
-  font-family: $font--primary-regular;
   background: $color-white;
   color: $color-black;
-  font-size: 18px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  &.--no-scroll {
+    overflow: hidden;
+  }
 }
 
 body,

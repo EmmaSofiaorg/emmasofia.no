@@ -1,0 +1,42 @@
+.button {
+  padding: $spacing--small $spacing;
+  margin-right: $spacing--small;
+  text-transform: uppercase;
+  outline: 0;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 600;
+  border-radius: 300px;
+  border: 0;
+  background: $color-primary;
+  color: white;
+  transition: box-shadow 0.2s ease;
+
+  &:hover {
+    background: $color-primary--light;
+    box-shadow: $box-shadow;
+    transition: box-shadow 0.2s ease;
+  }
+
+  @media(min-width: $desktop) {
+    padding: $spacing--small $spacing;
+    font-size: 13px;
+  }
+
+  &.--small {
+    padding: 12px $spacing--small;
+  }
+
+  &.--large {
+    padding: $spacing $spacing--large;
+  }
+
+  &.--full {
+    width: 100%;
+  }
+
+  &.--white {
+    background: $color-white;
+    color: $color-primary;
+  }
+}

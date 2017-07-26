@@ -1,0 +1,58 @@
+<style lang="scss">
+
+.spinner-wrapper {
+  position: absolute;
+  z-index: 999;
+  height: 100vh;
+  width: 100vw;
+  background: rgba(#ffffff, 0.45);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation-name: fade-in;
+  animation-duration: 0.5s;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  // background: rgba(255, 255, 255, 0.7);
+}
+
+.spinner {
+  fill: $color-primary;
+  animation-name: spin;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+@-moz-keyframes spin {
+    from { -moz-transform: rotate(0deg); }
+    to { -moz-transform: rotate(360deg); }
+}
+@-webkit-keyframes spin {
+    from { -webkit-transform: rotate(0deg); }
+    to { -webkit-transform: rotate(360deg); }
+}
+@keyframes spin {
+    from {transform:rotate(0deg);}
+    to {transform:rotate(360deg);}
+}
+
+
+</style>
+
+<template lang="html">
+  <div class="spinner-wrapper">
+    <logo class="spinner" height="120"/>
+  </div>
+</template>
+
+<script>
+
+import Logo from '@/components/global/logo-clean'
+
+export default {
+  components: { Logo },
+}
+</script>

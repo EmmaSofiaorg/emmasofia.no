@@ -3,21 +3,66 @@
 
 <template lang="html">
 
-  <div>
+  <main v-show="!loading">
 
-    <hero :title="homepage.title"
-          :intro="homepage.intro" />
 
-    <section class="container --wide">
-      <div class="block --mt">
-        <h1>Topics</h1>
-        <div v-for="topic in topics">
-          <router-link :to="{ name: 'topic', params: {slug: topic.slug}}" >{{topic.title}}</router-link>
+    <section class="hero">
+      <div class="hero__background" />
+      <div class="hero__wrapper">
+
+        <div class="col --main">
+          <div class="block --full --mb">
+            <div class="hero__title">
+              <h1>{{page.title}}</h1>
+            </div>
+            <div class="hero__intro">
+              <h3>{{page.subtitle}}</h3>
+            </div>
+            <div class="block --full">
+              <button class="button">Bli medlem</button>
+              <button class="button --white">Kjøp testkits</button>
+            </div>
+          </div>
         </div>
-        <router-link :to="{ name: 'topics'}" >See all topics</router-link>
+
+        <div class="col --sidebar">
+          <div class="block --full --mt" v-if="events[0]">
+            <h3>Neste arrangement:</h3>
+            <event :event="events[0]" />
+          </div>
+        </div>
+
       </div>
     </section>
-  </div>
+
+    <section class="container --wide">
+      <div class="block --mb">
+        <div class="row">
+          <h3>Skadereduserende rusveiledere</h3>
+        </div>
+        <div class="row">
+          <div class="col-xs-4 col-md-4" v-for="drug in drugs">
+            <drug :drug="drug" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="container --wide">
+      <div class="block --mb">
+        <div class="row">
+          <h3>Siste studier</h3>
+        </div>
+        <div class="row">
+          <div class="col-xs-12 col-md-6" v-for="publication in publications">
+            <publication :publication="publication" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+  </main>
 
 </template>
 
@@ -26,22 +71,35 @@
 import db from '@/database';
 
 import Hero from '@/components/global/hero';
+import Spinner from '@/components/global/spinner';
+
+import Event from '@/components/cards/event';
+import Drug from '@/components/cards/drug';
+import Publication from '@/components/cards/publication';
 
 export default {
-  components: { Hero },
+  components: { Hero, Event, Drug, Publication },
+  store: ['loading'],
   mounted() {
-    db.getEntries('publication', 3, 0)
-      .then(response => this.publications = response); // Map fields from response and set av events
-    db.getEntries('topic', 3, 0)
-      .then(response => this.topics = response);
-    db.getEntryById('4Gxr21PcjSSCieeoGuCiCk')
-      .then(response => this.homepage = response);
+    this.loading = true;
+    db.getEntries('drug', 4, 0)
+      .then(response => this.drugs = response);
+    db.getEntries('event', 4, 0)
+      .then(response => this.events = response);
+    db.getEntries('publication', 1, 0)
+      .then(response => this.publications = response);
+    db.getEntryById('3QoebEAuKQAKaEus2I8Euq')
+      .then((response) => {
+        this.loading = false;
+        this.page = response
+      });
   },
   data() {
     return {
+      events: [],
       publications: [],
-      topics: [],
-      homepage: {}
+      drugs: [],
+      page: {}
     }
   }
 }

@@ -1,9 +1,8 @@
-@import 'variables.scss';
-
 .block {
   width: 100%;
   padding-left: $spacing;
   padding-right: $spacing;
+  display: block;
 
   &.--full {
     width: 100%;
@@ -12,6 +11,10 @@
 
   &.--mt {
     margin-top: $spacing--large;
+  }
+
+  &.--mt-minus {
+    margin-top: -$spacing--large;
   }
 
   &.--mb {

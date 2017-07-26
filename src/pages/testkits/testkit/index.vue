@@ -17,6 +17,7 @@
 import db from '@/database'
 
 export default {
+  name: 'topic',
   mounted() {
     db.getEntryBySlug('topic', this.$route.params.slug)
       .then(response => this.topic = response); // Map fields from response and set av events
