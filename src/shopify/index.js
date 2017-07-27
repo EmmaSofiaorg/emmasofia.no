@@ -1,4 +1,5 @@
 import ShopifyBuy from 'shopify-buy';
+import 'whatwg-fetch';
 
 var shopClient = ShopifyBuy.buildClient({
   accessToken: '970d48fc66da9fadba4c7eac07fb8845',

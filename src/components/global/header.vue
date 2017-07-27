@@ -80,7 +80,7 @@
     <div class="header__wrapper">
       <div class="header__logo">
         <router-link :to="{ name: 'front-page'}">
-          <logo height="35" class="logo" />
+          <logo height="30" class="logo" />
         </router-link>
       </div>
 
@@ -99,10 +99,10 @@
             <router-link :to="{name: 'testkits'}">Testkits</router-link>
           </li>
           <li class="header__nav-link">
-            <router-link :to="{name: 'topics'}">Om oss</router-link>
+            <router-link :to="{name: 'about-us'}">Om oss</router-link>
           </li>
           <li class="header__nav-link">
-            <router-link :to="{name: 'topics'}" tag="button" class="button --small">Gi donasjon</router-link>
+            <router-link :to="{name: 'member'}" tag="button" class="button --small">Bli medlem</router-link>
           </li>
         </ul>
       </nav>

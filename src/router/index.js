@@ -14,10 +14,11 @@ import Testkit from '@/pages/testkits/testkit'
 import Drugs from '@/pages/drugs'
 import Drug from '@/pages/drugs/drug'
 
+import About from '@/pages/about-us'
+
 Vue.use(Router)
 
 export default new Router({
-  mode: 'history',
   scrollBehavior (to, from, savedPosition) {
     if (savedPosition) {
       return savedPosition
@@ -60,6 +61,11 @@ export default new Router({
       path: '/drug/:slug',
       name: 'drug',
       component: Drug
+    },
+    {
+      path: '/about-us',
+      name: 'about-us',
+      component: About
     },
   ]
 })

@@ -4,7 +4,7 @@
 
 body {
   font-size: 100%;
-  font-family: $font-primary;
+  font-family: $font-secondary;
 }
 
 body, caption, th, td, input, textarea, select, option, legend, fieldset, h1, h2, h3, h4, h5, h6 {
@@ -14,6 +14,15 @@ body, caption, th, td, input, textarea, select, option, legend, fieldset, h1, h2
 h1, h2, h3, h4, h5, h6 {
   font-family: $font-secondary;
   margin-top: 0;
+}
+
+.markdown h1,
+.markdown h2,
+.markdown h3,
+.markdown h4,
+.markdown h5,
+.markdown h6 {
+  margin-top: $spacing--large;
 }
 
 a {

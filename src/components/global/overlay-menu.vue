@@ -11,7 +11,7 @@
   animation-name: fade-in;
   animation-duration: 0.5s;
   transition: ease;
-  z-index: 999;
+  z-index: 1200;
   top: 0;
   bottom: 0;
   left: 0;
@@ -88,7 +88,7 @@
           <li class="overlay-menu__nav-link" @click="goTo('testkits')">
             <h2>Testkits</h2>
           </li>
-          <li class="overlay-menu__nav-link" @click="goTo('about')">
+          <li class="overlay-menu__nav-link" @click="goTo('about-us')">
             <h2>Om oss</h2>
           </li>
           <li class="overlay-menu__nav-link" @click="goTo('about')">

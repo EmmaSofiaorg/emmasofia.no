@@ -13,7 +13,7 @@
     <div class="hero">
       <div class="hero__background" />
         <div class="hero__wrapper">
-          <div class="col --main">
+          <div class="col --half">
             <div class="hero__title">
               <h1>{{page.title}}</h1>
             </div>
@@ -27,13 +27,18 @@
 
     <section class="container --wide" style="position: relative">
 
-      <cart-button v-show="cart.lineItemCount" :toggleCart="toggleCart.bind(this)" />
+      <cart-button
+        v-show="cart.lineItemCount && !cartShown"
+        :toggleCart="toggleCart.bind(this)" />
 
-      <cart-overlay :cart="cart" :class="{'--hidden': !cartShown}" />
+      <cart-overlay
+        v-show="cart.lineItemCount > 0"
+        :class="{'--hidden': !cartShown}"
+        :toggleCart="toggleCart.bind(this)" />
 
-      <div class="block --mt">
+      <div class="block --mt --mb">
         <div class="row" v-if="testkits.length > 0">
-            <div class="col-xs-12 col-md-3" v-for="testkit in testkits">
+            <div class="col-xs-12 col-sm-4 col-md-3" v-for="testkit in testkits">
               <article>
                 <testkit :testkit="testkit" :addToCart="addToCart.bind(this)" />
               </article>
@@ -58,14 +63,12 @@ import CartOverlay from '@/components/shop/cart';
 import CartButton from '@/components/shop/cart-button';
 
 export default {
-  store: ['loading'],
+  store: ['loading', 'cart'],
   components: { Filters, Hero, Testkit, CartOverlay, CartButton },
   mounted() {
     this.getPageDetails();
-    this.getAllEvents();
     shop.initCart().then(newCart => {
       this.cart = newCart;
-      console.log(this.cart);
     });
     this.getAllProducts();
   },
@@ -73,7 +76,6 @@ export default {
     return {
       testkits: [],
       cartShown: false,
-      cart: {},
       page: {},
     }
   },
@@ -85,28 +87,40 @@ export default {
           this.page = response;
         });
     },
-    getAllEvents() {
-      this.loading = true;
-      db.getEntries('drug', 10, 0)
-        .then(response => {
-          this.loading = false;
-          this.drugs = response;
-        });
-    },
     getAllProducts() {
+      this.loading = true;
       shop.getAllProducts()
         .then(products => {
+          this.loading = false;
           this.testkits = products;
         });
     },
     addToCart(variant, quantity) {
-      console.log(variant);
       this.cart.createLineItemsFromVariants({variant, quantity});
-      console.log('newcart', this.cart);
+      const cartButton = document.getElementsByClassName('cart-button-fixed')[0];
+      cartButton.style.webkitAnimationName = '';
+      cartButton.style.animationName = '';
+      setTimeout(function () {
+        cartButton.style.animationName = 'pop-in';
+        cartButton.style.webkitAnimationName = 'pop-in';
+      }, 0);
     },
     toggleCart() {
-      this.cartShown = !this.cartShow;
+      const cartButton = document.getElementsByClassName('cart-button-fixed')[0];
+      cartButton.style.webkitAnimationName = '';
+      cartButton.style.animationName = '';
+      this.cartShown = !this.cartShown;
     },
   },
+  watch: {
+    cartShown: function (isShown) {
+      if (isShown) {
+        // document.body.classList.add('--no-scroll');
+      }
+       else {
+         // document.body.classList.remove('--no-scroll');
+       }
+    }
+  }
 }
 </script>

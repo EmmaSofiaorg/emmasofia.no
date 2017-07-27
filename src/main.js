@@ -25,6 +25,7 @@ new Vue({
   data: {
     store: {
       loading: '',
+      cart: {},
     }
   },
   template: '<App/>',

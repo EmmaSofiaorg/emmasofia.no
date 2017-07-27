@@ -20,7 +20,12 @@
             </div>
             <div class="block --full">
               <button class="button">Bli medlem</button>
-              <button class="button --white">Kjøp testkits</button>
+              <router-link
+                :to="{name: 'testkits'}"
+                class="button --white"
+                tag="button">
+                Kjøp testkits
+              </router-link>
             </div>
           </div>
         </div>
@@ -36,7 +41,7 @@
     </section>
 
     <section class="container --wide">
-      <div class="block --mb">
+      <div class="block --mb --mt">
         <div class="row">
           <h3>Skadereduserende rusveiledere</h3>
         </div>

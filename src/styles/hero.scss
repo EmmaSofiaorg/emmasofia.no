@@ -1,6 +1,5 @@
 .hero {
   position: relative;
-  min-height: 450px;
   transition: background-image 0.2s ease;
   background-position: center;
   background-repeat: no-repeat;
@@ -11,7 +10,7 @@
   color: $color-primary;
 
   @media (min-width: $desktop) {
-    min-height: 550px;
+
   }
 
   &__background {
@@ -25,17 +24,20 @@
     background: linear-gradient(150deg,#b4d6e5 15%,#ccbce6 70%,#e4cded 94%);
 
     @media (min-width: $desktop) {
-      height: 100%;
+      height: calc(100% + #{$spacing});
     }
   }
 
   &__wrapper {
     max-width: $container--wide;
+    float: left;
     width: 100%;
+    height: calc(100% + 50px);
     margin: 0 auto;
     z-index: 2;
     padding: $spacing;
     padding-top: $header-height + $spacing--large + 20px;
+    margin-bottom: $spacing--large;
   }
 
   &__title {

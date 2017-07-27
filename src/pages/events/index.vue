@@ -1,8 +1,4 @@
-<style lang="css" scoped>
-
-.hero {
-  min-height: 400px;
-}
+<style lang="css">
 
 </style>
 
@@ -13,7 +9,7 @@
     <div class="hero">
       <div class="hero__background" />
         <div class="hero__wrapper">
-          <div class="col --main">
+          <div class="col --half">
             <div class="hero__title">
               <h1>{{page.title}}</h1>
             </div>

@@ -27,6 +27,7 @@
 
   &__contents {
     width: 100%;
+    text-align: center;
   }
 
   &__title {
@@ -35,6 +36,11 @@
     margin-top: $spacing;
     color: #000;
     margin-bottom: $spacing--small;
+  }
+
+  &__price {
+    font-size: 20px;
+    margin-bottom: $spacing;
   }
 
   &__link {
@@ -49,6 +55,11 @@
     padding: 8px 20px;
     position: absolute;
     bottom: 10px;
+  }
+
+  &__add-button {
+    margin: 0 auto;
+    display: block;
   }
 }
 
@@ -68,7 +79,10 @@
       <div class="card-testkit__title">
         {{testkit.title}}
       </div>
-      <div class="card-testkit__link">
+      <div class="card-testkit__price">
+        {{testkit.variants[0].price}}kr
+      </div>
+      <div class="card-testkit__add-button">
         <button class="button" @click="addToCart(testkit.variants[0], 1)">
           Legg i handlekurv
         </button>
@@ -81,9 +95,6 @@
 <script>
 
 export default {
-  mounted() {
-    console.log(this.testkit.variants[0].id);
-  },
   props: ['testkit', 'addToCart'],
 }
 </script>

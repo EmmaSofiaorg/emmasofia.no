@@ -1,28 +1,38 @@
 <style lang="scss">
 
 .cart-button {
-  width: 60px+$spacing;
+  width: 280px+$spacing;
   position: absolute;
   margin: 0 auto;
   right: 0;
+  z-index: 200;
+  font-family: $font-secondary;
 }
 
 .cart-button-fixed {
-  width: 200px;
   position: fixed;
-  animation-name: pop-in;
+  cursor: pointer;
+  outline: 0;
+  border: 0;
+  width: 280px;
   animation-duration: 0.1s;
   color: $color-primary;
-  font-size: 30px;
+  font-size: 20px;
   text-align: center;
   border-radius: 300px;
   background: $color-white;
   box-shadow: $box-shadow;
   height: 60px;
-  width: 60px;
   line-height: 60px;
-  z-index: 1000;
-  top: $header-height+$spacing--large;
+  bottom: $spacing;
+
+  @media(min-width: $desktop) {
+    top: $header-height+$spacing--large;
+  }
+}
+
+.fa-shopping-bag {
+  margin-right: $spacing--small;
 }
 
 </style>
@@ -30,16 +40,17 @@
 <template lang="html">
 
   <div class="cart-button">
-    <div class="cart-button-fixed" @click="toggleCart">
-    <i class="fa fa-shopping-bag" aria-hidden="true"></i>
-    Åpne handlekurv
-    </div>
+    <button class="cart-button-fixed" @click="toggleCart">
+      <i class="fa fa-shopping-bag" aria-hidden="true"></i>
+      Åpne handlekurv ({{cart.lineItemCount}})
+    </button>
   </div>
 
 </template>
 
 <script>
 export default {
-  props: ['toggleCart']
+  props: ['toggleCart'],
+  store: ['cart']
 }
 </script>
