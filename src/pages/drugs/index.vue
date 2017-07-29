@@ -43,12 +43,11 @@
 import db from '@/database'
 
 import Filters from '@/components/global/filters';
-import Hero from '@/components/global/hero';
 import Drug from '@/components/cards/drug';
 
 export default {
   store: ['loading'],
-  components: { Filters, Hero, Drug },
+  components: { Filters, Drug },
   mounted() {
     this.getPageDetails();
     this.getAllEvents();

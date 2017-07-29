@@ -16,6 +16,8 @@ import Drug from '@/pages/drugs/drug'
 
 import About from '@/pages/about-us'
 
+import Member from '@/pages/member'
+
 Vue.use(Router)
 
 export default new Router({
@@ -66,6 +68,11 @@ export default new Router({
       path: '/about-us',
       name: 'about-us',
       component: About
+    },
+    {
+      path: '/member',
+      name: 'member',
+      component: Member
     },
   ]
 })

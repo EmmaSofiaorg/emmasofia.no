@@ -44,12 +44,11 @@
 import db from '@/database'
 
 import Filters from '@/components/global/filters';
-import Hero from '@/components/global/hero';
 import Event from '@/components/cards/event';
 
 export default {
   store: ['loading'],
-  components: { Filters, Hero, Event },
+  components: { Filters, Event },
   mounted() {
     this.getPageDetails();
     this.getAllEvents();

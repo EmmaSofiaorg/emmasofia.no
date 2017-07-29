@@ -109,7 +109,7 @@
 
       <nav class="header__nav --mobile">
         <div @click="toggleOverlay">Meny ☰</div>
-        <overlay-menu :show="showOverlayMenu" :toggle="toggleOverlay.bind(this)" v-if="showOverlayMenu" />
+        <mobile-menu :show="showMobileMenu" :toggle="toggleOverlay.bind(this)" v-if="showMobileMenu" />
       </nav>
 
     </div>
@@ -119,23 +119,23 @@
 
 <script>
 
-import OverlayMenu from '@/components/global/overlay-menu';
-import Logo from '@/components/global/logo';
+import MobileMenu from '@/components/global/mobile-menu';
+import Logo from '@/assets/logo';
 
 export default {
-  components: { OverlayMenu, Logo },
+  components: { MobileMenu, Logo },
   mounted() {
     window.onscroll = () => { this.getScrollPosition() };
   },
   data () {
     return {
-      showOverlayMenu: false,
+      showMobileMenu: false,
     }
   },
   methods: {
     toggleOverlay() {
-      this.showOverlayMenu = !this.showOverlayMenu;
-      if(this.showOverlayMenu) {
+      this.showMobileMenu = !this.showMobileMenu;
+      if(this.showMobileMenu) {
         document.body.classList.add('--no-scroll');
       } else {
         document.body.classList.remove('--no-scroll');

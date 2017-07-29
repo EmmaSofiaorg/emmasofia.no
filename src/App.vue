@@ -29,6 +29,7 @@ export default {
 @import './styles/cards.scss';
 @import './styles/buttons.scss';
 @import './styles/hero.scss';
+@import './styles/form.scss';
 @import './styles/flexbox-grid.scss';
 
 main {

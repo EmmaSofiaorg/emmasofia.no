@@ -83,7 +83,7 @@
         {{testkit.variants[0].price}}kr
       </div>
       <div class="card-testkit__add-button">
-        <button class="button" @click="addToCart(testkit.variants[0], 1)">
+        <button class="button --outline" @click="addToCart(testkit.variants[0], 1)">
           Legg i handlekurv
         </button>
       </div>

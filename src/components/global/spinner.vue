@@ -50,7 +50,7 @@
 
 <script>
 
-import Logo from '@/components/global/logo-clean'
+import Logo from '@/assets/logo-clean'
 
 export default {
   components: { Logo },

@@ -19,7 +19,12 @@
               <h3>{{page.subtitle}}</h3>
             </div>
             <div class="block --full">
-              <button class="button">Bli medlem</button>
+              <router-link
+                :to="{name: 'member'}"
+                class="button"
+                tag="button">
+                Bli medlem
+              </router-link>
               <router-link
                 :to="{name: 'testkits'}"
                 class="button --white"
@@ -42,9 +47,7 @@
 
     <section class="container --wide">
       <div class="block --mb --mt">
-        <div class="row">
-          <h3>Skadereduserende rusveiledere</h3>
-        </div>
+        <h3>Skadereduserende rusveiledere</h3>
         <div class="row">
           <div class="col-xs-4 col-md-4" v-for="drug in drugs">
             <drug :drug="drug" />
@@ -55,9 +58,7 @@
 
     <section class="container --wide">
       <div class="block --mb">
-        <div class="row">
-          <h3>Siste studier</h3>
-        </div>
+        <h3>Siste studier</h3>
         <div class="row">
           <div class="col-xs-12 col-md-6" v-for="publication in publications">
             <publication :publication="publication" />
@@ -75,7 +76,6 @@
 
 import db from '@/database';
 
-import Hero from '@/components/global/hero';
 import Spinner from '@/components/global/spinner';
 
 import Event from '@/components/cards/event';
@@ -83,7 +83,7 @@ import Drug from '@/components/cards/drug';
 import Publication from '@/components/cards/publication';
 
 export default {
-  components: { Hero, Event, Drug, Publication },
+  components: { Event, Drug, Publication },
   store: ['loading'],
   mounted() {
     this.loading = true;

@@ -51,12 +51,11 @@
 import db from '@/database'
 
 import Filters from '@/components/global/filters';
-import Hero from '@/components/global/hero';
 import Publication from '@/components/cards/publication';
 
 export default {
   store: ['loading'],
-  components: { Filters, Hero, Publication },
+  components: { Filters, Publication },
   mounted() {
     this.getPageDetails();
     this.getAllEvents();

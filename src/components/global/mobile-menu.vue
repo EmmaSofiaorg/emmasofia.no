@@ -91,8 +91,8 @@
           <li class="overlay-menu__nav-link" @click="goTo('about-us')">
             <h2>Om oss</h2>
           </li>
-          <li class="overlay-menu__nav-link" @click="goTo('about')">
-            <button class="button --white --large">Gi donasjon</button>
+          <li class="overlay-menu__nav-link" @click="goTo('member')">
+            <button class="button --white --large">Bli medlem</button>
           </li>
         </ul>
       </nav>

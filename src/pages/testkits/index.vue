@@ -32,7 +32,7 @@
         :toggleCart="toggleCart.bind(this)" />
 
       <cart-overlay
-        v-show="cart.lineItemCount > 0"
+        v-show="cart.lineItemCount"
         :class="{'--hidden': !cartShown}"
         :toggleCart="toggleCart.bind(this)" />
 
@@ -57,14 +57,13 @@ import db from '@/database'
 import shop from '@/shopify';
 
 import Filters from '@/components/global/filters';
-import Hero from '@/components/global/hero';
 import Testkit from '@/components/cards/testkit';
-import CartOverlay from '@/components/shop/cart';
-import CartButton from '@/components/shop/cart-button';
+import CartOverlay from '@/components/cart/cart';
+import CartButton from '@/components/cart/cart-button';
 
 export default {
   store: ['loading', 'cart'],
-  components: { Filters, Hero, Testkit, CartOverlay, CartButton },
+  components: { Filters, Testkit, CartOverlay, CartButton },
   mounted() {
     this.getPageDetails();
     shop.initCart().then(newCart => {
@@ -96,6 +95,9 @@ export default {
         });
     },
     addToCart(variant, quantity) {
+      if (this.cart.lineItemCount === 0) {
+        this.cartShown = true;
+      };
       this.cart.createLineItemsFromVariants({variant, quantity});
       const cartButton = document.getElementsByClassName('cart-button-fixed')[0];
       cartButton.style.webkitAnimationName = '';
