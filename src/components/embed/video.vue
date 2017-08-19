@@ -6,6 +6,8 @@
   height: 0;
   overflow: hidden;
   max-width: 100%;
+  border-radius: 6px;
+  box-shadow: rgba(34, 23, 99, 0.2) 0 7px 42px;
 }
 
 .embed-container iframe,

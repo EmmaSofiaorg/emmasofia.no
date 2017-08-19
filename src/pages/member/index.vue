@@ -20,9 +20,9 @@
         </div>
       </div>
 
-      <section class="container --wide">
+      <section class="block">
 
-      <div class="block">
+      <div class="container">
 
         <div class="row">
 

@@ -25,25 +25,29 @@
       </div>
     </div>
 
-    <section class="container --wide" style="position: relative">
+    <section class="block" style="position: relative">
 
-      <cart-button
-        v-show="cart.lineItemCount && !cartShown"
-        :toggleCart="toggleCart.bind(this)" />
+      <div class="container">
 
-      <cart-overlay
-        v-show="cart.lineItemCount"
-        :class="{'--hidden': !cartShown}"
-        :toggleCart="toggleCart.bind(this)" />
+        <cart-button
+          v-show="cart.lineItemCount && !cartShown"
+          :toggleCart="toggleCart.bind(this)" />
 
-      <div class="block --mt --mb">
-        <div class="row" v-if="testkits.length > 0">
-            <div class="col-xs-12 col-sm-4 col-md-3" v-for="testkit in testkits">
-              <article>
-                <testkit :testkit="testkit" :addToCart="addToCart.bind(this)" />
-              </article>
-            </div>
+        <cart-overlay
+          v-show="cart.lineItemCount"
+          :class="{'--hidden': !cartShown}"
+          :toggleCart="toggleCart.bind(this)" />
+
+        <div class="block --full --mt --mb">
+          <div class="row" v-if="testkits.length > 0">
+              <div class="col-xs-12 col-sm-4 col-md-3" v-for="testkit in testkits">
+                <article>
+                  <testkit :testkit="testkit" :addToCart="addToCart.bind(this)" />
+                </article>
+              </div>
+          </div>
         </div>
+
       </div>
 
     </section>

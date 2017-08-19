@@ -21,17 +21,21 @@
       </div>
     </div>
 
-    <section class="container --wide">
+    <section class="block --mt-large">
 
-      <div class="col --main">
-        <div class="block --mt-minus">
-          <article v-for="event in events">
-            <event :event="event" />
-          </article>
+      <div class="container">
+
+        <div class="col --main">
+          <div class="block --full --mb">
+            <article v-for="event in events">
+              <event :event="event" />
+            </article>
+          </div>
+          <div class="block --full --mt --mb">
+            <button class="button">Last gamle arrangementer</button>
+          </div>
         </div>
-        <div class="block --mt --mb">
-          <button class="button">Last gamle arrangementer</button>
-        </div>
+
       </div>
 
     </section>

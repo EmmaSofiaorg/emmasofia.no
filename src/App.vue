@@ -3,7 +3,9 @@
     <spinner v-if="loading" />
     <main-header />
     <keep-alive exclude="drug,publication">
-      <router-view></router-view>
+      <transition name="fade">
+        <router-view></router-view>
+      </transition>
     </keep-alive>
   </div>
 </template>
@@ -20,20 +22,20 @@ export default {
 </script>
 
 <style lang="scss">
-@import './styles/body.scss';
-@import './styles/layout.scss';
-@import './styles/blocks.scss';
-@import './styles/sanitize.scss';
-@import './styles/typography.scss';
-@import './styles/animation.scss';
-@import './styles/cards.scss';
-@import './styles/buttons.scss';
-@import './styles/hero.scss';
-@import './styles/form.scss';
-@import './styles/flexbox-grid.scss';
 
-main {
-  //animation-name: fade-in;
-  // animation-duration: 0.5s;
+@import '../node_modules/es-styleguide/dist/assets/toolkit/styles/toolkit.css';
+
+.fade-enter-active, .fade-leave-active {
+  transition-property: opacity;
+  transition-duration: .25s;
 }
+
+.fade-enter-active {
+  transition-delay: .25s;
+}
+
+.fade-enter, .fade-leave-active {
+  opacity: 0
+}
+
 </style>

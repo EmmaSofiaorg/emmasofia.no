@@ -10,23 +10,25 @@
       <div class="hero__background" />
         <div class="hero__wrapper">
           <div class="col --half">
-            <div class="hero__title">
-              <h1>{{page.title}}</h1>
-            </div>
-            <div class="hero__intro">
-              <h3>{{page.subtitle}}</h3>
+            <div class="block --full --pb">
+              <div class="hero__title">
+                <h1>{{page.title}}</h1>
+              </div>
+              <div class="hero__intro">
+                <h3>{{page.subtitle}}</h3>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
 
-    <section class="container --wide">
+    <section class="block --mt">
 
-      <div class="block --mt">
+      <div class="container">
         <div class="row">
             <div class="col-xs-12 col-md-4" v-for="drug in drugs">
-              <article>
+              <article class="block --full --mt">
                 <drug :drug="drug" />
               </article>
             </div>

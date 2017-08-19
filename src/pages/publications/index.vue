@@ -21,27 +21,30 @@
       </div>
     </div>
 
-    <section class="container --wide">
+    <section class="block --mt-large --mb-larger">
 
-      <div class="block --mt">
+      <div class="container">
+
       <filters
         :title="'Filter'"
         :filterBy="'drug'"
         :updateFilters="filterByDrug.bind(this)" />
-      </div>
 
       <div class="col --main">
-        <div class="block">
+        <div class="block --full --mt">
           <article v-for="publication in publications">
             <publication :publication="publication" />
           </article>
         </div>
-        <div class="block --mb" v-if="publications.length < 1">
+        <div class="block --full --mb" v-if="publications.length < 1">
           <h4>Ingen studier funnet.</h4>
         </div>
       </div>
 
+      </div>
+
     </section>
+
   </main>
 
 </template>
