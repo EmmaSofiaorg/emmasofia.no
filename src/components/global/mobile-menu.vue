@@ -1,9 +1,6 @@
 <template lang="html">
-  <div class="overlay-menu" :class="{ '--hidden': !show }">
+  <div class="overlay-menu">
 
-    <div class="overlay-menu__top">
-      <div @click="toggle">Lukk X</div>
-    </div>
     <div class="overlay-menu__contents">
       <nav class="overlay-menu__nav">
         <ul class="overlay-menu__nav-links">
@@ -38,7 +35,6 @@
 
 <script>
 export default {
-  props: ['show', 'toggle'],
   mounted() {
     const navItems = document.querySelectorAll('.overlay-menu__nav-link');
     navItems.forEach((item, index) => {
@@ -49,7 +45,7 @@ export default {
   },
   methods: {
     goTo(link) {
-      this.toggle();
+      document.getElementById('hamburger-menu').checked = false;
       this.$router.push({ name: link});
     }
   }

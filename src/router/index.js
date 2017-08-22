@@ -5,6 +5,8 @@ import FrontPage from '@/pages'
 import Events from '@/pages/events'
 import Event from '@/pages/events/event'
 
+import Media from '@/pages/media'
+
 import Publications from '@/pages/publications'
 import Publication from '@/pages/publications/publication'
 
@@ -68,6 +70,11 @@ export default new Router({
       path: '/about-us',
       name: 'about-us',
       component: About
+    },
+    {
+      path: '/media',
+      name: 'media',
+      component: Media
     },
     {
       path: '/member',

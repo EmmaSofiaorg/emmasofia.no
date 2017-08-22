@@ -23,6 +23,9 @@
             <router-link :to="{name: 'testkits'}">Testkits</router-link>
           </li>
           <li class="header__nav-link">
+            <router-link :to="{name: 'media'}">I media</router-link>
+          </li>
+          <li class="header__nav-link">
             <router-link :to="{name: 'about-us'}">Om oss</router-link>
           </li>
           <li class="header__nav-link">
@@ -32,8 +35,13 @@
       </nav>
 
       <nav class="header__nav --mobile">
-        <div @click="toggleOverlay">Meny ☰</div>
-        <mobile-menu :show="showMobileMenu" :toggle="toggleOverlay.bind(this)" v-if="showMobileMenu" />
+        <input type="checkbox" class="header__hamburger-menu-checkbox" id="hamburger-menu">
+        <label class="header__hamburger-menu" for="hamburger-menu">
+            <div></div>
+            <div></div>
+            <div></div>
+        </label>
+        <mobile-menu />
       </nav>
 
     </div>

@@ -26,14 +26,17 @@
       <div class="container">
 
         <div class="col --main">
-          <div class="block --full --mb">
-            <article v-for="event in events">
+
+          <article v-for="event in events">
+            <div class="block --full --mb">
               <event :event="event" />
-            </article>
-          </div>
-          <div class="block --full --mt --mb">
+            </div>
+          </article>
+
+          <div class="block --full --mt-large --mb">
             <button class="button">Last gamle arrangementer</button>
           </div>
+
         </div>
 
       </div>

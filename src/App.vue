@@ -7,15 +7,17 @@
         <router-view></router-view>
       </transition>
     </keep-alive>
+    <main-footer />
   </div>
 </template>
 
 <script>
 import MainHeader from '@/components/global/header';
+import MainFooter from '@/components/global/footer';
 import Spinner from '@/components/global/spinner';
 
 export default {
-  components: { MainHeader, Spinner },
+  components: { MainHeader, MainFooter, Spinner },
   store: ['loading'],
   name: 'app',
 };
