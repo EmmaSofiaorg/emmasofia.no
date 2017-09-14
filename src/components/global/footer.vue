@@ -1,13 +1,10 @@
 <style lang="scss">
 
 .footer {
-  background: white;
   border-top: 1px solid $color-gray;
-  min-height: 400px;
   clear: left;
   margin-top: 200px;
   padding-top: $spacing--larger;
-  padding-bottom: $spacing--larger;
   left: 0;
   bottom: 0;
   width: 100%;
