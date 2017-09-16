@@ -25,8 +25,6 @@ export default {
 
 <style lang="scss">
 
-@import '../node_modules/es-styleguide/dist/assets/toolkit/styles/toolkit.css';
-
 .fade-enter-active, .fade-leave-active {
   transition-property: opacity;
   transition-duration: .25s;
