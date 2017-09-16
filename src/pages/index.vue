@@ -49,7 +49,7 @@
       <div class="container">
         <h3>Skadereduserende rusveiledere</h3>
         <div class="row">
-          <div class="col-xs-4 col-md-4" v-for="drug in drugs">
+          <div class="col-xs-12 col-sm-4" v-for="drug in drugs">
             <drug :drug="drug" />
           </div>
         </div>
