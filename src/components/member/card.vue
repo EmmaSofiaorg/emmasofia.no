@@ -28,7 +28,7 @@
           <div class="member-by-card__subscription-title">
             <h4>Student</h4>
           </div>
-          <a href="https://leifriksheim.memberful.com/checkout?plan=22375"
+          <a href="https://www.joinit.org/join/Gn5DH9HAhHR6wFEXo"
              class="button --outline">
             <b>200kr</b> (i året)
           </a>
@@ -39,7 +39,7 @@
           <div class="member-by-card__subscription-title">
             <h4>Voksen</h4>
           </div>
-          <a href="https://leifriksheim.memberful.com/checkout?plan=22375"
+          <a href="https://www.joinit.org/join/Gn5DH9HAhHR6wFEXo"
              class="button --outline">
             <b>300kr</b> (i året)
           </a>
@@ -50,7 +50,7 @@
           <div class="member-by-card__subscription-title">
             <h4>Ildsjel</h4>
           </div>
-          <a href="https://leifriksheim.memberful.com/checkout?plan=22375"
+          <a href="https://www.joinit.org/join/Gn5DH9HAhHR6wFEXo"
              class="button --outline">
             <b>500kr</b> (i året)
           </a>

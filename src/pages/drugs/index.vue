@@ -52,7 +52,7 @@ export default {
   components: { Filters, Drug },
   mounted() {
     this.getPageDetails();
-    this.getAllEvents();
+    this.getAllEntries();
   },
   data() {
     return {
@@ -68,7 +68,7 @@ export default {
           this.page = response;
         });
     },
-    getAllEvents() {
+    getAllEntries() {
       this.loading = true;
       db.getEntries('drug', 10, 0)
         .then(response => {
