@@ -26,9 +26,9 @@
 
               <form class="membership__form" v-on:submit.prevent="handleSubmit" @keyup.enter="handleSubmit" v-if="!paymentCompleted">
                 Email (required) <input type="email" name="email" class="input" v-model="person.email" required autofocus />
-                Birthday (required) <input type="date" name="birthday" class="input" v-model="person.birthday" />
-                First Name <input type="text" name="name" class="input" v-model="person.firstName" />
-                Last Name <input type="text" name="last-name" class="input" v-model="person.lastName" />
+                Birthday (required) <input type="date" name="birthday" class="input" v-model="person.birthday" required/>
+                First Name <input type="text" name="name" class="input" v-model="person.firstName" required/>
+                Last Name <input type="text" name="last-name" class="input" v-model="person.lastName" required/>
 
                 <!-- maybe not a good idea to hide this? -->
                 <div v-if="mostImportantFields" class="column">
