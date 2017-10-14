@@ -148,10 +148,10 @@ export default {
 
     handleSubmit () {
       if (!this.userIsValid()) return
-      this.loading = true
       const _this = this
 
       this.braintree.requestPaymentMethod(function (err, payload) {
+      this.loading = true
 
        if (err) {
           this.loading = false         
