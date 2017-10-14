@@ -10,6 +10,7 @@
     "build": "node build/build.js"
   },
   "dependencies": {
+    "axios": "^0.16.2",
     "contentful": "^4.5.0",
     "date-fns": "^1.28.5",
     "marked": "^0.3.6",
