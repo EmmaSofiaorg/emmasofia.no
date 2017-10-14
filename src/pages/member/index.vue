@@ -118,7 +118,8 @@ export default {
         postalCode: null,
         country: null,
         organization: null,
-        comment: null
+        comment: null,
+        planID: 'standard'
       }
     }
   },
