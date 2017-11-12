@@ -16,9 +16,6 @@
           <li class="overlay-menu__nav-link" @click="goTo('drugs')">
             <h2>Veiledere</h2>
           </li>
-          <li class="overlay-menu__nav-link" @click="goTo('testkits')">
-            <h2>Testkits</h2>
-          </li>
           <li class="overlay-menu__nav-link" @click="goTo('media')">
             <h2>I media</h2>
           </li>

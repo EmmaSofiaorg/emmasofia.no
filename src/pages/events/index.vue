@@ -33,8 +33,18 @@
             </div>
           </article>
 
+          <article v-for="event in oldEvents">
+            <div class="block --full --mb">
+              <event :event="event" />
+            </div>
+          </article>
+
+          <div class="block --full --mt --mb" v-if="!events.length">
+            Ingen kommende arrangementer.
+          </div>
+
           <div class="block --full --mt-large --mb">
-            <button class="button">Last gamle arrangementer</button>
+            <button class="button" @click="getAll">Last gamle arrangementer</button>
           </div>
 
         </div>
@@ -58,7 +68,7 @@ export default {
   components: { Filters, Event },
   mounted() {
     this.getPageDetails();
-    this.getAllEvents();
+    this.getUpcoming();
   },
   data() {
     return {
@@ -74,9 +84,17 @@ export default {
           this.page = response;
         });
     },
-    getAllEvents() {
+    getUpcoming() {
       this.loading = true;
-      db.getEntries('event', 10, 0)
+      db.getUpcomingEvents(100, 0)
+        .then(response => {
+          this.loading = false;
+          this.events = response;
+        });
+    },
+    getAll() {
+      this.loading = true;
+      db.getEntries('event', 100, 0)
         .then(response => {
           this.loading = false;
           this.events = response;

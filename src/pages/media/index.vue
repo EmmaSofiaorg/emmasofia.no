@@ -82,7 +82,7 @@ export default {
     },
     getAllEvents() {
       this.loading = true;
-      db.getEntries('mediaClip', 10, 0)
+      db.getEntries('mediaClip', 100, 0)
         .then(response => {
           this.loading = false;
           this.mediaClips = response;

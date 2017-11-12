@@ -37,5 +37,29 @@ export default {
     .then(response => response.items
       .map(item => item.fields)[0])
     .catch(console.error)
+  },
+  getUpcomingEvents: function(limit, skip) {
+    return client.getEntries({
+      content_type: 'event',
+      order: 'fields.start',
+      'fields.start[gte]': new Date(),
+      limit,
+      skip,
+    })
+    .then((response) => response.items
+      .map(item => item.fields))
+    .catch(console.error)
+  },
+  getPreviousEvents: function(limit, skip) {
+    return client.getEntries({
+      content_type: 'event',
+      order: 'fields.start',
+      'fields.start[lte]': new Date(),
+      limit,
+      skip,
+    })
+    .then((response) => response.items
+      .map(item => item.fields))
+    .catch(console.error)
   }
 }

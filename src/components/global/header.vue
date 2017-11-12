@@ -20,9 +20,6 @@
             <router-link :to="{name: 'drugs'}">Veiledere</router-link>
           </li>
           <li class="header__nav-link">
-            <router-link :to="{name: 'testkits'}">Testkits</router-link>
-          </li>
-          <li class="header__nav-link">
             <router-link :to="{name: 'media'}">I media</router-link>
           </li>
           <li class="header__nav-link">
