@@ -19,6 +19,7 @@
             </div>
             <div class="hero__intro">
               <h3>{{page.subtitle}}</h3>
+              <router-link :to="{name: 'HowTo'}" tag="button" class="button">Hvordan bruke testkits</router-link>
             </div>
           </div>
         </div>

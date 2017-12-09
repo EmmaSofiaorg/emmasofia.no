@@ -25,21 +25,33 @@
 
       <div class="container">
 
-      <filters
-        :title="'Filter'"
-        :filterBy="'drug'"
-        :updateFilters="filterByDrug.bind(this)" />
+        <div class="row">
+          <div class="col-md-8">
+            <div class="block --full --mt">
+              <article v-for="publication in filteredPublications">
+                <publication :publication="publication" />
+              </article>
+            </div>
+            <div class="block --full --mb" v-if="publications.length < 1">
+              <h4>Ingen studier funnet.</h4>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="block --full">
+              <fieldset>
+                <legend>Filtrer på tema</legend>
+                <div class="block --full" style="text-transform: capitalize" v-for="tag in allTags">
+                  <label class="checkbox">
+                    {{tag}}
+                    <input type="checkbox" v-model="filterBy" :value="tag" />
+                    <i class="checkbox__indicator"></i>
+                  </label>
+                </div>
+              </fieldset>
 
-      <div class="col --main">
-        <div class="block --full --mt">
-          <article v-for="publication in publications">
-            <publication :publication="publication" />
-          </article>
+            </div>
+          </div>
         </div>
-        <div class="block --full --mb" v-if="publications.length < 1">
-          <h4>Ingen studier funnet.</h4>
-        </div>
-      </div>
 
       </div>
 
@@ -61,12 +73,13 @@ export default {
   components: { Filters, Publication },
   mounted() {
     this.getPageDetails();
-    this.getAllEvents();
+    this.getAllPublications();
   },
   data() {
     return {
       publications: [],
       page: {},
+      filterBy: [],
     }
   },
   methods: {
@@ -76,24 +89,42 @@ export default {
           this.page = response;
         });
     },
-    getAllEvents() {
+    getAllPublications() {
       this.loading = true;
       db.getEntries('publication', 10, 0)
         .then(response => {
           this.loading = false;
           this.publications = response;
+          console.log(response);
         });
     },
-    filterByDrug(query) {
-      if(query === 'All') {
-        this.getAllEvents();
-      } else {
-        db.getEntriesByDrug('publication', query, 1, 0)
-          .then(response => {
-            this.publications = response;
-          });
-      };
-    },
   },
+  computed: {
+    allTags() {
+      // get All tags in an array
+      const allTags = this.publications.reduce((acc,publication) => {
+        if(publication.tags) return [...acc,...publication.tags]
+        else return acc;
+      }, []);
+      // remove duplicate tags and similar tags with lowercase/uppercase
+      const tagsWithoutDuplicates = allTags.filter((tag,index,tags) => {
+        return tags.indexOf(tag.toLowerCase()) === index;
+      });
+      return tagsWithoutDuplicates;
+    },
+    filteredPublications() {
+      const filterBy = this.filterBy;
+      const publications = this.publications;
+
+      if (filterBy.length > 0) {
+        return publications.filter(publication => {
+          if(publication.tags) return filterBy.every(filter => publication.tags.includes(filter));
+          else return false;
+        });
+      } else {
+        return publications;
+      }
+    }
+  }
 }
 </script>

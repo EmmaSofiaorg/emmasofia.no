@@ -5,6 +5,7 @@
   margin-bottom: $spacing;
   background: $color-white;
   font-family: $font-secondary;
+  display: flex;
 
   &:hover {
     text-decoration: none;
@@ -13,10 +14,11 @@
   }
 
   &__image {
-    width: 100%;
-    height: 250px;
+    width: 120px;
+    height: 120px;
+    margin-right: $spacing;
     background-position: center;
-    background-size: cover;
+    background-size: contain;
     background-repeat: no-repeat;
     border-radius: 5px;
 
@@ -48,6 +50,7 @@
     margin-right: $spacing--small;
     display: inline-block;
     font-size: 12px;
+    margin-bottom: $spacing--smaller;
     padding: 8px 20px;
   }
 }
@@ -60,8 +63,8 @@
   <div class="card-publication" >
     <div
       class="card-publication__image"
-      :style="`background-image: url(${publication.image.fields.file.url})`">
-    </div>
+      :style="`background-image: url(${publication.publishedAt.fields.logo.fields.file.url})`"
+    />
     <div class="card-publication__contents">
       <div class="card-publication__title">
         {{publication.title}}

@@ -10,8 +10,9 @@ import Media from '@/pages/media'
 import Publications from '@/pages/publications'
 import Publication from '@/pages/publications/publication'
 
-//import Testkits from '@/pages/testkits'
-//import Testkit from '@/pages/testkits/testkit'
+import Testkits from '@/pages/testkits'
+import Testkit from '@/pages/testkits/testkit'
+import HowTo from '@/pages/testkits/HowTo'
 
 import Drugs from '@/pages/drugs'
 import Drug from '@/pages/drugs/drug'
@@ -46,7 +47,7 @@ export default new Router({
       name: 'publications',
       component: Publications
     },
-    /*{
+    {
       path: '/testkits',
       name: 'testkits',
       component: Testkits
@@ -55,7 +56,12 @@ export default new Router({
       path: '/testkit/:slug',
       name: 'testkit',
       component: Testkit
-    },*/
+    },
+    {
+      path: '/testkits/hvordan-bruke',
+      name: 'HowTo',
+      component: HowTo
+    },
     {
       path: '/drugs',
       name: 'drugs',

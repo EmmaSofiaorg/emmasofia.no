@@ -1,0 +1,59 @@
+<template lang="html">
+
+  <main v-show="!loading">
+
+      <div class="hero">
+        <div class="hero__background" />
+          <div class="hero__wrapper">
+            <div class="container --narrow">
+              <div class="block --full --mb-larger">
+                <div class="hero__title">
+                  <h1>{{page.title}}</h1>
+                </div>
+                <div class="hero__intro">
+                  <h3>{{page.subtitle}}</h3>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <section class="block --mt-larger">
+
+        <div class="container --narrow">
+          <p
+            v-if="page.body"
+            class="markdown"
+            v-html="renderMarkDown(page.body)">
+          </p>
+        </div>
+
+    </section>
+  </main>
+
+</template>
+
+<script>
+
+import db from '@/database';
+
+export default {
+  store: ['loading'],
+  mounted() {
+    db.getEntryById('3ZUj4ruEgEaQwmIUGyUuQA')
+      .then((response) => {
+        this.loading = false;
+        this.page = response
+      });
+  },
+  data () {
+    return {
+      page: {},
+    }
+  }
+}
+</script>
+
+<style lang="css">
+</style>
