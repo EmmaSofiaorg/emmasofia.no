@@ -25,8 +25,6 @@ export default {
 
 <style lang="scss">
 
-@import 'styles/checkbox.scss';
-
 .fade-enter-active, .fade-leave-active {
   transition-property: opacity;
   transition-duration: .25s;
@@ -38,10 +36,6 @@ export default {
 
 .fade-enter, .fade-leave-active {
   opacity: 0
-}
-
-fieldset {
-  border: 0;
 }
 
 </style>
