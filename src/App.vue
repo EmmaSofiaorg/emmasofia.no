@@ -25,6 +25,10 @@ export default {
 
 <style lang="scss">
 
+main {
+  min-height: 100vh;
+}
+
 .fade-enter-active, .fade-leave-active {
   transition-property: opacity;
   transition-duration: .25s;
@@ -36,6 +40,16 @@ export default {
 
 .fade-enter, .fade-leave-active {
   opacity: 0
+}
+
+.input {
+  transition: all 0.2s ease;
+  box-shadow: 0;
+  border-color: $color-primary--lighter !important;
+}
+
+.input:focus {
+  box-shadow: 0px 0px 0px 4px $color-primary--lighter;
 }
 
 </style>

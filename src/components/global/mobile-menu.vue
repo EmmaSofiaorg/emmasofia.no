@@ -7,9 +7,9 @@
           <li class="overlay-menu__nav-link" @click="goTo('front-page')">
             <h2>Forside</h2>
           </li>
-          <li class="overlay-menu__nav-link" @click="goTo('events')">
+          <!--<li class="overlay-menu__nav-link" @click="goTo('events')">
             <h2>Arrangementer</h2>
-          </li>
+          </li>-->
           <li class="overlay-menu__nav-link" @click="goTo('publications')">
             <h2>Forskning</h2>
           </li>

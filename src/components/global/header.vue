@@ -10,9 +10,9 @@
 
       <nav class="header__nav --desktop">
         <ul class="header__nav-links">
-          <li class="header__nav-link">
+          <!--<li class="header__nav-link">
             <router-link :to="{name: 'events'}">Arrangementer</router-link>
-          </li>
+          </li>-->
           <li class="header__nav-link">
             <router-link :to="{name: 'publications'}">Forskning</router-link>
           </li>

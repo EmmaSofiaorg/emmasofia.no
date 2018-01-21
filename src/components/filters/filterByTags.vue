@@ -3,7 +3,7 @@
   <div class="block --full">
     <fieldset>
       <legend>Filtrer på tema</legend>
-      <div class="block --full" v-for="tag in tags">
+      <div class="block --full --mb --pb" v-for="tag in tags">
         <input type="checkbox" />{{tag}}
       </div>
     </fieldset>

@@ -1,20 +1,6 @@
 <style lang="scss">
 
 .card-drug {
-  display: block;
-  transition: all 0.2s ease;
-  margin-bottom: $spacing;
-
-  &:hover {
-    text-decoration: none;
-    transform: translateY(-3px);
-    transition: all 0.2s ease;
-
-    .card-drug__image {
-      box-shadow: $box-shadow;
-      transition: box-shadow 0.2s ease;
-    }
-  }
 
   &__image {
     background: #eee;
@@ -25,8 +11,8 @@
     overflow: hidden;
     transition: all 0.2s ease;
     background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
+    background-size: auto 230%;
+    background-repeat: repeat;
 
     @media(min-width: $desktop) {
       height: 200px;
@@ -42,7 +28,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background: rgba(#3a0e52, 0.3);
+    background: rgba(0,0,0,.35);
     color: $color-white;
     font-size: 18px;
     transition: all 0.2s ease;

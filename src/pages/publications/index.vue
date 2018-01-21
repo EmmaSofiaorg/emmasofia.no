@@ -40,7 +40,7 @@
             <div class="block --full">
               <fieldset>
                 <legend>Filtrer på tema</legend>
-                <div class="block --full" style="text-transform: capitalize" v-for="tag in allTags">
+                <div class="block --full --mt-small --mb-small" style="text-transform: capitalize" v-for="tag in allTags">
                   <label class="checkbox">
                     {{tag}}
                     <input type="checkbox" v-model="filterBy" :value="tag" />
@@ -91,7 +91,7 @@ export default {
     },
     getAllPublications() {
       this.loading = true;
-      db.getEntries('publication', 10, 0)
+      db.getEntries('publication', 100, 0)
         .then(response => {
           this.loading = false;
           this.publications = response;
@@ -114,7 +114,7 @@ export default {
     },
     filteredPublications() {
       const filterBy = this.filterBy;
-      const publications = this.publications;
+      const allPublications = this.publications;
 
       if (filterBy.length > 0) {
         return publications.filter(publication => {
@@ -122,7 +122,7 @@ export default {
           else return false;
         });
       } else {
-        return publications;
+        return allPublications;
       }
     }
   }

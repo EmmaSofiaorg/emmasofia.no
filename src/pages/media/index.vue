@@ -41,7 +41,7 @@
           <div class="block --full">
             <fieldset>
               <legend>Filtrer på tema</legend>
-              <div class="block --full" style="text-transform: capitalize" v-for="tag in allTags">
+              <div class="block --full --mt-smaller --mb-smaller" style="text-transform: capitalize" v-for="tag in allTags">
                 <label class="checkbox">
                   {{tag}}
                   <input type="checkbox" v-model="filterBy" :value="tag" />
