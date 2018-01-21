@@ -28,6 +28,7 @@ new Vue({
     store: {
       loading: '',
       cart: {},
+      cartShown: false,
     }
   },
   template: '<App/>',

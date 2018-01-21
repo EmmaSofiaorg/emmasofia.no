@@ -30,18 +30,9 @@
 
       <div class="container">
 
-        <cart-button
-          v-show="cart.lineItemCount && !cartShown"
-          :toggleCart="toggleCart.bind(this)" />
-
-        <cart-overlay
-          v-show="cart.lineItemCount"
-          :class="{'--hidden': !cartShown}"
-          :toggleCart="toggleCart.bind(this)" />
-
         <div class="block --full --mt --mb">
-          <div class="row" v-if="testkits.length > 0">
-              <div class="col-xs-12 col-sm-4 col-md-3" v-for="testkit in testkits">
+          <div class="grid --equal" v-if="testkits.length > 0">
+              <div class="grid__item --s-6 --m-4 --l-3" v-for="testkit in testkits">
                 <article>
                   <testkit :testkit="testkit" :addToCart="addToCart.bind(this)" />
                 </article>
@@ -63,23 +54,17 @@ import shop from '@/shopify';
 
 import Filters from '@/components/global/filters';
 import Testkit from '@/components/cards/testkit';
-import CartOverlay from '@/components/cart/cart';
-import CartButton from '@/components/cart/cart-button';
 
 export default {
-  store: ['loading', 'cart'],
-  components: { Filters, Testkit, CartOverlay, CartButton },
+  store: ['loading', 'cart', 'cartShown'],
+  components: { Filters, Testkit },
   mounted() {
     this.getPageDetails();
-    shop.initCart().then(newCart => {
-      this.cart = newCart;
-    });
     this.getAllProducts();
   },
   data() {
     return {
       testkits: [],
-      cartShown: false,
       page: {},
     }
   },
@@ -108,25 +93,9 @@ export default {
       cartButton.style.webkitAnimationName = '';
       cartButton.style.animationName = '';
       setTimeout(function () {
-        cartButton.style.animationName = 'pop-in';
-        cartButton.style.webkitAnimationName = 'pop-in';
+        cartButton.style.animationName = 'pop-border';
+        cartButton.style.webkitAnimationName = 'pop-border';
       }, 0);
-    },
-    toggleCart() {
-      const cartButton = document.getElementsByClassName('cart-button-fixed')[0];
-      cartButton.style.webkitAnimationName = '';
-      cartButton.style.animationName = '';
-      this.cartShown = !this.cartShown;
-    },
-  },
-  watch: {
-    cartShown: function (isShown) {
-      if (isShown) {
-        // document.body.classList.add('--no-scroll');
-      }
-       else {
-         // document.body.classList.remove('--no-scroll');
-       }
     }
   }
 }

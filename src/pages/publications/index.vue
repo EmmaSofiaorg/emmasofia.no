@@ -38,8 +38,8 @@
           </div>
           <div class="col-md-4">
             <div class="block --full">
-              <fieldset>
-                <legend>Filtrer på tema</legend>
+              <fieldset class="fieldset">
+                <legend class="fieldset__legend">Filtrer på tema</legend>
                 <div class="block --full --mt-small --mb-small" style="text-transform: capitalize" v-for="tag in allTags">
                   <label class="checkbox">
                     {{tag}}
@@ -117,7 +117,7 @@ export default {
       const allPublications = this.publications;
 
       if (filterBy.length > 0) {
-        return publications.filter(publication => {
+        return allPublications.filter(publication => {
           if(publication.tags) return filterBy.every(filter => publication.tags.includes(filter));
           else return false;
         });

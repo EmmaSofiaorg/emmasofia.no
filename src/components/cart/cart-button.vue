@@ -15,7 +15,7 @@
   outline: 0;
   border: 0;
   width: 280px;
-  animation-duration: 0.1s;
+  animation-duration: 0.55s;
   color: $color-primary;
   font-size: 20px;
   text-align: center;
@@ -33,6 +33,23 @@
 
 .fa-shopping-bag {
   margin-right: $spacing--small;
+}
+
+@keyframes pop-border {
+  0% {
+    box-shadow: $box-shadow;
+    transform: scale(1);
+  }
+
+  65% {
+    box-shadow: 0px 0px 0px 10px $color-primary--light;
+    transform: scale(1.05);
+  }
+
+  100% {
+    box-shadow: $box-shadow;
+    transform: scale(1);
+  }
 }
 
 </style>

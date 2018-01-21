@@ -8,6 +8,16 @@
       </transition>
     </keep-alive>
     <main-footer />
+
+    <cart-button
+      v-show="cart.lineItemCount && !cartShown"
+      :toggleCart="toggleCart.bind(this)" />
+
+    <cart-overlay
+      v-show="cart.lineItemCount"
+      :class="{'--hidden': !cartShown}"
+      :toggleCart="toggleCart.bind(this)" />
+
   </div>
 </template>
 
@@ -16,10 +26,28 @@ import MainHeader from '@/components/global/header';
 import MainFooter from '@/components/global/footer';
 import Spinner from '@/components/global/spinner';
 
+import shop from '@/shopify';
+
+import CartOverlay from '@/components/cart/cart';
+import CartButton from '@/components/cart/cart-button';
+
 export default {
-  components: { MainHeader, MainFooter, Spinner },
-  store: ['loading'],
+  components: { MainHeader, MainFooter, Spinner, CartOverlay, CartButton },
+  store: ['loading', 'cart', 'cartShown'],
   name: 'app',
+  mounted() {
+    shop.initCart().then(newCart => {
+      this.cart = newCart;
+    });
+  },
+  methods: {
+    toggleCart() {
+      const cartButton = document.getElementsByClassName('cart-button-fixed')[0];
+      cartButton.style.webkitAnimationName = '';
+      cartButton.style.animationName = '';
+      this.cartShown = !this.cartShown;
+    },
+  }
 };
 </script>
 
@@ -42,14 +70,15 @@ main {
   opacity: 0
 }
 
-.input {
-  transition: all 0.2s ease;
-  box-shadow: 0;
-  border-color: $color-primary--lighter !important;
+.fieldset {
+  background: #fafafa;
+  border: 2px solid #eee;
 }
 
-.input:focus {
-  box-shadow: 0px 0px 0px 4px $color-primary--lighter;
+.fieldset__legend {
+  color: $color-primary;
+  text-transform: uppercase;
+  font-weight: 600;
 }
 
 </style>

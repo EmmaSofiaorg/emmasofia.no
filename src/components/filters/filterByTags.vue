@@ -1,8 +1,8 @@
 <template lang="html">
 
   <div class="block --full">
-    <fieldset>
-      <legend>Filtrer på tema</legend>
+    <fieldset class="fieldset">
+      <legend class="fieldset__legend">Filtrer på tema</legend>
       <div class="block --full --mb --pb" v-for="tag in tags">
         <input type="checkbox" />{{tag}}
       </div>
@@ -20,5 +20,6 @@ export default {
 }
 </script>
 
-<style lang="css">
+<style lang="scss">
+
 </style>

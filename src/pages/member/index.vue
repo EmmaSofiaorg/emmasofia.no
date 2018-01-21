@@ -20,7 +20,7 @@
       </div>
     </div>
 
-    <div class="block">
+    <section class="block --pb-larger --pt-large">
       <div class="container">
 
         <div class="row">
@@ -40,7 +40,7 @@
           </div>
         </div>
       </div>
-    </div>
+    </section>
 
   </main>
 </template>

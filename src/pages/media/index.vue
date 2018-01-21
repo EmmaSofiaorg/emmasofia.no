@@ -39,8 +39,8 @@
         </div>
         <div class="col-md-3">
           <div class="block --full">
-            <fieldset>
-              <legend>Filtrer på tema</legend>
+            <fieldset class="fieldset">
+              <legend class="fieldset__legend">Filtrer på tema</legend>
               <div class="block --full --mt-smaller --mb-smaller" style="text-transform: capitalize" v-for="tag in allTags">
                 <label class="checkbox">
                   {{tag}}

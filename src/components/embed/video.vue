@@ -24,7 +24,7 @@
 
 <template lang="html">
 
-  <div class='embed-container'>
+  <div class='embed-container' :style="`padding-bottom: ${height}`">
     <iframe :src="url" frameborder='0' allowfullscreen></iframe>
   </div>
 
@@ -32,6 +32,12 @@
 
 <script>
 export default {
-  props: ['url']
+  props: {
+    url: String,
+    height: {
+      type: String,
+      default: '45%'
+    }
+  }
 }
 </script>
