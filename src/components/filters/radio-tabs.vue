@@ -18,11 +18,12 @@ export default {
   props: {
     options: Array,
     name: String,
+    default: String,
     updateValue: Function,
   },
   data() {
     return {
-      picked: this.options[0]
+      picked: this.default
     }
   }
 }

@@ -10,14 +10,8 @@
 
       <nav class="header__nav --desktop">
         <ul class="header__nav-links">
-          <!--<li class="header__nav-link">
-            <router-link :to="{name: 'events'}">Arrangementer</router-link>
-          </li>-->
           <li class="header__nav-link">
             <router-link :to="{name: 'publications'}">Forskning</router-link>
-          </li>
-          <li class="header__nav-link">
-            <router-link :to="{name: 'drugs'}">Veiledere</router-link>
           </li>
           <li class="header__nav-link">
             <router-link :to="{name: 'testkits'}">Testkits</router-link>
@@ -29,7 +23,13 @@
             <router-link :to="{name: 'about-us'}">Om oss</router-link>
           </li>
           <li class="header__nav-link">
-            <router-link :to="{name: 'member'}" tag="button" class="button --small">Bli medlem</router-link>
+            <a href="https://tryggtripp.no" target="_blank">
+              Tryggtripp.no
+              <i class="fas fa-external-link-alt"></i>
+            </a>
+          </li>
+          <li class="header__nav-link">
+            <router-link :to="{name: 'member'}" class="button --small">Bli medlem</router-link>
           </li>
         </ul>
       </nav>

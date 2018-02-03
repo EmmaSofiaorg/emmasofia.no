@@ -23,22 +23,26 @@
     <section class="block --pb-larger --pt-large">
       <div class="container">
 
-        <div class="row">
-          <div class="col-xs-12 col-md-5">
-            <div class="block --full --mt">
-              <h3>Via SMS (300kr)</h3>
-              <by-SMS />
-            </div>
-          </div>
-          <div class="col-xs-12 col-md-7">
-            <div class="block --full --mt">
-              <h3>Med kort</h3>
-              <div class="block --pb --pt --box-shadow">
+        <div class="grid --space-between">
+          <div class="grid__item --s-12 --m-6">
+            <div class="block --full --bg-white --mb-larger">
+              <h3>Bli medlem</h3>
+              <radio-tabs name="Member" :default="memberChoice" :options="['Med kort','Via SMS']" :updateValue="updateMemberChoice.bind(this)" />
+              <div class="block --full --mt-large" v-if="memberChoice === 'Med kort'">
                 <MemberForm />
+              </div>
+              <div class="block --full --mt-large" v-if="memberChoice === 'Via SMS'">
+                <by-SMS />
               </div>
             </div>
           </div>
+          <div class="grid__item --s-12 --m-4">
+            <div class="block --bg-light">
+              <donations />
+            </div>
+          </div>
         </div>
+
       </div>
     </section>
 
@@ -55,12 +59,15 @@ import db from '@/database';
 
 import bySMS from '@/components/member/sms';
 import MemberForm from '@/components/member/member-form'
+import Donations from '@/components/cards/donations'
+import RadioTabs from '@/components/filters/radio-tabs';
 
 export default {
   store: ['loading'],
-  components: { bySMS, MemberForm },
+  components: { bySMS, MemberForm, Donations, RadioTabs },
   data () {
     return {
+      memberChoice: 'Med kort',
       page: {},
     }
   },
@@ -71,6 +78,11 @@ export default {
         this.page = response
       });
   },
+  methods: {
+    updateMemberChoice(e) {
+      this.memberChoice = e.target.value;
+    }
+  }
 }
 
 </script>

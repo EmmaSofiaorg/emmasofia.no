@@ -28,7 +28,7 @@
         </div>
       </section>
 
-      <section class="block --mt-larger">
+      <section class="block --mt-larger --mb-largest">
 
         <div class="container --narrow">
           <p

@@ -4,12 +4,11 @@
     <div class="overlay-menu__contents">
       <nav class="overlay-menu__nav">
         <ul class="overlay-menu__nav-links">
-          <li class="overlay-menu__nav-link" @click="goTo('front-page')">
-            <h2>Forside</h2>
+          <li class="overlay-menu__nav-link" @click="goTo('member')">
+            <div class="block --full --mb">
+              <button class="button --white --large">Bli medlem</button>
+            </div>
           </li>
-          <!--<li class="overlay-menu__nav-link" @click="goTo('events')">
-            <h2>Arrangementer</h2>
-          </li>-->
           <li class="overlay-menu__nav-link" @click="goTo('publications')">
             <h2>Forskning</h2>
           </li>
@@ -24,9 +23,6 @@
           </li>
           <li class="overlay-menu__nav-link" @click="goTo('about-us')">
             <h2>Om oss</h2>
-          </li>
-          <li class="overlay-menu__nav-link" @click="goTo('member')">
-            <button class="button --white --large">Bli medlem</button>
           </li>
         </ul>
       </nav>

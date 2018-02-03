@@ -16,7 +16,7 @@
       </div>
       <div class="block --full --mt">
         <a :href="mediaClip.url" target="_blank">Les here saken
-          <i class="fa fa-external-link" aria-hidden="true"></i>
+          <i class="fas fa-external-link-alt"></i>
         </a>
       </div>
     </div>

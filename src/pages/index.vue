@@ -93,13 +93,15 @@
             </div>
           </div>
           <div class="grid__item --s-12 --m-6">
-            <div class="grid">
-              <div class="grid__item --s-12 --m-5 --l-4" v-for="drug in drugs">
-                <div class="block --full --mb">
-                  <drug :drug="drug" />
+            <a class="card-drug" href="https://tryggtripp.no" target="_blank" >
+              <div
+                class="card-drug__image"
+                style="background-image: url('https://tryggtripp.no/static/patterns/sopp.png'">
+                <div class="card-drug__overlay">
+                  <h3>Besøk TryggTripp.no</h3>
                 </div>
               </div>
-            </div>
+            </a>
           </div>
         </div>
       </div>
