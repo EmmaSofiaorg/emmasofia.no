@@ -1,10 +1,11 @@
 <template lang="html">
 
   <div class="block --full --mb --pt-large --pb-large">
-    <h3>Donér et beløp</h3>
-    <radio-tabs name="Donations" default="Vipps" :options="['Vipps', 'PayPal', 'Bitcoin']" :updateValue="updateValue.bind(this)" />
+    <h3>Gi en donasjon</h3>
+    <radio-tabs name="Donations" :options="['Vipps', 'PayPal', 'Bitcoin']" :updateValue="updateValue.bind(this)" />
     <div class="block --full --mt-large" v-if="selected === 'Vipps'">
-      <h3>Send til telefon/ID: 11198</h3>
+      <h4 class="text-uppercase">Valgfritt beløp til:</h4>
+      <h3>11198</h3>
     </div>
     <div class="block --full --mt-large" v-if="selected === 'PayPal'">
       <donation-button />
@@ -26,7 +27,7 @@ export default {
   components: {RadioTabs, DonationButton},
   data() {
     return {
-      selected: 'Vipps',
+      selected: '',
     }
   },
   methods: {

@@ -10,7 +10,7 @@
         <div class="hero__wrapper">
           <div class="col --half">
             <div class="hero__title">
-              <h1>{{page.title}}</h1>
+              <h1>Støtt arbeidet vårt</h1>
             </div>
             <div class="hero__intro">
               <h3>{{page.subtitle}}</h3>
@@ -24,6 +24,7 @@
       <div class="container">
 
         <div class="grid --space-between">
+
           <div class="grid__item --s-12 --m-6">
             <div class="block --full --bg-white --mb-larger">
               <h3>Bli medlem</h3>
@@ -36,11 +37,13 @@
               </div>
             </div>
           </div>
+
           <div class="grid__item --s-12 --m-4">
             <div class="block --bg-light">
               <donations />
             </div>
           </div>
+
         </div>
 
       </div>

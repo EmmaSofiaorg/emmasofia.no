@@ -24,9 +24,6 @@ import Member from '@/pages/member'
 Vue.use(Router)
 
 export default new Router({
-  scrollBehavior (to, from, savedPosition) {
-    return { x: 0, y: 0 }
-  },
   routes: [
     {
       path: '/',
@@ -83,5 +80,8 @@ export default new Router({
       name: 'member',
       component: Member
     },
-  ]
+  ],
+  scrollBehavior (to, from, savedPosition) {
+    return { x: 0, y: 0 }
+  },
 })

@@ -6,23 +6,28 @@
         <ul class="overlay-menu__nav-links">
           <li class="overlay-menu__nav-link" @click="goTo('member')">
             <div class="block --full --mb">
-              <button class="button --white --large">Bli medlem</button>
+              <button class="button --white --large">Støtt oss</button>
             </div>
           </li>
           <li class="overlay-menu__nav-link" @click="goTo('publications')">
             <h2>Forskning</h2>
           </li>
-          <li class="overlay-menu__nav-link" @click="goTo('drugs')">
-            <h2>Veiledere</h2>
-          </li>
           <li class="overlay-menu__nav-link" @click="goTo('testkits')">
             <h2>Testkits</h2>
           </li>
           <li class="overlay-menu__nav-link" @click="goTo('media')">
-            <h2>I media</h2>
+            <h2>Media</h2>
           </li>
           <li class="overlay-menu__nav-link" @click="goTo('about-us')">
             <h2>Om oss</h2>
+          </li>
+          <li class="overlay-menu__nav-link">
+            <h3 style="margin-top: 80px;">
+              <a href="https://tryggtripp.no" target="_blank">
+                Tryggtripp.no
+                <i class="fas fa-external-link-alt"></i>
+              </a>
+            </h3>
           </li>
         </ul>
       </nav>

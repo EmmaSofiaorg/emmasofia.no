@@ -17,7 +17,7 @@
             <router-link :to="{name: 'testkits'}">Testkits</router-link>
           </li>
           <li class="header__nav-link">
-            <router-link :to="{name: 'media'}">I media</router-link>
+            <router-link :to="{name: 'media'}">Media</router-link>
           </li>
           <li class="header__nav-link">
             <router-link :to="{name: 'about-us'}">Om oss</router-link>
@@ -29,7 +29,7 @@
             </a>
           </li>
           <li class="header__nav-link">
-            <router-link :to="{name: 'member'}" class="button --small">Bli medlem</router-link>
+            <router-link :to="{name: 'member'}" class="button --small">Støtt EmmaSofia</router-link>
           </li>
         </ul>
       </nav>

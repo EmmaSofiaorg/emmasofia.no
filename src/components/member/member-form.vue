@@ -12,7 +12,7 @@
           name="name"
           class="input"
           v-model="person.firstName"
-          required
+          required autofocus
         />
       </div>
       <div class="col-xs-12 col-sm-6">
@@ -48,7 +48,7 @@
       name="email"
       class="input"
       v-model="person.email"
-      required autofocus
+      required
     />
 
     Telefonnummer
@@ -102,21 +102,24 @@
     </select>
 
 
-    <label>
+    <label class="checkbox">
+      Jeg er aktiv i et studentlag
       <input
         type="checkbox"
         name="active"
         v-model="person.activeInOrg"
         />
-        Jeg er aktiv i et studentlag
+        <span class="checkbox__indicator" />
     </label>
 
     <label for="org" v-if="person.activeInOrg">
       Organisasjon
       <select v-model="person.organization">
         <option value="" disabled>Velg organisasjon</option>
-        <option value="EmmaSofia Bergen">EmmaSofia Bergen</option>
-        <option value="EmmaSofia Bergen">EmmaSofia Bergen</option>
+        <option value="EmmaSofia Studentlag">Emmasofia - Studentforening</option>
+        <option value="EmmaSofia Oslo">Emmasofia - Oslo studentlag</option>
+        <option value="EmmaSofia Bergen">Emmasofia - Bergen studentlag</option>
+        <option value="EmmaSofia Lillehammer">Emmasofia - Lillehammer studentlag</option>
       </select>
     </label>
 

@@ -56,14 +56,22 @@
           </div>
           <div class="grid__item --s-12 --m-6 --l-5">
             <div class="block --full --mt-larger">
-              <h2 class="text-primary">Vi trenger din støtte</h2>
-              <p>EmmaSofia er en politisk organisasjon, som arbeider for å få Norge over til en ruspolitikk basert på forskning og respekt for menneskerettighetene.</p>
-              <p>Vi jobber for et mer åpent og tolerant samfunn. I et fritt og åpent samfunn bør alle være fri til å følge sin egen samvittighet
+              <h2 class="text-primary">Vår visjon</h2>
+              <p>
+                EmmaSofia er en politisk organisasjon, som arbeider for å få Norge over til en
+                ruspolitikk basert på forskning og respekt for menneskerettighetene.
+              </p>
+              <p>
+                Vi jobber for et mer åpent og tolerant samfunn.
+                I et fritt og åpent samfunn bør alle være fri til å følge sin egen samvittighet
                 og til å bestemme over sin egen bevissthet, så lenge det ikke er til skade for andre.
               </p>
-              <p>Kvalitetskontroll, aldersgrenser og korrekt merking er grunnleggende prinsipper for forbruksvarer som medisiner og mat.
+              <p>
+                Kvalitetskontroll, aldersgrenser og korrekt merking er grunnleggende prinsipper
+                for forbruksvarer som medisiner og mat.
                 EmmaSofia arbeider for at disse prinsippene også skal gjelde for MDMA og psykedelika.
               </p>
+              <router-link :to="{name: 'AboutUs'}">Les mer om arbeidet vårt</router-link>
               <br>
               <donations />
               <!--<router-link :to="{name: 'testkits'}" class="button">Bli medlem</router-link>
@@ -81,12 +89,21 @@
             <div class="block --full --mb-large">
               <h2 class="text-primary">Vis rusvett</h2>
               <p>
-                Psykedelika og MDMA i seg selv er ikke spesielt farlige. I gjentatte ekspertvurderinger har forskere vurdert skadepotensialet i en rekke rusmidler.
-                Der havner MDMA og psykedelika konsekvent nederst på listen, med lavest risiko.
+                Psykedelika og MDMA er i seg selv ikke spesielt farlig.
+                Gjentatte ekspertvurderinger slår fast at psykedelika og MDMA er
+                langt mindre risikofylt enn alkohol, både for den enkelte bruker og for folkehelsen.
               </p>
               <p>
-                Men under dagens forbudspolitikk er det et åpent og uregulert marked. Manglende kvalitetskontroll og aldersgrenser er konsekvenser av forbudet.
-                Derfor oppfordrer vi alle til å vise rusvett. Les deg opp på hvordan du kan redusere risiko i våre skadereduserende veiledere.
+                Psykedelika og MDMA fører ofte til dype personlige opplevelser.
+                Bruk av psykedelika er for mange en del av en genuin spirituell praksis,
+                på linje med meditasjon og yoga. Både psykedelika og MDMA har potensiale til
+                å gi varige positive effekter ved kontrollert bruk, og har et potensial i behandling av syke.
+              </p>
+              <p>
+                Under dagens forbudspolitikk er det et åpent og uregulert marked, der manglende
+                kvalitetskontroll og aldersgrenser er en konsekvens. Derfor er det viktig at du tar
+                nødvendige forholdsregler, blant annet ved å bruke testutstyr og leser deg opp på
+                hvordan du kan legge til rette for sunn bruk.
               </p>
               <br>
               <a class="button">Besøk tryggtripp.no</a>
@@ -119,9 +136,13 @@
           <div class="grid__item --s-12 --m-5">
             <div class="block --full --mb-large">
               <h2 class="text-primary">Bruk testutstyr</h2>
-              <p>Dersom du bruker MDMA eller psykedelika, bør du bruke testutstyr, slik at du faktisk vet hva du tar.</p>
-              <p>Frem til godkjente utsalgssteder og kvalitetskontroll er på plass, anbefaler vi bruk av testutstyr som et midlertidig folkehelsetiltak.</p>
-              <br>
+              <p>
+                Vi anbefaler bruk av testutstyr som et midlertidig folkehelsetiltak, frem til godkjente
+                utsalgssteder og kvalitetskontroll er på plass.
+              </p>
+              <p>
+                Når du bruker testutstyr har du større kontroll på hva du faktisk inntar.
+              </p><br>
               <router-link :to="{name: 'testkits'}" class="button">Kjøp testutstyr</router-link>
               <router-link :to="{name: 'HowTo'}" class="button --white">Hvordan bruke testutstyr</router-link>
             </div>
@@ -130,7 +151,7 @@
       </div>
     </section>
 
-    <section class="block --bg-gradient --pt-larger --pb-larger">
+    <section class="block --bg-light --pt-larger --pb-larger">
       <div class="container">
 
         <div class="grid --space-between">
@@ -139,12 +160,29 @@
               <h2 class="text-primary">Forskning</h2>
               <p>I populasjonsstudien av psykedelika og mental helse fant forskerene ingen sammenfall mellom psykedelika og økt risikoen for problemer med mental helse.</p>
               <p>I studien fant de snarere at bruk av psykedelika i større grad var forbundet med færre tilfeller av psykiske helseproblemer.</p>
-              <router-link :to="{name: 'testkits'}" class="button">Les hele forskningsartikkelen</router-link>
-              <router-link :to="{name: 'HowTo'}" class="button --white">Flere forskningsartikler</router-link>
+              <router-link :to="{name: 'publications'}" class="button">Les flere forskningsartikler</router-link>
             </div>
           </div>
           <div class="grid__item --s-12 --m-6">
 
+            <a href="http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0063972#s1" target="_blank" class="card-publication">
+              <div
+                class="card-publication__image"
+                style="background-image: url('https://images.unsplash.com/photo-1514657607234-c314420d6b3b?ixlib=rb-0.3.5&s=1a67000c327183de44a71ca8a03b6a56&auto=format&fit=crop&w=994&q=80')"
+              >
+              </div>
+              <div class="card-publication__contents">
+                <div class="card-publication__title">
+                  <h2>Psychedelics and Mental Health: A Population Study</h2>
+                </div>
+                <div class="card-publication__link">
+                  <a href="http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0063972#s1" target="_blank">
+                    Les hele studien
+                    <i class="fas fa-external-link-alt"></i>
+                  </a>
+                </div>
+              </div>
+            </a>
           </div>
         </div>
       </div>
