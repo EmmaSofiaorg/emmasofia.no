@@ -22,6 +22,9 @@
 </template>
 
 <script>
+
+require('emmasofia/main.css');
+
 import MainHeader from '@/components/global/header';
 import MainFooter from '@/components/global/footer';
 import Spinner from '@/components/global/spinner';
