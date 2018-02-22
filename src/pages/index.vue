@@ -16,7 +16,7 @@
           <div class="hero__intro">
             <h3>{{page.subtitle}}</h3>
           </div>
-          <div class="block --full --mt">
+          <div class="block --full --mt-large">
             <router-link
               :to="{name: 'member'}"
               class="button"
@@ -62,9 +62,9 @@
               </p>
               <router-link :to="{name: 'about-us'}">Les mer om arbeidet vårt</router-link>
               <br>
+            </div>
+            <div class="block --bg-light --pt --pb --mt">
               <donations />
-              <!--<router-link :to="{name: 'testkits'}" class="button">Bli medlem</router-link>
-              <router-link :to="{name: 'HowTo'}" class="button --white">Donér</router-link>-->
             </div>
           </div>
         </div>

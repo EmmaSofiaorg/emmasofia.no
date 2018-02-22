@@ -12,7 +12,7 @@ import Publication from '@/pages/publications/publication'
 
 import Testkits from '@/pages/testkits'
 import Testkit from '@/pages/testkits/testkit'
-import HowTo from '@/pages/testkits/HowTo'
+import HowTo from '@/pages/testkits/how-to'
 
 import Drugs from '@/pages/drugs'
 import Drug from '@/pages/drugs/drug'

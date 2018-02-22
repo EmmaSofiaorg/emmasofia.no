@@ -24,14 +24,23 @@
             For information in English see our <a class="link" href="https://emmasofia.org">international website</a>.
           </p>
         </div>
+
         <div class="block --full --text-center --mt-larger">
           <router-link :to="{name: 'member'}" class="button --white --large">Støtt oss</router-link>
         </div>
+
         <div class="block --text-center --mt-larger --full">
           <h3>Få siste nytt rett i innboksen din</h3>
-          <input class="input" placeholder="Epostadresse" />
-          <button class="button" style="border-radius: 0">Meld deg på nyhetsbrevet</button>
+          <div class="grid --center">
+            <div class="grid__item --s-8">
+              <div class="subscribe">
+                <input class="subscribe__input" type="email" placeholder="Din epostadresse" />
+                <button class="subscribe__button">Meld meg på</button>
+              </div>
+            </div>
+          </div>
         </div>
+
       </div>
 
     </div>

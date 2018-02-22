@@ -1,6 +1,6 @@
 <template lang="html">
 
-  <div class="block --full --mb --pt-large --pb-large">
+  <div class="block --full">
     <h3>Gi en donasjon</h3>
     <radio-tabs name="Donations" :options="['Vipps', 'PayPal', 'Bitcoin']" :updateValue="updateValue.bind(this)" />
     <div class="block --full --mt-large" v-if="selected === 'Vipps'">

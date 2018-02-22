@@ -39,7 +39,7 @@
           </div>
 
           <div class="grid__item --s-12 --m-4">
-            <div class="block --bg-light">
+            <div class="block --bg-light --pb --pt">
               <donations />
             </div>
           </div>
