@@ -9,39 +9,28 @@
     <section class="hero">
       <div class="hero__background --diagonal" />
       <div class="hero__wrapper">
-
-          <div class="col --main">
-            <div class="block --full --mb-larger --pb-larger">
-              <div class="hero__title">
-                <h1>{{page.title}}</h1>
-              </div>
-              <div class="hero__intro">
-                <h3>{{page.subtitle}}</h3>
-              </div>
-              <div class="block --full --mt">
-                <router-link
-                  :to="{name: 'member'}"
-                  class="button"
-                  tag="button">
-                  Bli medlem
-                </router-link>
-                <router-link
-                  :to="{name: 'testkits'}"
-                  class="button --white"
-                  tag="button">
-                  Kjøp testkits
-                </router-link>
-              </div>
-            </div>
+        <div class="block --text-center --full --mt-larger --mb-largest --pb-larger">
+          <div class="hero__title">
+            <h1>{{page.title}}</h1>
           </div>
-
-        <div class="col --sidebar">
-            <div class="block --full --mt" v-if="events[0]">
-              <h3>Kommende arrangement:</h3>
-              <event :event="events[0]" />
-            </div>
+          <div class="hero__intro">
+            <h3>{{page.subtitle}}</h3>
           </div>
-
+          <div class="block --full --mt">
+            <router-link
+              :to="{name: 'member'}"
+              class="button"
+              tag="button">
+              Bli medlem
+            </router-link>
+            <router-link
+              :to="{name: 'testkits'}"
+              class="button --white"
+              tag="button">
+              Kjøp testkits
+            </router-link>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -71,7 +60,7 @@
                 for forbruksvarer som medisiner og mat.
                 EmmaSofia arbeider for at disse prinsippene også skal gjelde for MDMA og psykedelika.
               </p>
-              <router-link :to="{name: 'AboutUs'}">Les mer om arbeidet vårt</router-link>
+              <router-link :to="{name: 'about-us'}">Les mer om arbeidet vårt</router-link>
               <br>
               <donations />
               <!--<router-link :to="{name: 'testkits'}" class="button">Bli medlem</router-link>

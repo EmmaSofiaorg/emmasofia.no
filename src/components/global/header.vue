@@ -35,13 +35,13 @@
       </nav>
 
       <nav class="header__nav --mobile">
-        <input type="checkbox" class="header__hamburger-menu-checkbox" id="hamburger-menu">
+        <input v-model="showMobileMenu" type="checkbox" class="header__hamburger-menu-checkbox" id="hamburger-menu">
         <label class="header__hamburger-menu" for="hamburger-menu">
             <div></div>
             <div></div>
             <div></div>
         </label>
-        <mobile-menu />
+        <mobile-menu :toggleOverlay="toggleOverlay.bind(this)" />
       </nav>
 
     </div>

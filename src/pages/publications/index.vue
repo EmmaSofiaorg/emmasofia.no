@@ -95,7 +95,6 @@ export default {
         .then(response => {
           this.loading = false;
           this.publications = response;
-          console.log(response);
         });
     },
   },

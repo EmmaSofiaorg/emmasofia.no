@@ -39,17 +39,12 @@
 
 <script>
 export default {
-  mounted() {
-    const navItems = document.querySelectorAll('.overlay-menu__nav-link');
-    navItems.forEach((item, index) => {
-      setTimeout(() => {
-        item.classList.add('--slide');
-      }, (index+1) * 100);
-    });
+  props: {
+    toggleOverlay: Function,
   },
   methods: {
     goTo(link) {
-      document.getElementById('hamburger-menu').checked = false;
+      this.toggleOverlay();
       this.$router.push({ name: link});
     }
   }

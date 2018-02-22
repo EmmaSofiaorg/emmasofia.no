@@ -31,9 +31,6 @@
 <script>
 
 export default {
-  mounted() {
-    console.log(this.publication);
-  },
   props: ['publication'],
   computed: {
     getStartDay() {

@@ -95,7 +95,6 @@ export default {
       db.getEntries('mediaClip', 200, 0)
         .then(response => {
           this.loading = false;
-          console.log(response);
           this.mediaClips = response;
         });
     },

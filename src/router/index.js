@@ -31,12 +31,12 @@ export default new Router({
       component: FrontPage
     },
     {
-      path: '/events',
+      path: '/arrangementer',
       name: 'events',
       component: Events
     },
     {
-      path: '/publications',
+      path: '/publikasjoner',
       name: 'publications',
       component: Publications
     },
@@ -56,27 +56,27 @@ export default new Router({
       component: HowTo
     },
     {
-      path: '/drugs',
+      path: '/veiledere',
       name: 'drugs',
       component: Drugs
     },
     {
-      path: '/drug/:slug',
+      path: '/rusmiddel/:slug',
       name: 'drug',
       component: Drug
     },
     {
-      path: '/about-us',
+      path: '/om-oss',
       name: 'about-us',
       component: About
     },
     {
-      path: '/media',
+      path: '/i-media',
       name: 'media',
       component: Media
     },
     {
-      path: '/member',
+      path: '/medlem',
       name: 'member',
       component: Member
     },
