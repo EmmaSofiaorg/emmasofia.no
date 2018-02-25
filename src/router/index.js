@@ -37,7 +37,7 @@ export default new Router({
       component: Events
     },
     {
-      path: '/publikasjoner',
+      path: '/forskning',
       name: 'publications',
       component: Publications
     },
@@ -72,7 +72,7 @@ export default new Router({
       component: About
     },
     {
-      path: '/i-media',
+      path: '/media',
       name: 'media',
       component: Media
     },

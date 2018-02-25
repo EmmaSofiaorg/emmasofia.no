@@ -9,14 +9,17 @@
     <section class="hero">
       <div class="hero__background --diagonal" />
       <div class="hero__wrapper">
-        <div class="block --text-center --full --mt-larger --mb-largest --pb-larger">
-          <div class="hero__title">
+        <div class="block --full --pt-large --pb-largest">
+
+          <div class="hero__title --text-center">
             <h1>{{page.title}}</h1>
           </div>
-          <div class="hero__intro">
+
+          <div class="hero__intro --text-center">
             <h3>{{page.subtitle}}</h3>
           </div>
-          <div class="block --full --mt-large">
+
+          <div class="block --full --mt-large --text-center">
             <router-link
               :to="{name: 'member'}"
               class="button"
@@ -30,21 +33,30 @@
               Kjøp testkits
             </router-link>
           </div>
+
+          <div class="block --full --pt-large container --narrow" v-if="this.events.length">
+            <h3 class="--text-center">Neste arrangement</h3>
+            <div class="block --full --mt --pb-large">
+              <Event :event="events[0]" />
+            </div>
+          </div>
+
         </div>
       </div>
     </section>
 
     <section class="block --mt-minus-largest --pt --pb-larger" style="z-index: 999">
-      <div class="container">
+      <div class="container --wide">
 
-        <div class="grid --space-between">
-          <div class="grid__item --s-12 --m-6 --l-6">
+        <div class="grid --center">
+          <div class="grid__item --s-12 --m-12 --l-6">
             <div class="block --full">
                 <embed-video height="60%" url="https://www.youtube.com/embed/2w_pC5mtRxs" />
             </div>
           </div>
-          <div class="grid__item --s-12 --m-6 --l-5">
-            <div class="block --full --mt-larger">
+          <div class="grid__item --s-12 --m-1 --l-1"></div>
+          <div class="grid__item --s-12 --m-8 --l-5">
+            <div class="block --full --mt">
               <h2 class="text-primary">Vår visjon</h2>
               <p>
                 EmmaSofia er en politisk organisasjon, som arbeider for å få Norge over til en
@@ -72,9 +84,10 @@
     </section>
 
     <section class="block --bg-light --pt-large --pb-large">
-      <div class="container">
-        <div class="grid --space-between">
-          <div class="grid__item --s-12 --m-5">
+      <div class="container --wide">
+        <div class="grid --middle --center">
+
+          <div class="grid__item --s-12 --m-8 --l-5">
             <div class="block --full --mb-large">
               <h2 class="text-primary">Vis rusvett</h2>
               <p>
@@ -95,26 +108,36 @@
                 hvordan du kan legge til rette for sunn bruk.
               </p>
               <br>
-              <a class="button">Besøk tryggtripp.no</a>
             </div>
           </div>
-          <div class="grid__item --s-12 --m-6">
-            <a class="card-drug" href="https://tryggtripp.no" target="_blank" >
-              <div
-                class="card-drug__image"
-                style="background-image: url('https://tryggtripp.no/static/patterns/sopp.png'">
-                <div class="card-drug__overlay">
-                  <h3>Besøk TryggTripp.no</h3>
-                </div>
+
+          <div class="grid__item --s-12 --m-8 --l-6">
+            <h3 class="block --mb-large --text-center">Rusveiledere på tryggtripp.no</h3>
+            <div class="grid">
+              <div class="grid__item --s-4 --l-4">
+                <a class="block" href="https://tryggtripp.no/guide/mdma" target="_blank" >
+                  <Blurb title="MDMA" :icon="icons.mdma" />
+                </a>
               </div>
-            </a>
+              <div class="grid__item --s-4 --l-4">
+                <a class="block" href="https://tryggtripp.no/guide/lsd" target="_blank" >
+                  <Blurb title="LSD" :icon="icons.lsd" />
+                </a>
+              </div>
+              <div class="grid__item --s-4 --l-4">
+                <a class="block" href="https://tryggtripp.no/guide/psilosybin" target="_blank" >
+                  <Blurb title="Sopp" :icon="icons.mushroom" />
+                </a>
+              </div>
+            </div>
           </div>
+
         </div>
       </div>
     </section>
 
     <section class="block --pt-larger --pb-larger">
-      <div class="container">
+      <div class="container --wide">
 
         <div class="grid --space-between">
           <div class="grid__item --s-12 --m-6">
@@ -141,7 +164,7 @@
     </section>
 
     <section class="block --bg-light --pt-larger --pb-larger">
-      <div class="container">
+      <div class="container --wide">
 
         <div class="grid --space-between">
           <div class="grid__item --s-12 --m-5">
@@ -194,10 +217,23 @@ import Donations from '@/components/cards/donations';
 import Spinner from '@/components/global/spinner';
 import EmbedVideo from '@/components/embed/video';
 import RadioTabs from '@/components/filters/radio-tabs';
+import Blurb from '@/components/cards/blurb';
+
+import LsdIcon from '@/assets/icons/lsd.svg';
+import MdmaIcon from '@/assets/icons/mdma.svg';
+import MushroomIcon from '@/assets/icons/mushroom.svg';
 
 
 export default {
-  components: { Event, Drug, Publication, EmbedVideo, RadioTabs, Donations },
+  components: {
+    Event,
+    Drug,
+    Publication,
+    EmbedVideo,
+    RadioTabs,
+    Donations,
+    Blurb
+  },
   store: ['loading'],
   mounted() {
     this.loading = true;
@@ -215,6 +251,11 @@ export default {
   },
   data() {
     return {
+      icons: {
+        lsd: LsdIcon,
+        mdma: MdmaIcon,
+        mushroom: MushroomIcon,
+      },
       events: [],
       publications: [],
       drugs: [],

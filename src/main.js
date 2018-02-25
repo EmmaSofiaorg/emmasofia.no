@@ -3,10 +3,12 @@
 import Vue from 'vue'
 import App from './App'
 import VeeValidate from 'vee-validate';
-import router from './router'
+import router from './router';
+import VueHead from 'vue-head';
 import VueStash from 'vue-stash';
 import marked from 'marked';
 
+Vue.use(VueHead);
 Vue.use(VueStash);
 Vue.use(VeeValidate);
 

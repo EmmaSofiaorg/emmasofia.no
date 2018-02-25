@@ -15,14 +15,14 @@
     </div>
     <div class="card-event__contents">
       <div class="card-event__title">
-        <router-link :to="{name: 'topic'}">{{event.title}}</router-link>
+        <a href="#">{{event.title}}</a>
       </div>
       <div class="card-event__place">
-        <i class="fa fa-map-marker" aria-hidden="true"></i>
+        <i class="fas fa-map-marker-alt"></i>
         <a target="_blank" :href="`http://maps.google.com/maps?q=${event.place.lat},${event.place.lon}`">Sted</a>
       </div>
       <div class="card-event__facebook">
-        <i class="fa fa-facebook-official" aria-hidden="true"></i>
+        <i class="fab fa-facebook-f"></i>
         <a target="_blank" href="hello">Facebook</a>
       </div>
     </div>

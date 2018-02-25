@@ -6,6 +6,10 @@
   background: $color-white;
   font-family: $font-secondary;
   margin-bottom: $spacing--large;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
 
   &:hover {
     text-decoration: none;
@@ -82,11 +86,11 @@
       <div class="card-testkit__price">
         {{testkit.variants[0].price}}kr
       </div>
-      <div class="card-testkit__add-button">
-        <button class="button --outline" @click="addToCart(testkit.variants[0], 1)">
-          Legg i handlekurv
-        </button>
-      </div>
+    </div>
+    <div class="card-testkit__add-button">
+      <button class="button --outline --small" @click="addToCart(testkit.variants[0], 1)">
+        Legg i handlekurv
+      </button>
     </div>
   </div>
 

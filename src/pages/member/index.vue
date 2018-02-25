@@ -25,7 +25,7 @@
 
         <div class="grid --space-between">
 
-          <div class="grid__item --s-12 --m-6">
+          <div class="grid__item --s-12 --m-12 --l-6">
             <div class="block --full --bg-white --mb-larger">
               <h3>Bli medlem</h3>
               <radio-tabs name="Member" :default="memberChoice" :options="['Med kort','Via SMS']" :updateValue="updateMemberChoice.bind(this)" />
@@ -38,7 +38,7 @@
             </div>
           </div>
 
-          <div class="grid__item --s-12 --m-4">
+          <div class="grid__item --s-12 --m-12 --l-5">
             <div class="block --bg-light --pb --pt">
               <donations />
             </div>

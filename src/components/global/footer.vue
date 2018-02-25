@@ -17,8 +17,8 @@
         <div class="block --full --text-center text-primary">
           <p>
             EmmaSofia er en politisk medlemsorganisasjon, som arbeider for å få Norge over til en
-            kunnskapsbasert ruspolitikk. Emma betyr "universell" og Sofia betyr "visdom".
-            Sofia referer til "de vises sten".
+            kunnskapsbasert ruspolitikk. Emma betyr universell og Sofia betyr visdom.
+            Sofia referer til de vises sten.
           </p>
           <p>
             For information in English see our <a class="link" href="https://emmasofia.org">international website</a>.
@@ -33,10 +33,7 @@
           <h3>Få siste nytt rett i innboksen din</h3>
           <div class="grid --center">
             <div class="grid__item --s-8">
-              <div class="subscribe">
-                <input class="subscribe__input" type="email" placeholder="Din epostadresse" />
-                <button class="subscribe__button">Meld meg på</button>
-              </div>
+              <mailchimp-form />
             </div>
           </div>
         </div>
@@ -47,3 +44,13 @@
   </div>
 
 </template>
+
+<script>
+
+import MailchimpForm from '@/components/forms/mailchimp';
+
+export default {
+  components: { MailchimpForm },
+}
+
+</script>

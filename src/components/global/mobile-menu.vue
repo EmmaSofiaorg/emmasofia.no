@@ -5,9 +5,7 @@
       <nav class="overlay-menu__nav">
         <ul class="overlay-menu__nav-links">
           <li class="overlay-menu__nav-link" @click="goTo('member')">
-            <div class="block --full --mb">
-              <button class="button --white --large">Støtt oss</button>
-            </div>
+            <h2>Støtt oss</h2>
           </li>
           <li class="overlay-menu__nav-link" @click="goTo('publications')">
             <h2>Forskning</h2>
