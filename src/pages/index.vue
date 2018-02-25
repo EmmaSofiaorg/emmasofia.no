@@ -1,4 +1,21 @@
-<style lang="css">
+<style lang="scss" scoped>
+
+.hero__wrapper {
+  padding-bottom: $spacing--largest;
+}
+
+.hero__wrapper .col.--main {
+  text-align: center;
+
+  @media(min-width: $container) {
+    text-align: left;
+  }
+}
+
+main {
+  min-height: 100vh;
+}
+
 </style>
 
 <template lang="html">
@@ -9,39 +26,44 @@
     <section class="hero">
       <div class="hero__background --diagonal" />
       <div class="hero__wrapper">
-        <div class="block --full --pt-large --pb-largest">
+        <div class="col --main">
 
-          <div class="hero__title --text-center">
-            <h1>{{page.title}}</h1>
-          </div>
+          <div class="block --full --mb-large">
+            <div class="hero__title">
+              <h1>{{page.title}}</h1>
+            </div>
 
-          <div class="hero__intro --text-center">
-            <h3>{{page.subtitle}}</h3>
-          </div>
+            <div class="hero__intro">
+              <h3>{{page.subtitle}}</h3>
+            </div>
 
-          <div class="block --full --mt-large --text-center">
-            <router-link
-              :to="{name: 'member'}"
-              class="button"
-              tag="button">
-              Bli medlem
-            </router-link>
-            <router-link
-              :to="{name: 'testkits'}"
-              class="button --white"
-              tag="button">
-              Kjøp testkits
-            </router-link>
-          </div>
-
-          <div class="block --full --pt-large container --narrow" v-if="this.events.length">
-            <h3 class="--text-center">Neste arrangement</h3>
-            <div class="block --full --mt --pb-large">
-              <Event :event="events[0]" />
+            <div class="block --full --mt-large">
+              <router-link
+                :to="{name: 'member'}"
+                class="button"
+                tag="button">
+                Bli medlem
+              </router-link>
+              <router-link
+                :to="{name: 'testkits'}"
+                class="button --white"
+                tag="button">
+                Kjøp testkits
+              </router-link>
             </div>
           </div>
 
         </div>
+
+        <div class="col --sidebar" v-if="this.events.length">
+          <div class="block --full --pb-large --pt-large container --narrow">
+            <h4>Neste arrangement</h4>
+            <div class="block --full --mt">
+              <Event :event="events[0]" />
+            </div>
+          </div>
+        </div>
+
       </div>
     </section>
 
@@ -172,6 +194,8 @@
               <h2 class="text-primary">Forskning</h2>
               <p>I populasjonsstudien av psykedelika og mental helse fant forskerene ingen sammenfall mellom psykedelika og økt risikoen for problemer med mental helse.</p>
               <p>I studien fant de snarere at bruk av psykedelika i større grad var forbundet med færre tilfeller av psykiske helseproblemer.</p>
+            </div>
+            <div class="block --full --mt">
               <router-link :to="{name: 'publications'}" class="button">Les flere forskningsartikler</router-link>
             </div>
           </div>

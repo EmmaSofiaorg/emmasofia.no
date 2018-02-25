@@ -21,7 +21,7 @@
     </div>
 
     <section class="block --pb-larger --pt-large">
-      <div class="container">
+      <div class="container --wide">
 
         <div class="grid --space-between">
 

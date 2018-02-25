@@ -23,7 +23,7 @@
 
     <section class="block --mt-large --mb-largest">
 
-      <div class="container">
+      <div class="container --wide">
 
       <div class="block --full --mb" v-if="filteredMedia.length < 1">
         <h4>Ingen artikler funnet.</h4>

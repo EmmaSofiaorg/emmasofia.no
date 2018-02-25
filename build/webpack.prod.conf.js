@@ -100,11 +100,11 @@ var webpackConfig = merge(baseWebpackConfig, {
       [
         '/',
         '/arrangementer',
-        '/publikasjoner',
+        '/forskning',
         '/testkits',
         '/testkits/hvordan-bruke',
         '/medlem',
-        '/i-media',
+        '/media',
         '/om-oss'
       ]
     )

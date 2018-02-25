@@ -23,7 +23,7 @@
 
     <section class="block --mt-large --mb-larger">
 
-      <div class="container">
+      <div class="container --wide">
 
         <div class="row">
           <div class="col-md-8">

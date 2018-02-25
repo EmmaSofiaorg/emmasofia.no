@@ -28,7 +28,7 @@
 
     <section class="block" style="position: relative">
 
-      <div class="container">
+      <div class="container --wide">
 
         <div class="block --full --mt --mb-largest">
           <div class="grid --equal" v-if="testkits.length > 0">
