@@ -32,7 +32,7 @@
 
         <div class="block --full --mt --mb-largest">
           <div class="grid --equal" v-if="testkits.length > 0">
-              <div class="grid__item --s-6 --m-4 --l-3" v-for="testkit in testkits">
+              <div class="grid__item --s-12 --m-4 --l-3" v-for="testkit in testkits">
                 <article class="block --full --mt-large">
                   <testkit :testkit="testkit" :addToCart="addToCart.bind(this)" />
                 </article>

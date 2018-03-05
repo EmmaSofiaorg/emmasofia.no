@@ -32,7 +32,7 @@
         <div class="block --text-center --mt-larger --full">
           <h3>Få siste nytt rett i innboksen din</h3>
           <div class="grid --center">
-            <div class="grid__item --s-8">
+            <div class="grid__item --s-12 --m-8">
               <mailchimp-form />
             </div>
           </div>

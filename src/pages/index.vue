@@ -195,7 +195,7 @@ main {
               <p>I populasjonsstudien av psykedelika og mental helse fant forskerene ingen sammenfall mellom psykedelika og økt risikoen for problemer med mental helse.</p>
               <p>I studien fant de snarere at bruk av psykedelika i større grad var forbundet med færre tilfeller av psykiske helseproblemer.</p>
             </div>
-            <div class="block --full --mt">
+            <div class="block --full --mt --mb-large">
               <router-link :to="{name: 'publications'}" class="button">Les flere forskningsartikler</router-link>
             </div>
           </div>
