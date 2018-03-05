@@ -1,7 +1,7 @@
 var contentful = require('contentful')
 var client = contentful.createClient({
-  space: 'lcexepslu397',
-  accessToken: 'c44517e368b43891776490a25672f3838f93351f766134befcdba687d2b18cc4'
+  space: 'sd4n79x4e0jc',
+  accessToken: 'e4b5926b0601c58dc7c6acd8a7e27442d564117ff58cf7d6f0cb0bce0cec7c97'
 })
 
 export default {
