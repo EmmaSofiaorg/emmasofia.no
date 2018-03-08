@@ -1,5 +1,23 @@
 <style lang="css">
 
+.list-move {
+  transition: transform 0.7s;
+}
+
+.list-enter-active, .list-leave-active {
+  transition: all 0.3s ease;
+}
+
+.list-leave-active {
+  position: absolute !important;
+}
+
+.list-enter, .list-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
+  transform: translateY(-50px);
+}
+
+
 </style>
 
 <template lang="html">
@@ -32,9 +50,11 @@
       <div class="row">
         <div class="col-md-9">
           <div class="block --full --mt">
-            <article v-for="mediaClip in filteredMedia">
-              <media-clip :mediaClip="mediaClip" />
-            </article>
+              <transition-group class="reservation-list" name="list" tag="div">
+              <article v-for="mediaClip, index in filteredMedia" :key="index">
+                <media-clip :mediaClip="mediaClip" />
+              </article>
+            </transition-group>
           </div>
         </div>
         <div class="col-md-3">
@@ -52,6 +72,10 @@
 
           </div>
         </div>
+      </div>
+
+      <div class="block">
+        <button class="button --large" @click="getMediaClips">Last flere artikler</button>
       </div>
 
       </div>
@@ -74,12 +98,14 @@ export default {
   components: { FilterByTags, MediaClip },
   mounted() {
     this.getPageDetails();
-    this.getAllEvents();
+    this.getMediaClips();
   },
   data() {
     return {
       page: {},
       mediaClips: [],
+      mediaClipLimit: 15,
+      mediaClipStart: 0,
       filterBy: [],
     }
   },
@@ -90,12 +116,15 @@ export default {
           this.page = response;
         });
     },
-    getAllEvents() {
+    getMediaClips() {
+      const limit = this.mediaClipLimit;
+      const start = this.mediaClipStart;
       this.loading = true;
-      db.getEntries('mediaClip', 200, 0)
+      db.getMediaByDate(limit , start)
         .then(response => {
           this.loading = false;
-          this.mediaClips = response;
+          this.mediaClipStart = start + limit;
+          this.mediaClips.push(...response);
         });
     },
   },

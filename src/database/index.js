@@ -61,5 +61,16 @@ export default {
     .then((response) => response.items
       .map(item => item.fields))
     .catch(console.error)
+  },
+  getMediaByDate: function(limit, skip) {
+    return client.getEntries({
+      content_type: 'mediaClip',
+      order: '-fields.publishedDate',
+      limit,
+      skip,
+    })
+    .then((response) => response.items
+      .map(item => item.fields))
+    .catch(console.error)
   }
 }
