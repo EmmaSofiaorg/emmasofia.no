@@ -25,8 +25,8 @@
 
       <div class="container --wide">
 
-        <div class="row">
-          <div class="col-md-8">
+        <div class="grid --s-reversed --l-normal">
+          <div class="grid__item --m-12 --l-8">
             <div class="block --full --mt">
               <article v-for="publication in filteredPublications">
                 <publication :publication="publication" />
@@ -36,19 +36,9 @@
               <h4>Ingen studier funnet.</h4>
             </div>
           </div>
-          <div class="col-md-4">
+          <div class="grid__item --m-12 --l-4">
             <div class="block --full">
-              <fieldset class="fieldset">
-                <legend class="fieldset__legend">Filtrer på tema</legend>
-                <div class="block --full --mt-small --mb-small" style="text-transform: capitalize" v-for="tag in allTags">
-                  <label class="checkbox">
-                    {{tag}}
-                    <input type="checkbox" v-model="filterBy" :value="tag" />
-                    <i class="checkbox__indicator"></i>
-                  </label>
-                </div>
-              </fieldset>
-
+              <FilterByTags :filters="allTags" :onChange="onFiltered" />
             </div>
           </div>
         </div>
@@ -65,12 +55,13 @@
 
 import db from '@/database'
 
+import FilterByTags from '@/components/filters/filterByTags';
 import Filters from '@/components/global/filters';
 import Publication from '@/components/cards/publication';
 
 export default {
   store: ['loading'],
-  components: { Filters, Publication },
+  components: { Filters, Publication, FilterByTags },
   mounted() {
     this.getPageDetails();
     this.getAllPublications();
@@ -97,6 +88,9 @@ export default {
           this.publications = response;
         });
     },
+    onFiltered(filters) {
+      this.filterBy = filters;
+    }
   },
   computed: {
     allTags() {

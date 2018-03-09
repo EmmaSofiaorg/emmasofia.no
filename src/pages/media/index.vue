@@ -47,8 +47,8 @@
         <h4>Ingen artikler funnet.</h4>
       </div>
 
-      <div class="row">
-        <div class="col-md-9">
+      <div class="grid --s-reversed --l-normal">
+        <div class="grid__item --m-12 --l-8">
           <div class="block --full --mt">
               <transition-group class="reservation-list" name="list" tag="div">
               <article v-for="mediaClip, index in filteredMedia" :key="index">
@@ -57,19 +57,9 @@
             </transition-group>
           </div>
         </div>
-        <div class="col-md-3">
+        <div class="grid__item --m-12 --l-4">
           <div class="block --full">
-            <fieldset class="fieldset">
-              <legend class="fieldset__legend">Filtrer på tema</legend>
-              <div class="block --full --mt-smaller --mb-smaller" style="text-transform: capitalize" v-for="tag in allTags">
-                <label class="checkbox">
-                  {{tag}}
-                  <input type="checkbox" v-model="filterBy" :value="tag" />
-                  <i class="checkbox__indicator"></i>
-                </label>
-              </div>
-            </fieldset>
-
+            <FilterByTags :filters="allTags" :onChange="onFiltered" />
           </div>
         </div>
       </div>
@@ -127,6 +117,9 @@ export default {
           this.mediaClips.push(...response);
         });
     },
+    onFiltered(filters) {
+      this.filterBy = filters;
+    }
   },
   computed: {
     allTags() {
