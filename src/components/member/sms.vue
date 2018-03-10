@@ -58,7 +58,8 @@
 
   <div class="sms">
     <div class="sms__title">
-      Send "<b>EMMASOFIA + E-POST</b>" til <b>2090</b>
+      Send "<b>EMMASOFIA + E-POST</b>" til <b>2090</b>. </p>
+      Det koster <b>300kr</b> å bli medlem.
     </div>
     <div class="sms__mobile" v-if="currentDevice">
       <div class="sms__or"><b>Eller</b></div>
