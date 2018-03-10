@@ -43,7 +43,7 @@
 
       <div class="container --wide">
 
-      <div class="block --full --mb" v-if="filteredMedia.length < 1">
+      <div class="block --full --mb" v-if="mediaClips.length < 1">
         <h4>Ingen artikler funnet.</h4>
       </div>
 
@@ -51,7 +51,7 @@
         <div class="grid__item --m-12 --l-8">
           <div class="block --full --mt">
               <transition-group class="reservation-list" name="list" tag="div">
-              <article v-for="mediaClip, index in filteredMedia" :key="index">
+              <article v-for="mediaClip, index in mediaClips" :key="index">
                 <media-clip :mediaClip="mediaClip" />
               </article>
             </transition-group>
@@ -89,10 +89,12 @@ export default {
   mounted() {
     this.getPageDetails();
     this.getMediaClips();
+    this.getAllMediaClips();
   },
   data() {
     return {
       page: {},
+      allMediaClips: [],
       mediaClips: [],
       mediaClipLimit: 15,
       mediaClipStart: 0,
@@ -109,22 +111,42 @@ export default {
     getMediaClips() {
       const limit = this.mediaClipLimit;
       const start = this.mediaClipStart;
+      const filters = this.filterBy.toString();
       this.loading = true;
-      db.getMediaByDate(limit , start)
+
+      if (filters) {
+        db.getMediaByTags(filters, limit , start)
+          .then(response => {
+            this.loading = false;
+            this.mediaClipStart = start + limit;
+            this.mediaClips.push(...response);
+          });
+      }  else {
+        db.getMediaByDate(limit , start)
+          .then(response => {
+            this.loading = false;
+            this.mediaClipStart = start + limit;
+            this.mediaClips.push(...response);
+          });
+      }
+    },
+    getAllMediaClips() {
+      db.getMediaByDate(200 , 0)
         .then(response => {
-          this.loading = false;
-          this.mediaClipStart = start + limit;
-          this.mediaClips.push(...response);
+          this.allMediaClips = response;
         });
     },
     onFiltered(filters) {
       this.filterBy = filters;
+      this.mediaClips = [];
+      this.mediaClipStart = 0;
+      this.getMediaClips();
     }
   },
   computed: {
     allTags() {
       // get All tags in an array
-      const allTags = this.mediaClips.reduce((acc,clip) => {
+      const allTags = this.allMediaClips.reduce((acc,clip) => {
         if(clip.drugTags) return [...acc,...clip.drugTags]
         else return acc;
       }, []);
@@ -133,19 +155,6 @@ export default {
         return tags.indexOf(tag.toLowerCase()) === index;
       });
       return tagsWithoutDuplicates;
-    },
-    filteredMedia() {
-      const filterBy = this.filterBy;
-      const mediaClips = this.mediaClips;
-
-      if (filterBy.length > 0) {
-        return mediaClips.filter(mediaClip => {
-          if(mediaClip.drugTags) return filterBy.every(filter => mediaClip.drugTags.includes(filter));
-          else return false;
-        });
-      } else {
-        return mediaClips;
-      }
     }
   }
 }

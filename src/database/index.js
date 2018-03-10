@@ -72,5 +72,17 @@ export default {
     .then((response) => response.items
       .map(item => item.fields))
     .catch(console.error)
+  },
+  getMediaByTags: function(tags, limit, skip) {
+    return client.getEntries({
+      content_type: 'mediaClip',
+      order: '-fields.publishedDate',
+      'fields.drugTags[all]': tags,
+      limit,
+      skip,
+    })
+    .then((response) => response.items
+      .map(item => item.fields))
+    .catch(console.error)
   }
 }
