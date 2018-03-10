@@ -64,7 +64,7 @@
         </div>
       </div>
 
-      <div class="block">
+      <div v-if="showMoreButton" class="block">
         <button class="button --large" @click="getMediaClips">Last flere artikler</button>
       </div>
 
@@ -99,6 +99,7 @@ export default {
       mediaClipLimit: 15,
       mediaClipStart: 0,
       filterBy: [],
+      showMoreButton: true,
     }
   },
   methods: {
@@ -117,6 +118,7 @@ export default {
       if (filters) {
         db.getMediaByTags(filters, limit , start)
           .then(response => {
+            this.showMoreButton = response.length < limit ? false : true;
             this.loading = false;
             this.mediaClipStart = start + limit;
             this.mediaClips.push(...response);
@@ -124,6 +126,7 @@ export default {
       }  else {
         db.getMediaByDate(limit , start)
           .then(response => {
+            this.showMoreButton = response.length < limit ? false : true;
             this.loading = false;
             this.mediaClipStart = start + limit;
             this.mediaClips.push(...response);
