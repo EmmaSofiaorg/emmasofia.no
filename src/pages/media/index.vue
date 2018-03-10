@@ -112,11 +112,11 @@ export default {
     getMediaClips() {
       const limit = this.mediaClipLimit;
       const start = this.mediaClipStart;
-      const filters = this.filterBy;
+      const filters = [...this.filterBy];
       const tags = filters.toString();
       this.loading = true;
 
-      if (filters) {
+      if (tags) {
         db.getMediaByTags(tags, limit , start)
           .then(response => {
             this.showMoreButton = response.length < limit ? false : true;
