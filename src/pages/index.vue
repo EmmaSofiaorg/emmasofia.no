@@ -260,18 +260,16 @@ export default {
   },
   store: ['loading'],
   mounted() {
-    this.loading = true;
+    db.getEntryById('3QoebEAuKQAKaEus2I8Euq')
+      .then((response) => {
+        this.page = response
+      });
     db.getEntries('drug', 4, 0)
       .then(response => this.drugs = response);
     db.getUpcomingEvents(1, 0)
       .then(response => this.events = response);
     db.getEntries('publication', 1, 0)
       .then(response => this.publications = response);
-    db.getEntryById('3QoebEAuKQAKaEus2I8Euq')
-      .then((response) => {
-        this.loading = false;
-        this.page = response
-      });
   },
   data() {
     return {

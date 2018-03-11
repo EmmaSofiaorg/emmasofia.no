@@ -64,7 +64,7 @@
         </div>
       </div>
 
-      <div v-if="showMoreButton" class="block">
+      <div v-show="showMoreButton" class="block">
         <button class="button --large" @click="getMediaClips">Last flere artikler</button>
       </div>
 
@@ -116,7 +116,7 @@ export default {
       const tags = filters.toString();
       this.loading = true;
 
-      if (tags) {
+      if (filters.length) {
         db.getMediaByTags(tags, limit , start)
           .then(response => {
             this.showMoreButton = response.length < limit ? false : true;
