@@ -34,7 +34,7 @@
           <div class="grid --equal" v-if="testkits.length > 0">
               <div class="grid__item --s-12 --m-4 --l-3" v-for="testkit in testkits">
                 <article class="block --full --mt-large">
-                  <testkit :testkit="testkit" :addToCart="addToCart.bind(this)" />
+                  <testkit :testkit="testkit" :addToCart="addToCart" />
                 </article>
               </div>
           </div>
@@ -56,9 +56,9 @@ import Filters from '@/components/global/filters';
 import Testkit from '@/components/cards/testkit';
 
 export default {
-  store: ['loading', 'cart', 'cartShown'],
+  store: ['loading', 'cart', 'cartShown', 'cartId'],
   components: { Filters, Testkit },
-  mounted() {
+  created() {
     this.getPageDetails();
     this.getAllProducts();
   },
@@ -84,11 +84,14 @@ export default {
           this.testkits = products;
         });
     },
-    addToCart(variant, quantity) {
-      if (this.cart.lineItemCount === 0) {
+    async addToCart(variantId, quantity) {
+      if (this.cart.lineItems.length === 0) {
         this.cartShown = true;
       };
-      this.cart.createLineItemsFromVariants({variant, quantity});
+      this.cart = await shop.client.checkout.addLineItems(
+        this.cartId,
+        [{variantId, quantity}]
+      );
       const cartButton = document.getElementsByClassName('cart-button-fixed')[0];
       cartButton.style.webkitAnimationName = '';
       cartButton.style.animationName = '';

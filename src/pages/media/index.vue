@@ -86,7 +86,7 @@ import MediaClip from '@/components/cards/media-clip';
 export default {
   store: ['loading'],
   components: { FilterByTags, MediaClip },
-  mounted() {
+  created() {
     this.getPageDetails();
     this.getMediaClips();
     this.getAllMediaClips();

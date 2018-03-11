@@ -10,11 +10,11 @@
     <main-footer />
 
     <cart-button
-      v-show="cart.lineItemCount && !cartShown"
+      v-show="cart.lineItems.length && !cartShown"
       :toggleCart="toggleCart.bind(this)" />
 
     <cart-overlay
-      v-show="cart.lineItemCount"
+      v-show="cart.lineItems.length"
       :class="{'--hidden': !cartShown}"
       :toggleCart="toggleCart.bind(this)" />
 
@@ -36,12 +36,12 @@ import CartButton from '@/components/cart/cart-button';
 
 export default {
   components: { MainHeader, MainFooter, Spinner, CartOverlay, CartButton },
-  store: ['loading', 'cart', 'cartShown'],
+  store: ['loading', 'cart', 'cartShown','cartId'],
   name: 'app',
-  mounted() {
-    shop.initCart().then(newCart => {
-      this.cart = newCart;
-    });
+  async created() {
+    const cart = await shop.initCart();
+    this.cart = cart;
+    this.cartId = cart.id;
   },
   methods: {
     toggleCart() {

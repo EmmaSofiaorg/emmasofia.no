@@ -51,7 +51,7 @@ import EmbedVideo from '@/components/embed/video.vue';
 export default {
   store: ['loading'],
   components: {EmbedVideo},
-  mounted() {
+  created() {
     db.getEntryById('392W1HMEJa2ykAgMGQgicq')
       .then((response) => {
         this.loading = false;

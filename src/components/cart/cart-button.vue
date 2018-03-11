@@ -59,7 +59,7 @@
   <div class="cart-button">
     <button class="cart-button-fixed" @click="toggleCart">
       <i class="fa fa-shopping-bag" aria-hidden="true"></i>
-      Åpne handlekurv ({{cart.lineItemCount}})
+      Åpne handlekurv ({{itemsInCart}})
     </button>
   </div>
 
@@ -68,6 +68,13 @@
 <script>
 export default {
   props: ['toggleCart'],
-  store: ['cart']
+  store: ['cart'],
+  computed: {
+    itemsInCart() {
+      return this.cart.lineItems.reduce((acc, item) => {
+        return item.quantity + acc
+      }, 0)
+    }
+  }
 }
 </script>

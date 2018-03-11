@@ -66,7 +66,7 @@ import Event from '@/components/cards/event';
 export default {
   store: ['loading'],
   components: { Filters, Event },
-  mounted() {
+  created() {
     this.getPageDetails();
     this.getUpcoming();
   },

@@ -74,7 +74,7 @@ export default {
       page: {},
     }
   },
-  mounted () {
+  created () {
     db.getEntryById('57DlUIQlM4IKwWUKk4SUe6')
       .then((response) => {
         this.loading = false;

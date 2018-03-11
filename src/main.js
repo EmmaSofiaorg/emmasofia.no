@@ -29,7 +29,10 @@ new Vue({
   data: {
     store: {
       loading: '',
-      cart: {},
+      cart: {
+        lineItems: [],
+      },
+      cartId: '',
       cartShown: false,
     }
   },

@@ -47,7 +47,7 @@ export default new Router({
       component: Testkits
     },
     {
-      path: '/testkit/:slug',
+      path: '/testkit/:id',
       name: 'testkit',
       component: Testkit
     },

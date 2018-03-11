@@ -1,30 +1,48 @@
-import ShopifyBuy from 'shopify-buy';
+import Client from 'shopify-buy';
 import 'whatwg-fetch';
 
-var shopClient = ShopifyBuy.buildClient({
-  accessToken: '970d48fc66da9fadba4c7eac07fb8845',
+var shopClient = Client.buildClient({
+  storefrontAccessToken: '970d48fc66da9fadba4c7eac07fb8845',
   domain: 'emmasofia.myshopify.com',
-  appId: '6'
 });
 
 export default {
-  getProductById: function () {
-    shopClient.fetchProduct('9970502474')
+  client: shopClient,
+  getProductsByField: async function({query}) {
+    return shopClient.product.fetchQuery({query})
+    .then(function (products) {
+      return products;
+    })
+    .catch(function () {
+      console.log('Request failed');
+    })
+  },
+  getProductById: async function (id) {
+    return shopClient.fetchProduct(id)
       .then(function (product) {
-        console.log(product);
+        return product;
       })
       .catch(function () {
         console.log('Request failed');
       });
   },
-  getAllProducts: function () {
-    return shopClient.fetchQueryProducts({collection_id: 441409492})
+  getProductsByCollection: async function (id) {
+    return shopClient.collection.fetchWithProducts(id)
+      .then(function (product) {
+        return product;
+      })
+      .catch(function () {
+        console.log('Request failed');
+      });
+  },
+  getAllProducts: async function () {
+    return shopClient.product.fetchAll()
       .then(products => {
         return products;
       });
   },
-  initCart: function () {
-    return shopClient.createCart()
+  initCart: async function () {
+    return shopClient.checkout.create()
       .then(newCart => {
         return newCart;
       });

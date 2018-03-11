@@ -2,10 +2,10 @@
 
 .card-testkit {
   transition: all 0.2s ease;
-  margin-bottom: $spacing;
   background: $color-white;
   font-family: $font-secondary;
   margin-bottom: $spacing--large;
+  color: $color-black;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -15,6 +15,7 @@
     text-decoration: none;
     transform: translateY(-3px);
     transition: all 0.2s ease;
+    color: $color-primary;
   }
 
   &__image {
@@ -38,13 +39,16 @@
     font-size: 20px;
     font-weight: 700;
     margin-top: $spacing;
-    color: #000;
     margin-bottom: $spacing--small;
+  }
+
+  &__pre-price {
+    text-decoration: line-through;
+    color: $color-gray-dark;
   }
 
   &__price {
     font-size: 20px;
-    margin-bottom: $spacing;
   }
 
   &__link {
@@ -73,22 +77,25 @@
 <template lang="html">
 
   <div class="card-testkit" >
-    <div class="card-testkit__image">
+    <router-link router-link :to="{name: 'testkit', params: {id: testkit.handle}}" class="card-testkit__image">
       <img :src="testkit.images[0].src" />
       <div class="card-testkit__tag">
-        {{testkit.attrs.tags}}
+        {{testkit.tags[0].value}}
       </div>
-    </div>
-    <div class="card-testkit__contents">
+    </router-link>
+    <router-link router-link :to="{name: 'testkit', params: {id: testkit.handle}}" class="card-testkit__contents">
       <div class="card-testkit__title">
         {{testkit.title}}
+      </div>
+      <div class="card-testkit__pre-price" v-if="testkit.variants[0].compareAtPrice">
+        {{testkit.variants[0].compareAtPrice}}
       </div>
       <div class="card-testkit__price">
         {{testkit.variants[0].price}}kr
       </div>
-    </div>
+    </router-link>
     <div class="card-testkit__add-button">
-      <button class="button --outline --small" @click="addToCart(testkit.variants[0], 1)">
+      <button class="button --outline --small" @click="addToCart(testkit.variants[0].id, 1)">
         Legg i handlekurv
       </button>
     </div>

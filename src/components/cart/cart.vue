@@ -3,6 +3,7 @@
 .cart {
   width: 80%;
   position: fixed;
+  display: block;
   box-shadow: -2px 0px 10px 1px rgba(#000000, 0.1);
   animation-name: slide-right;
   animation-duration: 0.5s;
@@ -104,7 +105,7 @@
           Lukk
       </div>
       <div class="cart__title">
-        Handlekurv ({{cart.lineItemCount}})
+        Handlekurv ({{itemsInCart}})
       </div>
     </div>
 
@@ -118,8 +119,8 @@
     </div>
 
     <div class="cart__bottom">
-      <a class="button --full --large cart__buy" :href="cart.checkoutUrl">
-        Kjøp for <b>{{cart.subtotal}}kr</b>
+      <a class="button --full --large cart__buy" :href="cart.webUrl">
+        Kjøp for <b>{{cart.totalPrice}}kr</b>
       </a>
     </div>
 
@@ -135,5 +136,12 @@ export default {
   components: { CartItem },
   props: ['toggleCart'],
   store: ['cart'],
+  computed: {
+    itemsInCart() {
+      return this.cart.lineItems.reduce((acc, item) => {
+        return item.quantity + acc
+      }, 0)
+    }
+  }
 }
 </script>

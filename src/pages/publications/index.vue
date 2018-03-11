@@ -62,7 +62,7 @@ import Publication from '@/components/cards/publication';
 export default {
   store: ['loading'],
   components: { Filters, Publication, FilterByTags },
-  mounted() {
+  created() {
     this.getPageDetails();
     this.getAllPublications();
   },

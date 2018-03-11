@@ -81,7 +81,7 @@
   <div class="cart__item">
 
     <div class="cart__item-image">
-      <img :src="item.image.src" />
+      <img :src="item.variant.product.images[0].src" />
     </div>
 
     <div class="cart__item-title">
@@ -100,7 +100,7 @@
           </div>
         </div>
         <div class="cart-price">
-          {{getItemSubTotal(item.price, item.quantity)}}kr
+          {{getItemSubTotal(item.variant.price, item.quantity)}}kr
         </div>
       </div>
 
@@ -115,21 +115,23 @@
 </template>
 
 <script>
+
+import shop from '@/shopify';
+
 export default {
   props: ['item'],
-  store: ['cart'],
+  store: ['cart', 'cartId'],
   methods: {
-    deleteItem(itemId) {
-      this.cart.removeLineItem(itemId);
-      console.log(this.cart);
+    async deleteItem(itemId) {
+      this.cart = await shop.client.checkout.removeLineItems(this.cartId, itemId);
     },
-    removeItemCount(itemId, quantity) {
+    async removeItemCount(itemId, quantity) {
       const minusOne = quantity - 1;
-      this.cart.updateLineItem(itemId, minusOne);
+      this.cart = await shop.client.checkout.updateLineItems(this.cartId, [{id: itemId, quantity: minusOne}]);
     },
-    addItemCount(itemId, quantity) {
+    async addItemCount(itemId, quantity) {
       const plusOne = quantity + 1;
-      this.cart.updateLineItem(itemId, plusOne);
+      this.cart = await shop.client.checkout.updateLineItems(this.cartId, [{id: itemId, quantity: plusOne}]);
     },
     getItemSubTotal (price, quantity) {
       return price*quantity;

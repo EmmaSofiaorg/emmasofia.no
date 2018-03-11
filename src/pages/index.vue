@@ -259,7 +259,7 @@ export default {
     Blurb
   },
   store: ['loading'],
-  mounted() {
+  created() {
     db.getEntryById('3QoebEAuKQAKaEus2I8Euq')
       .then((response) => {
         this.page = response
