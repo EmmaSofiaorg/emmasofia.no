@@ -6,11 +6,13 @@ import VeeValidate from 'vee-validate';
 import router from './router';
 import VueHead from 'vue-head';
 import VueStash from 'vue-stash';
+import AsyncComputed from 'vue-async-computed'
 import marked from 'marked';
 
 Vue.use(VueHead);
 Vue.use(VueStash);
 Vue.use(VeeValidate);
+Vue.use(AsyncComputed);
 
 Vue.config.productionTip = false
 

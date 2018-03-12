@@ -18,6 +18,7 @@
     "shopify-buy": "^1.2.0",
     "vee-validate": "^2.0.5",
     "vue": "^2.5.13",
+    "vue-async-computed": "^3.3.1",
     "vue-head": "^2.0.12",
     "vue-router": "^2.8.1",
     "vue-stash": "^2.0.1-beta",

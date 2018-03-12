@@ -58,7 +58,7 @@
           <div class="grid --equal">
             <div class="grid__item --s-12 --m-6 --l-4" v-if="relatedProducts.length" v-for="testkit in relatedProducts">
               <div class="block --full --mt-large">
-                <testkit :testkit="testkit" :addToCart="addToCart" />
+                <singleTestkit :testkit="testkit" :addToCart="addToCart" />
               </div>
             </div>
           </div>
@@ -75,24 +75,26 @@
 import db from '@/database';
 import shop from '@/shopify';
 
-import testkit from '@/components/cards/testkit';
+import singleTestkit from '@/components/cards/testkit';
 
 export default {
   name: 'testkit',
-  components: {testkit},
+  components: {singleTestkit},
   store: ['cart', 'cartId', 'cartShown'],
-  async created() {
-    const id = this.$route.params.id;
-    this.product = await shop.client.product.fetchByHandle(id);
-    console.log(this.product);
-    this.relatedProducts = await shop.client.product.fetchQuery({
-      query: `tag:[${this.product.tags[0].value}]"`
-    });
-  },
   data() {
     return {
-      product: null,
+      handle: '',
       relatedProducts: [],
+    }
+  },
+  asyncComputed: {
+    async product() {
+      this.handle = this.$route.params.id;
+      const product = await shop.client.product.fetchByHandle(this.handle);
+      this.relatedProducts = await shop.client.product.fetchQuery({
+        query: `tag:[${product.tags[0].value}]"`
+      });
+      return product
     }
   },
   methods: {

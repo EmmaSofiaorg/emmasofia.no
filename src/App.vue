@@ -2,11 +2,11 @@
   <div id="app">
     <spinner v-if="loading" />
     <main-header />
-    <keep-alive exclude="drug,publication,testkit">
       <transition name="fade">
-        <router-view></router-view>
+        <keep-alive exclude="testkit">
+          <router-view></router-view>
+        </keep-alive>
       </transition>
-    </keep-alive>
     <main-footer />
 
     <cart-button
