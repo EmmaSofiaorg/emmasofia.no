@@ -78,7 +78,7 @@ import shop from '@/shopify';
 import testkit from '@/components/cards/testkit';
 
 export default {
-  name: 'single-testkit',
+  name: 'testkit',
   components: {testkit},
   store: ['cart', 'cartId', 'cartShown'],
   async created() {

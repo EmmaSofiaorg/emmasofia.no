@@ -2,7 +2,7 @@
   <div id="app">
     <spinner v-if="loading" />
     <main-header />
-    <keep-alive exclude="drug,publication">
+    <keep-alive exclude="drug,publication,testkit">
       <transition name="fade">
         <router-view></router-view>
       </transition>
