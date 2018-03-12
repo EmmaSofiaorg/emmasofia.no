@@ -102,6 +102,7 @@ var webpackConfig = merge(baseWebpackConfig, {
         '/arrangementer',
         '/forskning',
         '/testkits',
+        '/testkits-og-rusvett', // Old site
         '/testkits/hvordan-bruke',
         '/medlem',
         '/media',

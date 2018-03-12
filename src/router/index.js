@@ -47,6 +47,11 @@ export default new Router({
       component: Testkits
     },
     {
+      path: '/testkits-og-rusvett', // Old route for SEO
+      name: 'testkits-old',
+      component: Testkits
+    },
+    {
       path: '/testkit/:id',
       name: 'testkit',
       component: Testkit

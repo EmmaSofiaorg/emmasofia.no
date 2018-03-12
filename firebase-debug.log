@@ -1,0 +1,44 @@
+[debug] [2018-03-12T07:19:55.986Z] ----------------------------------------------------------------------
+[debug] [2018-03-12T07:19:55.988Z] Command:       /Users/privat/.nvm/versions/node/v8.3.0/bin/node /Users/privat/.nvm/versions/node/v8.3.0/bin/firebase deploy
+[debug] [2018-03-12T07:19:55.989Z] CLI Version:   3.17.4
+[debug] [2018-03-12T07:19:55.989Z] Platform:      darwin
+[debug] [2018-03-12T07:19:55.989Z] Node Version:  v8.3.0
+[debug] [2018-03-12T07:19:55.989Z] Time:          Mon Mar 12 2018 08:19:55 GMT+0100 (CET)
+[debug] [2018-03-12T07:19:55.989Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2018-03-12T07:19:56.000Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2018-03-12T07:19:56.001Z] > authorizing via signed-in user
+[debug] [2018-03-12T07:19:56.003Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/emmasofia-webpage  
+  
+ Mon Mar 12 2018 08:19:56 GMT+0100 (CET)
+[debug] [2018-03-12T07:19:57.783Z] <<< HTTP RESPONSE 200
+[debug] [2018-03-12T07:19:57.784Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/emmasofia-webpage/tokens  
+  
+ Mon Mar 12 2018 08:19:57 GMT+0100 (CET)
+[debug] [2018-03-12T07:19:58.768Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Deploying to 'emmasofia-webpage'...
+[info] 
+[info] i  deploying hosting
+[info] i  hosting: preparing ./dist directory for upload...
+[debug] [2018-03-12T07:20:00.310Z] >>> HTTP REQUEST PUT https://deploy.firebase.com/v1/hosting/emmasofia-webpage/uploads/-L7O47lQCLBuYYA8NVbq?fileCount=34&message=  
+  
+ Mon Mar 12 2018 08:20:00 GMT+0100 (CET)
+[debug] [2018-03-12T07:20:15.145Z] <<< HTTP RESPONSE 200
+[debug] [2018-03-12T07:20:15.145Z] [hosting] .tgz uploaded successfully, waiting for extraction
+[info] ✔  hosting: 34 files uploaded successfully
+[debug] [2018-03-12T07:20:16.016Z] >>> HTTP REQUEST POST https://deploy.firebase.com/v1/projects/emmasofia-webpage/releases  
+ { hosting: 
+   { public: './dist',
+     rewrites: [ [Object] ],
+     ignore: [ 'firebase.json', '**/src/**', '**/node_modules/**' ],
+     version: '-L7O47lQCLBuYYA8NVbq',
+     prefix: '-L7O47lQCLBuYYA8NVbq/',
+     manifest: [] } } 
+ Mon Mar 12 2018 08:20:16 GMT+0100 (CET)
+[debug] [2018-03-12T07:20:17.426Z] <<< HTTP RESPONSE 200
+[info] 
+[info] ✔  Deploy complete!
+[info] 
+[info] Project Console: https://console.firebase.google.com/project/emmasofia-webpage/overview
+[info] Hosting URL: https://emmasofia-webpage.firebaseapp.com
