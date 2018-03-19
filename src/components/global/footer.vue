@@ -10,8 +10,8 @@
       <div class="container --narrow">
 
         <div class="block --mb-large h2 --text-center">
-          <a href="https://facebook.com/emmasofia"><i class="fab fa-facebook-f"></i></a>
-          <a href="https://facebook.com/emmasofia"><i class="fab fa-twitter"></i></a>
+          <a href="https://www.facebook.com/emmasofiaorg"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://twitter.com/emmasofiaorg"><i class="fab fa-twitter"></i></a>
         </div>
 
         <div class="block --full --text-center text-primary">
