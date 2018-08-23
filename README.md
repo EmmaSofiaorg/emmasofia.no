@@ -2,7 +2,7 @@
 
 > EmmaSofia's website
 
-[guide](https://emmasofia.no/)
+[emmasofia.no](https://emmasofia.no/)
 
 ## Build Setup
 
