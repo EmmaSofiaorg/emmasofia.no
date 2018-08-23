@@ -1,6 +1,8 @@
-# embl
+# EmmaSofia.no
 
-> Nordic EMBL partnership's web site
+> EmmaSofia's website
+
+[guide](https://emmasofia.no/)
 
 ## Build Setup
 
