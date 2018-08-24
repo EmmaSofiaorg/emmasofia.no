@@ -93,7 +93,7 @@ var webpackConfig = merge(baseWebpackConfig, {
       }
     ]),
     // Prerender
-    new PrerenderSpaPlugin(
+    /* new PrerenderSpaPlugin(
       // Absolute path to compiled SPA
       path.join(__dirname, '../dist'),
       // List of routes to prerender
@@ -108,7 +108,7 @@ var webpackConfig = merge(baseWebpackConfig, {
         '/media',
         '/om-oss'
       ]
-    )
+    ) */
   ]
 })
 
