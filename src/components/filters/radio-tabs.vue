@@ -1,7 +1,7 @@
 <template lang="html">
 
   <div class="radio-tabs">
-    <label class="radio-tabs__item" v-for="option, index in options">
+    <label class="radio-tabs__item" :key="option" v-for="option in options">
       <input type="radio"
         :name="name"
         :value="option"
@@ -19,12 +19,12 @@ export default {
     options: Array,
     name: String,
     default: String,
-    updateValue: Function,
+    updateValue: Function
   },
   data() {
     return {
       picked: this.default
-    }
+    };
   }
-}
+};
 </script>

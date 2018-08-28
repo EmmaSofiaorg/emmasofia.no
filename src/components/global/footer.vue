@@ -1,5 +1,4 @@
 <style lang="scss">
-
 </style>
 
 <template lang="html">
@@ -46,11 +45,9 @@
 </template>
 
 <script>
-
-import MailchimpForm from '@/components/forms/mailchimp';
+import MailchimpForm from "@/components/forms/mailchimp";
 
 export default {
-  components: { MailchimpForm },
-}
-
+  components: { MailchimpForm }
+};
 </script>

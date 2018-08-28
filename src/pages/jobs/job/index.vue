@@ -7,15 +7,14 @@
 
       <div class="hero">
         <div class="hero__background" />
-          <div class="hero__wrapper">
-            <div class="container --text-center --narrow">
-              <div class="block --full --mb-larger">
-                <div class="hero__title">
-                  <h1>{{job.title}}</h1>
-                </div>
-                <div class="hero__intro">
-                  <h3>{{job.shortDesc}}</h3>
-                </div>
+        <div class="hero__wrapper">
+          <div class="container --text-center --narrow">
+            <div class="block --full --mb-larger">
+              <div class="hero__title">
+                <h1>{{job.title}}</h1>
+              </div>
+              <div class="hero__intro">
+                <h3>{{job.shortDesc}}</h3>
               </div>
             </div>
           </div>
@@ -30,15 +29,15 @@
               <p class="block --full --pb" v-html="renderMarkDown(job.desc)" />
               <h3>Arbeidsoppgaver</h3>
               <ul class="list">
-                <li v-for="task in job.tasks">{{task}}</li>
+                <li :key="task" v-for="task in job.tasks">{{task}}</li>
               </ul>
               <h3>Kvalifikasjoner</h3>
               <ul class="list">
-                <li v-for="qualification in job.qualifications">{{qualification}}</li>
+                <li :key="qualification" v-for="qualification in job.qualifications">{{qualification}}</li>
               </ul>
               <h3>Personlige egenskaper</h3>
               <ul class="list">
-                <li v-for="strength in job.personalCars">{{strength}}</li>
+                <li :key="strength" v-for="strength in job.personalCars">{{strength}}</li>
               </ul>
             </div>
           </div>
@@ -51,22 +50,20 @@
 </template>
 
 <script>
-
-import db from '@/database';
+import db from "@/database";
 
 export default {
-  store: ['loading'],
+  store: ["loading"],
   created() {
-    db.getEntryBySlug('job', this.$route.params.slug)
-      .then((response) => {
-        this.loading = false;
-        this.job = response
-      });
+    db.getEntryBySlug("job", this.$route.params.slug).then(response => {
+      this.loading = false;
+      this.job = response;
+    });
   },
-  data () {
+  data() {
     return {
       job: {}
-    }
+    };
   }
-}
+};
 </script>

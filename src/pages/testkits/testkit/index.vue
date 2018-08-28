@@ -1,5 +1,4 @@
 <style lang="css">
-
 </style>
 
 <template lang="html">
@@ -56,7 +55,7 @@
         <div class="block --full">
           <h3>Relaterte produkter</h3>
           <div class="grid --equal">
-            <div class="grid__item --s-12 --m-6 --l-4" v-if="relatedProducts.length" v-for="testkit in relatedProducts">
+            <div class="grid__item --s-12 --m-6 --l-4" v-if="relatedProducts.length" :key="testkit.id" v-for="testkit in relatedProducts">
               <div class="block --full --mt-large">
                 <singleTestkit :testkit="testkit" :addToCart="addToCart" />
               </div>
@@ -71,21 +70,19 @@
 </template>
 
 <script>
+import shop from "@/shopify";
 
-import db from '@/database';
-import shop from '@/shopify';
-
-import singleTestkit from '@/components/cards/testkit';
+import singleTestkit from "@/components/cards/testkit";
 
 export default {
-  name: 'testkit',
-  components: {singleTestkit},
-  store: ['cart', 'cartId', 'cartShown'],
+  name: "testkit",
+  components: { singleTestkit },
+  store: ["cart", "cartId", "cartShown"],
   data() {
     return {
-      handle: '',
-      relatedProducts: [],
-    }
+      handle: "",
+      relatedProducts: []
+    };
   },
   asyncComputed: {
     async product() {
@@ -94,24 +91,25 @@ export default {
       this.relatedProducts = await shop.client.product.fetchQuery({
         query: `tag:[${product.tags[0].value}]"`
       });
-      return product
+      return product;
     }
   },
   methods: {
     async addToCart(variantId, quantity) {
       this.cartShown = true;
-      this.cart = await shop.client.checkout.addLineItems(
-        this.cartId,
-        [{variantId, quantity}]
-      );
-      const cartButton = document.getElementsByClassName('cart-button-fixed')[0];
-      cartButton.style.webkitAnimationName = '';
-      cartButton.style.animationName = '';
-      setTimeout(function () {
-        cartButton.style.animationName = 'pop-border';
-        cartButton.style.webkitAnimationName = 'pop-border';
+      this.cart = await shop.client.checkout.addLineItems(this.cartId, [
+        { variantId, quantity }
+      ]);
+      const cartButton = document.getElementsByClassName(
+        "cart-button-fixed"
+      )[0];
+      cartButton.style.webkitAnimationName = "";
+      cartButton.style.animationName = "";
+      setTimeout(function() {
+        cartButton.style.animationName = "pop-border";
+        cartButton.style.webkitAnimationName = "pop-border";
       }, 0);
     }
   }
-}
+};
 </script>

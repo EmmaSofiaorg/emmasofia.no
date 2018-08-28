@@ -38,13 +38,13 @@
 <script>
 export default {
   props: {
-    toggleOverlay: Function,
+    toggleOverlay: Function
   },
   methods: {
     goTo(link) {
       this.toggleOverlay();
-      this.$router.push({ name: link});
+      this.$router.push({ name: link });
     }
   }
-}
+};
 </script>

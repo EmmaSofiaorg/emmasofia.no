@@ -1,5 +1,4 @@
 <style lang="css">
-
 </style>
 
 <template lang="html">
@@ -8,20 +7,19 @@
 
       <div class="hero">
         <div class="hero__background --diagonal" />
-          <div class="hero__wrapper">
-            <div class="container --narrow">
-              <div class="hero__title">
-                <h1>{{drug.name}}</h1>
-              </div>
-              <div class="hero__intro">
-                <h3>{{drug.intro}}</h3>
-              </div>
-              <div class="block --full --mt-larger">
-                <div
-                  class="block --full --border-radius --box-shadow"
-                  style="width: 100%; height: 250px; background-position: center; background-size: cover;"
-                  :style="`background-image: url(${drug.image.fields.file.url})`" />
-              </div>
+        <div class="hero__wrapper">
+          <div class="container --narrow">
+            <div class="hero__title">
+              <h1>{{drug.name}}</h1>
+            </div>
+            <div class="hero__intro">
+              <h3>{{drug.intro}}</h3>
+            </div>
+            <div class="block --full --mt-larger">
+              <div
+                class="block --full --border-radius --box-shadow"
+                style="width: 100%; height: 250px; background-position: center; background-size: cover;"
+                :style="`background-image: url(${drug.image.fields.file.url})`" />
             </div>
           </div>
         </div>
@@ -80,24 +78,22 @@
 </template>
 
 <script>
-
-import db from '@/database'
+import db from "@/database";
 
 export default {
-  name: 'drug',
-  store: ['loading'],
+  name: "drug",
+  store: ["loading"],
   mounted() {
     this.loading = true;
-    db.getEntryBySlug('drug', this.$route.params.slug)
-      .then((response) => {
-        this.loading = false;
-        this.drug = response;
-      }); // Map fields from response and set av events
+    db.getEntryBySlug("drug", this.$route.params.slug).then(response => {
+      this.loading = false;
+      this.drug = response;
+    }); // Map fields from response and set av events
   },
   data() {
     return {
-      drug: {},
-    }
-  },
-}
+      drug: {}
+    };
+  }
+};
 </script>

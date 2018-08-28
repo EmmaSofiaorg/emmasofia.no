@@ -1,5 +1,4 @@
 <style lang="scss">
-
 .spinner-wrapper {
   position: absolute;
   z-index: 999;
@@ -27,19 +26,29 @@
 }
 
 @-moz-keyframes spin {
-    from { -moz-transform: rotate(0deg); }
-    to { -moz-transform: rotate(360deg); }
+  from {
+    -moz-transform: rotate(0deg);
+  }
+  to {
+    -moz-transform: rotate(360deg);
+  }
 }
 @-webkit-keyframes spin {
-    from { -webkit-transform: rotate(0deg); }
-    to { -webkit-transform: rotate(360deg); }
+  from {
+    -webkit-transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+  }
 }
 @keyframes spin {
-    from {transform:rotate(0deg);}
-    to {transform:rotate(360deg);}
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
-
-
 </style>
 
 <template lang="html">
@@ -49,10 +58,9 @@
 </template>
 
 <script>
-
-import Logo from '@/assets/logo-clean'
+import Logo from "@/assets/logo-clean";
 
 export default {
-  components: { Logo },
-}
+  components: { Logo }
+};
 </script>
