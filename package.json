@@ -1,6 +1,8 @@
 {
-  "name": "emmasofia-vue-cli-3",
-  "version": "0.1.0",
+  "name": "emmasofia.no",
+  "version": "1.0.0",
+  "description": "EmmaSofia's webpage",
+  "author": "leifriksheim <riksheim.leif@gmail.com>",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
