@@ -1,5 +1,4 @@
 <style lang="scss">
-
 .card-testkit {
   transition: all 0.2s ease;
   background: $color-white;
@@ -27,7 +26,6 @@
       border-radius: 5px;
       border: 1px solid #eee;
     }
-
   }
 
   &__contents {
@@ -57,12 +55,13 @@
 
   &__tag {
     background: #eee;
-    margin-top: -$spacing--large+10px;
+    margin-top: -$spacing--large + 10px;
     display: inline-block;
     font-size: 12px;
     padding: 8px 20px;
     position: absolute;
     bottom: 10px;
+    right: 0;
   }
 
   &__add-button {
@@ -70,8 +69,6 @@
     display: block;
   }
 }
-
-
 </style>
 
 <template lang="html">
@@ -104,8 +101,7 @@
 </template>
 
 <script>
-
 export default {
-  props: ['testkit', 'addToCart'],
-}
+  props: ["testkit", "addToCart"]
+};
 </script>

@@ -7,14 +7,13 @@
 
     <div class="hero">
       <div class="hero__background" />
-        <div class="hero__wrapper">
-          <div class="col --half">
-            <div class="hero__title">
-              <h1>Støtt arbeidet vårt</h1>
-            </div>
-            <div class="hero__intro">
-              <h3>{{page.subtitle}}</h3>
-            </div>
+      <div class="hero__wrapper">
+        <div class="col --half">
+          <div class="hero__title">
+            <h1>Støtt arbeidet vårt</h1>
+          </div>
+          <div class="hero__intro">
+            <h3>{{page.subtitle}}</h3>
           </div>
         </div>
       </div>
@@ -53,39 +52,35 @@
 </template>
 
 <script>
-
 //  this component receives a token on mount
 //  when the user has filled out the form successfully
-import axios from 'axios'
 
-import db from '@/database';
+import db from "@/database";
 
-import bySMS from '@/components/member/sms';
-import MemberForm from '@/components/member/member-form'
-import Donations from '@/components/cards/donations'
-import RadioTabs from '@/components/filters/radio-tabs';
+import bySMS from "@/components/member/sms";
+import MemberForm from "@/components/member/member-form";
+import Donations from "@/components/cards/donations";
+import RadioTabs from "@/components/filters/radio-tabs";
 
 export default {
-  store: ['loading'],
+  store: ["loading"],
   components: { bySMS, MemberForm, Donations, RadioTabs },
-  data () {
+  data() {
     return {
-      memberChoice: 'Med kort',
-      page: {},
-    }
+      memberChoice: "Med kort",
+      page: {}
+    };
   },
-  created () {
-    db.getEntryById('57DlUIQlM4IKwWUKk4SUe6')
-      .then((response) => {
-        this.loading = false;
-        this.page = response
-      });
+  created() {
+    db.getEntryById("57DlUIQlM4IKwWUKk4SUe6").then(response => {
+      this.loading = false;
+      this.page = response;
+    });
   },
   methods: {
     updateMemberChoice(e) {
       this.memberChoice = e.target.value;
     }
   }
-}
-
+};
 </script>

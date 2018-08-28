@@ -19,23 +19,22 @@
 </template>
 
 <script>
-
-import RadioTabs from '@/components/filters/radio-tabs';
-import DonationButton from '@/components/global/donation-button';
+import RadioTabs from "@/components/filters/radio-tabs";
+import DonationButton from "@/components/global/donation-button";
 
 export default {
-  components: {RadioTabs, DonationButton},
+  components: { RadioTabs, DonationButton },
   data() {
     return {
-      selected: '',
-    }
+      selected: ""
+    };
   },
   methods: {
     updateValue(e) {
       this.selected = e.target.value;
     }
   }
-}
+};
 </script>
 
 <style lang="css">

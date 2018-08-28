@@ -1,5 +1,4 @@
 <style lang="scss">
-
 </style>
 
 <template lang="html">
@@ -31,24 +30,19 @@
 </template>
 
 <script>
-
-import getDate from 'date-fns/get_date'
-import format from 'date-fns/format'
-import noLocale from 'date-fns/locale/nb'
+import getDate from "date-fns/get_date";
+import format from "date-fns/format";
+import noLocale from "date-fns/locale/nb";
 
 export default {
-  props: ['event'],
+  props: ["event"],
   computed: {
     getStartDay() {
-      return getDate(this.event.start)
+      return getDate(this.event.start);
     },
     getStartMonth() {
-      return format(
-        this.event.start,
-        'MMMM',
-        {locale: noLocale}
-      );
+      return format(this.event.start, "MMMM", { locale: noLocale });
     }
   }
-}
+};
 </script>

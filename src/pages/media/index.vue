@@ -1,10 +1,10 @@
 <style lang="css">
-
 .list-move {
   transition: transform 0.7s;
 }
 
-.list-enter-active, .list-leave-active {
+.list-enter-active,
+.list-leave-active {
   transition: all 0.3s ease;
 }
 
@@ -16,8 +16,6 @@
   opacity: 0;
   transform: translateY(-50px);
 }
-
-
 </style>
 
 <template lang="html">
@@ -26,14 +24,13 @@
 
     <div class="hero">
       <div class="hero__background" />
-        <div class="hero__wrapper">
-          <div class="col --half">
-            <div class="hero__title">
-              <h1>{{page.title}}</h1>
-            </div>
-            <div class="hero__intro">
-              <h3>{{page.subtitle}}</h3>
-            </div>
+      <div class="hero__wrapper">
+        <div class="col --half">
+          <div class="hero__title">
+            <h1>{{page.title}}</h1>
+          </div>
+          <div class="hero__intro">
+            <h3>{{page.subtitle}}</h3>
           </div>
         </div>
       </div>
@@ -51,7 +48,7 @@
         <div class="grid__item --m-12 --l-8">
           <div class="block --full --mt">
               <transition-group class="reservation-list" name="list" tag="div">
-              <article v-for="mediaClip, index in mediaClips" :key="index">
+              <article v-for="mediaClip in mediaClips" :key="mediaClip.id">
                 <media-clip :mediaClip="mediaClip" />
               </article>
             </transition-group>
@@ -77,14 +74,13 @@
 </template>
 
 <script>
+import db from "@/database";
 
-import db from '@/database'
-
-import FilterByTags from '@/components/filters/filterByTags';
-import MediaClip from '@/components/cards/media-clip';
+import FilterByTags from "@/components/filters/filterByTags";
+import MediaClip from "@/components/cards/media-clip";
 
 export default {
-  store: ['loading'],
+  store: ["loading"],
   components: { FilterByTags, MediaClip },
   created() {
     this.getPageDetails();
@@ -99,15 +95,14 @@ export default {
       mediaClipLimit: 15,
       mediaClipStart: 0,
       filterBy: [],
-      showMoreButton: true,
-    }
+      showMoreButton: true
+    };
   },
   methods: {
     getPageDetails() {
-      db.getEntryById('2Cl0VIYGJaI0iwwMCGke0K')
-        .then(response => {
-          this.page = response;
-        });
+      db.getEntryById("2Cl0VIYGJaI0iwwMCGke0K").then(response => {
+        this.page = response;
+      });
     },
     getMediaClips() {
       const limit = this.mediaClipLimit;
@@ -117,28 +112,25 @@ export default {
       this.loading = true;
 
       if (filters.length) {
-        db.getMediaByTags(tags, limit , start)
-          .then(response => {
-            this.showMoreButton = response.length < limit ? false : true;
-            this.loading = false;
-            this.mediaClipStart = start + limit;
-            this.mediaClips.push(...response);
-          });
-      }  else {
-        db.getMediaByDate(limit , start)
-          .then(response => {
-            this.showMoreButton = response.length < limit ? false : true;
-            this.loading = false;
-            this.mediaClipStart = start + limit;
-            this.mediaClips.push(...response);
-          });
+        db.getMediaByTags(tags, limit, start).then(response => {
+          this.showMoreButton = response.length < limit ? false : true;
+          this.loading = false;
+          this.mediaClipStart = start + limit;
+          this.mediaClips.push(...response);
+        });
+      } else {
+        db.getMediaByDate(limit, start).then(response => {
+          this.showMoreButton = response.length < limit ? false : true;
+          this.loading = false;
+          this.mediaClipStart = start + limit;
+          this.mediaClips.push(...response);
+        });
       }
     },
     getAllMediaClips() {
-      db.getMediaByDate(200 , 0)
-        .then(response => {
-          this.allMediaClips = response;
-        });
+      db.getMediaByDate(200, 0).then(response => {
+        this.allMediaClips = response;
+      });
     },
     onFiltered(filters) {
       this.filterBy = filters;
@@ -150,16 +142,16 @@ export default {
   computed: {
     allTags() {
       // get All tags in an array
-      const allTags = this.allMediaClips.reduce((acc,clip) => {
-        if(clip.drugTags) return [...acc,...clip.drugTags]
+      const allTags = this.allMediaClips.reduce((acc, clip) => {
+        if (clip.drugTags) return [...acc, ...clip.drugTags];
         else return acc;
       }, []);
       // remove duplicate tags and similar tags with lowercase/uppercase
-      const tagsWithoutDuplicates = allTags.filter((tag,index,tags) => {
+      const tagsWithoutDuplicates = allTags.filter((tag, index, tags) => {
         return tags.indexOf(tag.toLowerCase()) === index;
       });
       return tagsWithoutDuplicates;
     }
   }
-}
+};
 </script>

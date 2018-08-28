@@ -12,7 +12,7 @@
         />
         <div class="radio__text">Alle</div>
       </label>
-      <label v-for="item in list" class="radio">
+      <label :key="item.id" v-for="item in list" class="radio">
         <input
           type="radio"
           class="radio__input"
@@ -28,28 +28,26 @@
 </template>
 
 <script>
-
-import db from '@/database';
+import db from "@/database";
 
 export default {
-  props: ['updateFilters', 'filterBy', 'title'],
+  props: ["updateFilters", "filterBy", "title"],
   mounted() {
-    db.getEntries(this.filterBy, 10, 0)
-      .then(response => {
-        this.list = response;
-      });
+    db.getEntries(this.filterBy, 10, 0).then(response => {
+      this.list = response;
+    });
   },
-  data () {
+  data() {
     return {
-      picked: 'All',
+      picked: "All",
       list: [],
-      expanded: false,
-    }
+      expanded: false
+    };
   },
   watch: {
-    picked: function (newArray) {
+    picked: function(newArray) {
       this.updateFilters(newArray);
     }
   }
-}
+};
 </script>

@@ -1,5 +1,4 @@
 <style lang="scss">
-
 .cart {
   width: 80%;
   position: fixed;
@@ -19,12 +18,11 @@
     display: none;
   }
 
-  @media(min-width: $desktop) {
+  @media (min-width: $desktop) {
     width: 500px;
     height: 80%;
-    top: $header-height+$spacing;
+    top: $header-height + $spacing;
     border-radius: 5px;
-
   }
 
   &__top {
@@ -65,7 +63,7 @@
     max-width: $container;
     margin: 0 auto;
     overflow-x: scroll;
-    height: calc(100% - 78px - 78px );
+    height: calc(100% - 78px - 78px);
   }
 
   &__items {
@@ -91,8 +89,6 @@
     }
   }
 }
-
-
 </style>
 
 <template lang="html">
@@ -129,19 +125,18 @@
 </template>
 
 <script>
-
-import CartItem from '@/components/cart/cart-item';
+import CartItem from "@/components/cart/cart-item";
 
 export default {
   components: { CartItem },
-  props: ['toggleCart'],
-  store: ['cart'],
+  props: ["toggleCart"],
+  store: ["cart"],
   computed: {
     itemsInCart() {
       return this.cart.lineItems.reduce((acc, item) => {
-        return item.quantity + acc
-      }, 0)
+        return item.quantity + acc;
+      }, 0);
     }
   }
-}
+};
 </script>

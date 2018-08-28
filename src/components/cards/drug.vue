@@ -1,7 +1,5 @@
 <style lang="scss">
-
 .card-drug {
-
   &__image {
     background: #eee;
     height: 120px;
@@ -14,13 +12,12 @@
     background-size: auto 230%;
     background-repeat: repeat;
 
-    @media(min-width: $desktop) {
+    @media (min-width: $desktop) {
       height: 200px;
     }
   }
 
   &__overlay {
-    spacing: $spacing;
     text-align: center;
     position: absolute;
     width: 100%;
@@ -28,7 +25,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background: rgba(0,0,0,.35);
+    background: rgba(0, 0, 0, 0.35);
     color: $color-white;
     font-size: 18px;
     transition: all 0.2s ease;
@@ -39,7 +36,6 @@
     }
   }
 }
-
 </style>
 
 <template lang="html">
@@ -58,6 +54,6 @@
 
 <script>
 export default {
-  props: ['drug']
-}
+  props: ["drug"]
+};
 </script>

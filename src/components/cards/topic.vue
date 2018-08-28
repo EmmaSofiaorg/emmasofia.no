@@ -1,5 +1,4 @@
 <style lang="scss">
-
 </style>
 
 <template lang="html">
@@ -19,6 +18,6 @@
 
 <script>
 export default {
-  props: ['topic']
-}
+  props: ["topic"]
+};
 </script>

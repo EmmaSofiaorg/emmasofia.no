@@ -27,11 +27,9 @@
 </template>
 
 <script>
-
 export default {
   props: {
-    person: Object,
+    person: Object
   }
-}
-
+};
 </script>

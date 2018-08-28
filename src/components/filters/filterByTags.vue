@@ -3,7 +3,7 @@
     <fieldset class="checkbox-filter" :class="toggleClass">
       <legend class="checkbox-filter__legend">Filtrer på tema</legend>
       <ul class="checkbox-filter__list">
-        <li class="checkbox-filter__list-item" v-for="filter in filters">
+        <li class="checkbox-filter__list-item" :key="filter" v-for="filter in filters">
           <label class="checkbox" style="text-transform: capitalize">
             <input v-model="selected" :value="filter" type="checkbox" />
             <i class="checkbox__indicator"></i>
@@ -22,27 +22,26 @@
 export default {
   props: {
     filters: Array,
-    onChange: Function,
+    onChange: Function
   },
   data() {
     return {
       open: false,
-      selected: [],
-    }
+      selected: []
+    };
   },
   computed: {
     toggleClass() {
-      return this.open ? '--open' : '';
+      return this.open ? "--open" : "";
     }
   },
   watch: {
-    selected: function (val) {
+    selected: function(val) {
       this.onChange(val);
     }
   }
-}
+};
 </script>
 
 <style lang="scss">
-
 </style>

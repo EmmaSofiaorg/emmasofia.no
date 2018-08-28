@@ -1,43 +1,44 @@
 // The Vue build version to load with the `import` command
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
-import Vue from 'vue'
-import App from './App'
-import VeeValidate from 'vee-validate';
-import router from './router';
-import VueHead from 'vue-head';
-import VueStash from 'vue-stash';
-import AsyncComputed from 'vue-async-computed'
-import marked from 'marked';
+import Vue from "vue";
+import App from "./App";
+import VeeValidate from "vee-validate";
+import router from "./router";
+import VueHead from "vue-head";
+import VueStash from "vue-stash";
+import AsyncComputed from "vue-async-computed";
+import marked from "marked";
+
+import "./registerServiceWorker";
 
 Vue.use(VueHead);
 Vue.use(VueStash);
 Vue.use(VeeValidate);
 Vue.use(AsyncComputed);
 
-Vue.config.productionTip = false
+Vue.config.productionTip = false;
 
 Vue.mixin({
   methods: {
     renderMarkDown(text) {
-      return marked(text)
-    },
-  },
+      return marked(text);
+    }
+  }
 });
 
 /* eslint-disable no-new */
 new Vue({
-  el: '#app',
+  el: "#app",
   router,
   data: {
     store: {
-      loading: '',
+      loading: "",
       cart: {
-        lineItems: [],
+        lineItems: []
       },
-      cartId: '',
-      cartShown: false,
+      cartId: "",
+      cartShown: false
     }
   },
-  template: '<App/>',
-  components: { App }
-})
+  render: h => h(App)
+}).$mount("#app");

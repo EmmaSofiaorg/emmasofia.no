@@ -1,5 +1,4 @@
 <style lang="css">
-
 .embed-container {
   position: relative;
   padding-bottom: 45%;
@@ -19,7 +18,6 @@
   width: 100%;
   height: 100%;
 }
-
 </style>
 
 <template lang="html">
@@ -36,8 +34,8 @@ export default {
     url: String,
     height: {
       type: String,
-      default: '45%'
+      default: "45%"
     }
   }
-}
+};
 </script>

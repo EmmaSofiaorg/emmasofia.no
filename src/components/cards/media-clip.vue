@@ -25,31 +25,22 @@
 </template>
 
 <script>
-
-import getDate from 'date-fns/get_date'
-import format from 'date-fns/format'
-import noLocale from 'date-fns/locale/nb'
+import getDate from "date-fns/get_date";
+import format from "date-fns/format";
+import noLocale from "date-fns/locale/nb";
 
 export default {
-  props: ['mediaClip'],
+  props: ["mediaClip"],
   computed: {
     getDay() {
-      return getDate(this.mediaClip.publishedDate)
+      return getDate(this.mediaClip.publishedDate);
     },
     getMonth() {
-      return format(
-        this.mediaClip.publishedDate,
-        'MMMM',
-        {locale: noLocale}
-      );
+      return format(this.mediaClip.publishedDate, "MMMM", { locale: noLocale });
     },
     getYear() {
-      return format(
-        this.mediaClip.publishedDate,
-        'YYYY',
-        {locale: noLocale}
-      );
+      return format(this.mediaClip.publishedDate, "YYYY", { locale: noLocale });
     }
   }
-}
+};
 </script>

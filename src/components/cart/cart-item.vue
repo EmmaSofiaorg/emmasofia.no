@@ -1,5 +1,4 @@
 <style lang="scss">
-
 .cart__item {
   margin-bottom: $spacing--small;
   padding: $spacing;
@@ -14,7 +13,6 @@
   padding: $spacing--small;
   white-space: nowrap;
   text-overflow: ellipsis;
-
 }
 
 .cart__item-delete {
@@ -73,7 +71,6 @@
   padding: 0 $spacing--small;
   font-weight: 700;
 }
-
 </style>
 
 <template lang="html">
@@ -81,7 +78,7 @@
   <div class="cart__item">
 
     <div class="cart__item-image">
-      <img :src="item.variant.product.images[0].src" />
+      <img :src="item.variant.image.src" />
     </div>
 
     <div class="cart__item-title">
@@ -115,27 +112,33 @@
 </template>
 
 <script>
-
-import shop from '@/shopify';
+import shop from "@/shopify";
 
 export default {
-  props: ['item'],
-  store: ['cart', 'cartId'],
+  props: ["item"],
+  store: ["cart", "cartId"],
   methods: {
     async deleteItem(itemId) {
-      this.cart = await shop.client.checkout.removeLineItems(this.cartId, itemId);
+      this.cart = await shop.client.checkout.removeLineItems(
+        this.cartId,
+        itemId
+      );
     },
     async removeItemCount(itemId, quantity) {
       const minusOne = quantity - 1;
-      this.cart = await shop.client.checkout.updateLineItems(this.cartId, [{id: itemId, quantity: minusOne}]);
+      this.cart = await shop.client.checkout.updateLineItems(this.cartId, [
+        { id: itemId, quantity: minusOne }
+      ]);
     },
     async addItemCount(itemId, quantity) {
       const plusOne = quantity + 1;
-      this.cart = await shop.client.checkout.updateLineItems(this.cartId, [{id: itemId, quantity: plusOne}]);
+      this.cart = await shop.client.checkout.updateLineItems(this.cartId, [
+        { id: itemId, quantity: plusOne }
+      ]);
     },
-    getItemSubTotal (price, quantity) {
-      return price*quantity;
+    getItemSubTotal(price, quantity) {
+      return price * quantity;
     }
-  },
-}
+  }
+};
 </script>

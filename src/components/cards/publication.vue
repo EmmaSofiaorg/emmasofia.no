@@ -1,5 +1,4 @@
 <style lang="scss">
-
 </style>
 
 <template lang="html">
@@ -19,7 +18,7 @@
         </a>
       </div>
       <div class="block --mt --full">
-        <span style="color: #bbbbbb" v-for="tag in publication.tags">
+        <span style="color: #bbbbbb" :key="tag.id" v-for="tag in publication.tags">
           {{tag}},
         </span>
       </div>
@@ -29,20 +28,7 @@
 </template>
 
 <script>
-
 export default {
-  props: ['publication'],
-  computed: {
-    getStartDay() {
-      return getDate(this.publication.start)
-    },
-    getStartMonth() {
-      return format(
-        this.publication.start,
-        'MMMM',
-        {locale: noLocale}
-      );
-    }
-  }
-}
+  props: ["publication"]
+};
 </script>

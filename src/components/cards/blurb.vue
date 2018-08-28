@@ -13,13 +13,12 @@
 export default {
   props: {
     title: String,
-    icon: Object, // svg component
+    icon: Object // svg component
   }
-}
+};
 </script>
 
 <style lang="scss">
-
 .blurb {
   display: block;
   margin: 0 auto;
@@ -55,5 +54,4 @@ export default {
     text-align: center;
   }
 }
-
 </style>

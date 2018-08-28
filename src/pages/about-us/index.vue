@@ -7,15 +7,14 @@
 
       <div class="hero">
         <div class="hero__background" />
-          <div class="hero__wrapper">
-            <div class="container --narrow">
-              <div class="block --full --mb-larger">
-                <div class="hero__title">
-                  <h1>{{page.title}}</h1>
-                </div>
-                <div class="hero__intro">
-                  <h3>{{page.subtitle}}</h3>
-                </div>
+        <div class="hero__wrapper">
+          <div class="container --narrow">
+            <div class="block --full --mb-larger">
+              <div class="hero__title">
+                <h1>{{page.title}}</h1>
+              </div>
+              <div class="hero__intro">
+                <h3>{{page.subtitle}}</h3>
               </div>
             </div>
           </div>
@@ -44,24 +43,22 @@
 </template>
 
 <script>
-
-import db from '@/database';
-import EmbedVideo from '@/components/embed/video.vue';
+import db from "@/database";
+import EmbedVideo from "@/components/embed/video.vue";
 
 export default {
-  store: ['loading'],
-  components: {EmbedVideo},
+  store: ["loading"],
+  components: { EmbedVideo },
   created() {
-    db.getEntryById('392W1HMEJa2ykAgMGQgicq')
-      .then((response) => {
-        this.loading = false;
-        this.page = response
-      });
+    db.getEntryById("392W1HMEJa2ykAgMGQgicq").then(response => {
+      this.loading = false;
+      this.page = response;
+    });
   },
-  data () {
+  data() {
     return {
-      page: {},
-    }
+      page: {}
+    };
   }
-}
+};
 </script>

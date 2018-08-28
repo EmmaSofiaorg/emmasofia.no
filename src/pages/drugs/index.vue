@@ -1,5 +1,4 @@
 <style lang="css">
-
 </style>
 
 <template lang="html">
@@ -8,15 +7,14 @@
 
     <div class="hero">
       <div class="hero__background" />
-        <div class="hero__wrapper">
-          <div class="col --half">
-            <div class="block --full --pb">
-              <div class="hero__title">
-                <h1>{{page.title}}</h1>
-              </div>
-              <div class="hero__intro">
-                <h3>{{page.subtitle}}</h3>
-              </div>
+      <div class="hero__wrapper">
+        <div class="col --half">
+          <div class="block --full --pb">
+            <div class="hero__title">
+              <h1>{{page.title}}</h1>
+            </div>
+            <div class="hero__intro">
+              <h3>{{page.subtitle}}</h3>
             </div>
           </div>
         </div>
@@ -27,7 +25,7 @@
 
       <div class="container">
         <div class="row">
-            <div class="col-xs-12 col-md-4" v-for="drug in drugs">
+            <div class="col-xs-12 col-md-4" :key="drug.id" v-for="drug in drugs">
               <article class="block --full --mt">
                 <drug :drug="drug" />
               </article>
@@ -41,14 +39,13 @@
 </template>
 
 <script>
+import db from "@/database";
 
-import db from '@/database'
-
-import Filters from '@/components/global/filters';
-import Drug from '@/components/cards/drug';
+import Filters from "@/components/global/filters";
+import Drug from "@/components/cards/drug";
 
 export default {
-  store: ['loading'],
+  store: ["loading"],
   components: { Filters, Drug },
   mounted() {
     this.getPageDetails();
@@ -57,25 +54,23 @@ export default {
   data() {
     return {
       drugs: [],
-      page: {},
-    }
+      page: {}
+    };
   },
   methods: {
     getPageDetails() {
-      db.getEntryById('7uwxBTxh5uUIkGU6466Ism')
-        .then(response => {
-          this.loading = false;
-          this.page = response;
-        });
+      db.getEntryById("7uwxBTxh5uUIkGU6466Ism").then(response => {
+        this.loading = false;
+        this.page = response;
+      });
     },
     getAllEntries() {
       this.loading = true;
-      db.getEntries('drug', 10, 0)
-        .then(response => {
-          this.loading = false;
-          this.drugs = response;
-        });
-    },
-  },
-}
+      db.getEntries("drug", 10, 0).then(response => {
+        this.loading = false;
+        this.drugs = response;
+      });
+    }
+  }
+};
 </script>

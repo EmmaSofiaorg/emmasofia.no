@@ -1,5 +1,4 @@
 <style lang="scss">
-
 .sms {
   border: 1px solid $color-gray;
   padding: $spacing;
@@ -26,7 +25,7 @@
       height: 1px;
       top: 10px;
       left: 0;
-      content: '';
+      content: "";
       position: absolute;
       background-color: #eee;
     }
@@ -36,7 +35,7 @@
       height: 1px;
       top: 10px;
       right: 0;
-      content: '';
+      content: "";
       position: absolute;
       background-color: #eee;
     }
@@ -51,14 +50,13 @@
     margin-bottom: $spacing--small;
   }
 }
-
 </style>
 
 <template lang="html">
 
   <div class="sms">
     <div class="sms__title">
-      Send "<b>EMMASOFIA + E-POST</b>" til <b>2090</b>. </p>
+      Send "<b>EMMASOFIA + E-POST</b>" til <b>2090</b>. <p/>
       Det koster <b>300kr</b> å bli medlem.
     </div>
     <div class="sms__mobile" v-if="currentDevice">
@@ -80,27 +78,25 @@
 </template>
 
 <script>
-
-import { isMobileDevice } from '@/utils/checkDevice';
-import { validateEmail } from '@/utils/validation';
+import { isMobileDevice } from "@/utils/checkDevice";
+import { validateEmail } from "@/utils/validation";
 
 export default {
-  name: 'sms',
+  name: "sms",
   mounted() {
     this.currentDevice = isMobileDevice();
-    console.log('currentDevice', this.currentDevice);
   },
-  data () {
+  data() {
     return {
-      currentDevice: '',
-      email: '',
-    }
+      currentDevice: "",
+      email: ""
+    };
   },
   computed: {
-    validateEmail () {
+    validateEmail() {
       const email = this.email;
       return validateEmail(email);
     }
   }
-}
+};
 </script>

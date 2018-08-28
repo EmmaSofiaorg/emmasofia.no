@@ -1,5 +1,4 @@
 <style lang="scss" scoped>
-
 .hero__wrapper {
   padding-bottom: $spacing--largest;
 }
@@ -7,7 +6,7 @@
 .hero__wrapper .col.--main {
   text-align: center;
 
-  @media(min-width: $container) {
+  @media (min-width: $container) {
     text-align: left;
   }
 }
@@ -15,7 +14,6 @@
 main {
   min-height: 100vh;
 }
-
 </style>
 
 <template lang="html">
@@ -230,23 +228,20 @@ main {
 </template>
 
 <script>
+import db from "@/database";
 
-import db from '@/database';
+import Event from "@/components/cards/event";
+import Drug from "@/components/cards/drug";
+import Publication from "@/components/cards/publication";
+import Donations from "@/components/cards/donations";
 
-import Event from '@/components/cards/event';
-import Drug from '@/components/cards/drug';
-import Publication from '@/components/cards/publication';
-import Donations from '@/components/cards/donations';
+import EmbedVideo from "@/components/embed/video";
+import RadioTabs from "@/components/filters/radio-tabs";
+import Blurb from "@/components/cards/blurb";
 
-import Spinner from '@/components/global/spinner';
-import EmbedVideo from '@/components/embed/video';
-import RadioTabs from '@/components/filters/radio-tabs';
-import Blurb from '@/components/cards/blurb';
-
-import LsdIcon from '@/assets/icons/lsd.svg';
-import MdmaIcon from '@/assets/icons/mdma.svg';
-import MushroomIcon from '@/assets/icons/mushroom.svg';
-
+import LsdIcon from "@/assets/icons/lsd.svg";
+import MdmaIcon from "@/assets/icons/mdma.svg";
+import MushroomIcon from "@/assets/icons/mushroom.svg";
 
 export default {
   components: {
@@ -258,31 +253,29 @@ export default {
     Donations,
     Blurb
   },
-  store: ['loading'],
+  store: ["loading"],
   created() {
-    db.getEntryById('3QoebEAuKQAKaEus2I8Euq')
-      .then((response) => {
-        this.page = response
-      });
-    db.getEntries('drug', 4, 0)
-      .then(response => this.drugs = response);
-    db.getUpcomingEvents(1, 0)
-      .then(response => this.events = response);
-    db.getEntries('publication', 1, 0)
-      .then(response => this.publications = response);
+    db.getEntryById("3QoebEAuKQAKaEus2I8Euq").then(response => {
+      this.page = response;
+    });
+    db.getEntries("drug", 4, 0).then(response => (this.drugs = response));
+    db.getUpcomingEvents(1, 0).then(response => (this.events = response));
+    db.getEntries("publication", 1, 0).then(
+      response => (this.publications = response)
+    );
   },
   data() {
     return {
       icons: {
         lsd: LsdIcon,
         mdma: MdmaIcon,
-        mushroom: MushroomIcon,
+        mushroom: MushroomIcon
       },
       events: [],
       publications: [],
       drugs: [],
       page: {}
-    }
-  },
-}
+    };
+  }
+};
 </script>

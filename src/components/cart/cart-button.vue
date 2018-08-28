@@ -1,7 +1,6 @@
 <style lang="scss">
-
 .cart-button {
-  width: 280px+$spacing;
+  width: 280px + $spacing;
   position: absolute;
   margin: 0 auto;
   right: 0;
@@ -26,8 +25,8 @@
   line-height: 60px;
   bottom: $spacing;
 
-  @media(min-width: $desktop) {
-    top: $header-height+$spacing--large;
+  @media (min-width: $desktop) {
+    top: $header-height + $spacing--large;
   }
 }
 
@@ -51,7 +50,6 @@
     transform: scale(1);
   }
 }
-
 </style>
 
 <template lang="html">
@@ -67,14 +65,14 @@
 
 <script>
 export default {
-  props: ['toggleCart'],
-  store: ['cart'],
+  props: ["toggleCart"],
+  store: ["cart"],
   computed: {
     itemsInCart() {
       return this.cart.lineItems.reduce((acc, item) => {
-        return item.quantity + acc
-      }, 0)
+        return item.quantity + acc;
+      }, 0);
     }
   }
-}
+};
 </script>
