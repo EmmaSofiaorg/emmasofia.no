@@ -1,3 +1,6 @@
+const path = require("path");
+const PrerenderSPAPlugin = require("prerender-spa-plugin");
+
 module.exports = {
   css: {
     loaderOptions: {
@@ -14,5 +17,23 @@ module.exports = {
     svgRule.uses.clear();
 
     svgRule.use("vue-svg-loader").loader("vue-svg-loader");
+  },
+  configureWebpack: {
+    plugins: [
+      new PrerenderSPAPlugin({
+        staticDir: path.join(__dirname, "dist"),
+        routes: [
+          "/",
+          "/arrangementer",
+          "/forskning",
+          "/testkits",
+          "/testkits-og-rusvett", // Old site
+          "/testkits/hvordan-bruke",
+          "/medlem",
+          "/media",
+          "/om-oss"
+        ]
+      })
+    ]
   }
 };
