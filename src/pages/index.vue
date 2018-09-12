@@ -71,7 +71,7 @@ main {
         <div class="grid --center">
           <div class="grid__item --s-12 --m-12 --l-6">
             <div class="block --full">
-                <embed-video height="60%" url="https://www.youtube.com/embed/2w_pC5mtRxs" />
+                <embed-video height="60%" url="https://www.youtube.com/embed/zLabi2wjYKo" />
             </div>
           </div>
           <div class="grid__item --s-12 --m-1 --l-1"></div>
