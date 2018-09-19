@@ -47,8 +47,8 @@
       <div class="grid --s-reversed --l-normal">
         <div class="grid__item --m-12 --l-8">
           <div class="block --full --mt">
-              <transition-group class="reservation-list" name="list" tag="div">
-              <article v-for="mediaClip in mediaClips" :key="mediaClip.id">
+            <transition-group class="reservation-list" name="list" tag="div">
+              <article v-for="mediaClip in mediaClips" :key="mediaClip.url">
                 <media-clip :mediaClip="mediaClip" />
               </article>
             </transition-group>
