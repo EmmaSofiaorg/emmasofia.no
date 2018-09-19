@@ -23,7 +23,7 @@
 
       <section class="block --mt-minus-large">
         <div class="container">
-            <embed-video :url="'https://www.youtube.com/embed/zLabi2wjYKo'" />
+            <embed-video url="https://www.youtube.com/embed/zLabi2wjYKo" />
         </div>
       </section>
 
