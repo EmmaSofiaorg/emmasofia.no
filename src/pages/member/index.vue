@@ -27,12 +27,8 @@
           <div class="grid__item --s-12 --m-12 --l-6">
             <div class="block --full --bg-white --mb-larger">
               <h3>Bli medlem</h3>
-              <radio-tabs name="Member" :default="memberChoice" :options="['Med kort','Via SMS']" :updateValue="updateMemberChoice.bind(this)" />
               <div class="block --full --mt-large" v-if="memberChoice === 'Med kort'">
                 <MemberForm />
-              </div>
-              <div class="block --full --mt-large" v-if="memberChoice === 'Via SMS'">
-                <by-SMS />
               </div>
             </div>
           </div>
