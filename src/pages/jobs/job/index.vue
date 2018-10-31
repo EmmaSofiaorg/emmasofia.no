@@ -21,7 +21,7 @@
         </div>
       </div>
 
-      <section class="block --mt-larger --mb-largest">
+      <!-- section class="block --mt-larger --mb-largest">
 
         <div class="container --narrow">
           <div v-if="job.desc">
@@ -43,7 +43,7 @@
           </div>
         </div>
 
-      </section>
+      </section -->
 
   </main>
 
