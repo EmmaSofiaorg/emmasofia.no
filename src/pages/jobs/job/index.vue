@@ -21,30 +21,6 @@
         </div>
       </div>
 
-      <!-- section class="block --mt-larger --mb-largest">
-
-        <div class="container --narrow">
-          <div v-if="job.desc">
-            <div class="block --full --mb-largest">
-              <p class="block --full --pb" v-html="renderMarkDown(job.desc)" />
-              <h3>Arbeidsoppgaver</h3>
-              <ul class="list">
-                <li :key="task" v-for="task in job.tasks">{{task}}</li>
-              </ul>
-              <h3>Kvalifikasjoner</h3>
-              <ul class="list">
-                <li :key="qualification" v-for="qualification in job.qualifications">{{qualification}}</li>
-              </ul>
-              <h3>Personlige egenskaper</h3>
-              <ul class="list">
-                <li :key="strength" v-for="strength in job.personalCars">{{strength}}</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-      </section -->
-
   </main>
 
 </template>
