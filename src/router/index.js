@@ -14,6 +14,7 @@ import About from "@/pages/about-us";
 import Member from "@/pages/member";
 import Jobs from "@/pages/jobs";
 import Job from "@/pages/jobs/job";
+import Faq from "@/pages/faq";
 
 Vue.use(Router);
 
@@ -89,6 +90,11 @@ export default new Router({
       path: "/ledige-stillinger/:slug",
       name: "job",
       component: Job
+    },
+    {
+      path: "/faq",
+      name: "faq",
+      component: Faq
     }
   ],
   scrollBehavior(to, from, savedPosition) {

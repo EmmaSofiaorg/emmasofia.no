@@ -31,7 +31,8 @@ module.exports = {
           "/testkits/hvordan-bruke",
           "/medlem",
           "/media",
-          "/om-oss"
+          "/om-oss",
+          "/faq"
         ]
       })
     ]
