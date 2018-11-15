@@ -8,12 +8,14 @@
     <div class="hero">
       <div class="hero__background" />
       <div class="hero__wrapper">
-        <div class="col --half">
-          <div class="hero__title">
-            <h1>{{page.title}}</h1>
-          </div>
-          <div class="hero__intro">
-            <h3>{{page.subtitle}}</h3>
+        <div class="container">
+          <div class="col --main">
+            <div class="hero__title">
+              <h1>{{page.title}}</h1>
+            </div>
+            <div class="hero__intro">
+              <h3>{{page.subtitle}}</h3>
+            </div>
           </div>
         </div>
       </div>
