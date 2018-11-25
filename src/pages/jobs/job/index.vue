@@ -21,6 +21,19 @@
         </div>
       </div>
 
+      <section class="block --mt-larger --mb-largest">
+
+        <div class="container --narrow">
+          <div v-if="job.desc">
+            <div class="block --full --mb-largest">
+              <p class="block --full --pb" v-html="renderMarkDown(job.desc)" />
+            </div>
+          </div>
+        </div>
+        
+
+      </section>
+
   </main>
 
 </template>
