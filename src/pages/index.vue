@@ -48,7 +48,7 @@ main {
                 tag="button">
                 Kjøp testkits
               </router-link>
-            </div>
+          </div>
           </div>
 
         </div>
@@ -154,6 +154,12 @@ main {
 
         </div>
       </div>
+    </section>
+
+    <section class="block --bg-light" style="text-align:center; padding-bottom:40px;">
+      <button class="button --white"><a href="https://www.facebook.com/groups/1568179886751957/" target="_blank">Bli med i vårt Facebook forum</a></button>
+      <button class="button --white"><a href="https://medium.com/@emmasofia" target="_blank">Følg oss på Medium</a></button>
+      <button class="button --white"><a href="https://www.youtube.com/channel/UCJvgq51GdSUJ68fBLPSxB6A" target="_blank">Følg oss på Youtube</a></button>
     </section>
 
     <section class="block --pt-larger --pb-larger">
