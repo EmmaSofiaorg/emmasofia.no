@@ -26,6 +26,7 @@
     <section class="block" style="position: relative">
 
       <div class="container --wide">
+        <h3 style="margin: 30px">Dessverre har vi ikke nok personell til drive nettbutikken for tiden, så den er stengt på ubestemt tid. Lyst til å engasjere deg? Ta kontakt på contact@emmasofia.org</h3>
 
         <div class="block --full --mt --mb-largest">
           <div class="grid --equal" v-if="testkits.length > 0">
