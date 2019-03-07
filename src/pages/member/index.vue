@@ -10,7 +10,7 @@
       <div class="hero__wrapper">
         <div class="col --half">
           <div class="hero__title">
-            <h1>Støtt arbeidet vårt</h1>
+            <h1>{{page.title}}</h1>
           </div>
           <div class="hero__intro">
             <h3>{{page.subtitle}}</h3>
@@ -25,18 +25,27 @@
         <div class="grid --space-between">
 
           <div class="grid__item --s-12 --m-12 --l-6">
+
+            <div class="block --bg-light --mb-larger --pb --pt">
+              <donations />
+            </div>
+
+            <div class="block --full --bg-white --mb-larger">
+              <p
+                v-if="page.body"
+                class="markdown"
+                v-html="renderMarkDown(page.body)">
+              </p>
+            </div>
+
             <div class="block --full --bg-white --mb-larger">
               <h3>Bli medlem</h3>
               <div class="block --full --mt-large" v-if="memberChoice === 'Med kort'">
                 <MemberForm />
               </div>
             </div>
-          </div>
 
-          <div class="grid__item --s-12 --m-12 --l-5">
-            <div class="block --bg-light --pb --pt">
-              <donations />
-            </div>
+
           </div>
 
         </div>
@@ -69,6 +78,7 @@ export default {
   },
   created() {
     db.getEntryById("57DlUIQlM4IKwWUKk4SUe6").then(response => {
+      console.log(response);
       this.loading = false;
       this.page = response;
     });

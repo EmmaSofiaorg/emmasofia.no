@@ -1,0 +1,41 @@
+[debug] [2018-11-15T05:32:42.778Z] ----------------------------------------------------------------------
+[debug] [2018-11-15T05:32:42.780Z] Command:       /Users/leifriksheim/.nvm/versions/node/v9.11.2/bin/node /usr/local/bin/firebase deploy
+[debug] [2018-11-15T05:32:42.781Z] CLI Version:   3.17.4
+[debug] [2018-11-15T05:32:42.781Z] Platform:      darwin
+[debug] [2018-11-15T05:32:42.781Z] Node Version:  v9.11.2
+[debug] [2018-11-15T05:32:42.781Z] Time:          Wed Nov 14 2018 21:32:42 GMT-0800 (PST)
+[debug] [2018-11-15T05:32:42.781Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2018-11-15T05:32:42.794Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2018-11-15T05:32:42.795Z] > authorizing via signed-in user
+[debug] [2018-11-15T05:32:42.796Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/emmasofia-webpage  
+  
+ Wed Nov 14 2018 21:32:42 GMT-0800 (PST)
+[debug] [2018-11-15T05:32:43.253Z] <<< HTTP RESPONSE 200
+[debug] [2018-11-15T05:32:43.254Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/emmasofia-webpage/tokens  
+  
+ Wed Nov 14 2018 21:32:43 GMT-0800 (PST)
+[debug] [2018-11-15T05:32:44.013Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Deploying to 'emmasofia-webpage'...
+[info] 
+[info] i  deploying hosting
+[info] i  hosting: preparing ./dist directory for upload...
+[debug] [2018-11-15T05:32:44.643Z] >>> HTTP REQUEST PUT https://deploy.firebase.com/v1/hosting/emmasofia-webpage/uploads/-LRKqrbQr56IwGcK4EM1?fileCount=38&message=  
+  
+ Wed Nov 14 2018 21:32:44 GMT-0800 (PST)
+[debug] [2018-11-15T05:32:46.903Z] <<< HTTP RESPONSE 410
+[debug] [2018-11-15T05:32:46.903Z] <<< HTTP RESPONSE BODY undefined
+[debug] [2018-11-15T05:32:46.906Z] TypeError: Cannot read property 'error' of undefined
+    at module.exports (/usr/local/lib/node_modules/firebase-tools/lib/responseToError.js:10:13)
+    at Request._callback (/usr/local/lib/node_modules/firebase-tools/lib/api.js:45:25)
+    at Request.self.callback (/usr/local/lib/node_modules/firebase-tools/node_modules/request/request.js:186:22)
+    at Request.emit (events.js:180:13)
+    at Request.emit (domain.js:422:20)
+    at Request.<anonymous> (/usr/local/lib/node_modules/firebase-tools/node_modules/request/request.js:1163:10)
+    at Request.emit (events.js:180:13)
+    at Request.emit (domain.js:422:20)
+    at IncomingMessage.<anonymous> (/usr/local/lib/node_modules/firebase-tools/node_modules/request/request.js:1085:12)
+    at Object.onceWrapper (events.js:272:13)
+[error] 
+[error] Error: An unexpected error has occurred.
