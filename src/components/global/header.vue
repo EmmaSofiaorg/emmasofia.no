@@ -12,24 +12,28 @@
           <li class="header__nav-link">
             <router-link :to="{ name: 'publications' }">Forskning</router-link>
           </li>
+          <!--
           <li class="header__nav-link">
             <router-link :to="{ name: 'testkits' }">Testkits</router-link>
           </li>
+          -->
           <li class="header__nav-link">
             <router-link :to="{ name: 'media' }">Media</router-link>
           </li>
           <li class="header__nav-link">
             <router-link :to="{ name: 'about-us' }">Om oss</router-link>
           </li>
+          <!--
           <li class="header__nav-link">
             <a href="https://tryggtripp.no" target="_blank">
               Tryggtripp
               <i class="fas fa-external-link-alt"></i>
             </a>
           </li>
+          -->
           <li class="header__nav-link">
             <a href="https://mikrodosering.no" target="_blank">
-              Mikrodosering
+              Mikrodosering.no
               <i class="fas fa-external-link-alt"></i>
             </a>
           </li>

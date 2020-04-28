@@ -35,6 +35,7 @@ main {
               <router-link :to="{ name: 'member' }" class="button" tag="button">
                 Støtt oss
               </router-link>
+              <!--
               <router-link
                 :to="{ name: 'testkits' }"
                 class="button --white"
@@ -42,7 +43,7 @@ main {
               >
                 Kjøp testkits
               </router-link>
-            </div>
+            --></div>
           </div>
         </div>
 
@@ -76,9 +77,9 @@ main {
             <div class="block --full --mt">
               <h2 class="text-primary">Vår visjon</h2>
               <p>
-                EmmaSofia er en politisk organisasjon, som arbeider for å få
-                Norge over til en ruspolitikk basert på forskning og respekt for
-                menneskerettighetene.
+                EmmaSofia er en politisk og ideell organisasjon, som arbeider
+                for å få Norge over til en ruspolitikk basert på forskning og
+                respekt for menneskerettighetene.
               </p>
               <p>
                 Vi jobber for et mer åpent og tolerant samfunn. I et fritt og
@@ -137,13 +138,13 @@ main {
 
           <div class="grid__item --s-12 --m-8 --l-6">
             <h3 class="block --mb-large --text-center">
-              Rusveiledere på tryggtripp.no
+              Rusveiledere på rusopplysningen.no
             </h3>
             <div class="grid">
               <div class="grid__item --s-4 --l-4">
                 <a
                   class="block"
-                  href="https://tryggtripp.no/guide/mdma"
+                  href="https://rusopplysningen.no/mdma"
                   target="_blank"
                 >
                   <Blurb title="MDMA" :icon="icons.mdma" />
@@ -152,7 +153,7 @@ main {
               <div class="grid__item --s-4 --l-4">
                 <a
                   class="block"
-                  href="https://tryggtripp.no/guide/lsd"
+                  href="https://rusopplysningen.no/lsd"
                   target="_blank"
                 >
                   <Blurb title="LSD" :icon="icons.lsd" />
@@ -161,7 +162,7 @@ main {
               <div class="grid__item --s-4 --l-4">
                 <a
                   class="block"
-                  href="https://tryggtripp.no/guide/psilosybin"
+                  href="https://rusopplysningen.no/psilocybin"
                   target="_blank"
                 >
                   <Blurb title="Sopp" :icon="icons.mushroom" />
@@ -198,6 +199,7 @@ main {
       </button>
     </section>
 
+    <!--
     <section class="block --pt-larger --pb-larger">
       <div class="container --wide">
         <div class="grid --space-between">
@@ -229,7 +231,7 @@ main {
           </div>
         </div>
       </div>
-    </section>
+    </section> -->
 
     <section class="block --bg-light --pt-larger --pb-larger">
       <div class="container --wide">
