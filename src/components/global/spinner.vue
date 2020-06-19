@@ -53,12 +53,12 @@
 
 <template lang="html">
   <div class="spinner-wrapper">
-    <logo class="spinner" height="120"/>
+    <logo class="spinner" height="120" />
   </div>
 </template>
 
 <script>
-import Logo from "@/assets/logo-clean";
+import Logo from "@/assets/emmasofia_fill";
 
 export default {
   components: { Logo }

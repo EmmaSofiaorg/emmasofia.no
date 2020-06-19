@@ -1,27 +1,26 @@
 <template lang="html">
-
   <div class="card-media-clip">
     <div class="card-media-clip__logo">
       <img :src="mediaClip.mediaChannel.fields.logo.fields.file.url" />
     </div>
     <div class="card-media-clip__contents">
       <div class="card-media-clip__date">
-        {{getDay}}. {{getMonth}} {{getYear}}
+        {{ getDay }}. {{ getMonth }} {{ getYear }}
       </div>
       <div class="card-media-clip__headline">
-        <h2>{{mediaClip.headline}}</h2>
+        <h2>{{ mediaClip.headline }}</h2>
       </div>
       <div class="card-media-clip__ingress">
-        {{mediaClip.ingress}}
+        {{ mediaClip.ingress }}
       </div>
       <div class="block --full --mt">
-        <a :href="mediaClip.url" target="_blank">Les here saken
+        <a :href="mediaClip.url" target="_blank"
+          >Les hele saken
           <i class="fas fa-external-link-alt"></i>
         </a>
       </div>
     </div>
   </div>
-
 </template>
 
 <script>

@@ -15,6 +15,7 @@ import Member from "@/pages/member";
 import Jobs from "@/pages/jobs";
 import Job from "@/pages/jobs/job";
 import Faq from "@/pages/faq";
+import Articles from "@/pages/articles";
 
 Vue.use(Router);
 
@@ -95,6 +96,11 @@ export default new Router({
       path: "/faq",
       name: "faq",
       component: Faq
+    },
+    {
+      path: "/artikler",
+      name: "articles",
+      component: Articles
     }
   ],
   scrollBehavior(to, from, savedPosition) {

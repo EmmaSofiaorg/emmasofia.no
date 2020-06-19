@@ -1,16 +1,29 @@
-<style lang="scss"></style>
+<style lang="css">
+.socIcon {
+  padding: 0 10px;
+}
+</style>
 
 <template lang="html">
   <div class="footer">
     <div class="block --pt-large --pb-larger">
       <div class="container --narrow">
         <div class="block --mb-large h2 --text-center">
-          <a href="https://www.facebook.com/emmasofiaorg"
-            ><i class="fab fa-facebook-f"></i
-          ></a>
-          <a href="https://twitter.com/emmasofiaorg"
-            ><i class="fab fa-twitter"></i
-          ></a>
+          <a class="socIcon" href="https://twitter.com/emmasofiaorg">
+            <i class="fab fa-twitter"></i>
+          </a>
+          <a class="socIcon" href="https://www.facebook.com/emmasofiaorg">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+          <a
+            class="socIcon"
+            href="https://www.youtube.com/channel/UCJvgq51GdSUJ68fBLPSxB6A"
+          >
+            <i class="fab fa-youtube"></i>
+          </a>
+          <a class="socIcon" href="https://medium.com/@emmasofia">
+            <i class="fab fa-medium"></i>
+          </a>
         </div>
 
         <div class="block --full --text-center text-primary">
@@ -24,11 +37,10 @@
         </div>
 
         <div class="block --full --text-center --mt-larger">
-          <router-link :to="{ name: 'member' }" class="button --white --large"
-            >Støtt oss</router-link
-          >
+          <router-link :to="{ name: 'member' }" class="button --white --large">
+            Støtt oss
+          </router-link>
         </div>
-
         <div class="block --text-center --mt-larger --full">
           <h3>Få siste nytt rett i innboksen din</h3>
           <div class="grid --center">
