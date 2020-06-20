@@ -21,6 +21,14 @@
           </li>
           <li class="overlay-menu__nav-link">
             <h3 style="margin-top: 80px;">
+              <a href="https://tryggtripp.no" target="_blank">
+                Tryggtripp.no
+                <i class="fas fa-external-link-alt"></i>
+              </a>
+            </h3>
+          </li>
+          <li class="overlay-menu__nav-link">
+            <h3 style="margin-top: 80px;">
               <a href="https://mikrodosering.no" target="_blank">
                 Mikrodosering.no
                 <i class="fas fa-external-link-alt"></i>

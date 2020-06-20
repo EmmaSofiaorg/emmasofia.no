@@ -23,14 +23,12 @@
           <li class="header__nav-link">
             <router-link :to="{ name: 'about-us' }">Om oss</router-link>
           </li>
-          <!--
           <li class="header__nav-link">
             <a href="https://tryggtripp.no" target="_blank">
               Tryggtripp
               <i class="fas fa-external-link-alt"></i>
             </a>
           </li>
-          -->
           <li class="header__nav-link">
             <a href="https://mikrodosering.no" target="_blank">
               Mikrodosering.no
