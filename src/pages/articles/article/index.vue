@@ -7,16 +7,16 @@
       <div class="hero__wrapper">
         <div class="container --narrow">
           <div class="hero__title">
-            <h1>{{ drug.name }}</h1>
+            <h1>{{ test.name }}</h1>
           </div>
           <div class="hero__intro">
-            <h3>{{ drug.intro }}</h3>
+            <h3>{{ test.intro }}</h3>
           </div>
           <div class="block --full --mt-larger">
             <div
               class="block --full --border-radius --box-shadow"
               style="width: 100%; height: 250px; background-position: center; background-size: cover;"
-              :style="`background-image: url(${drug.image.fields.file.url})`"
+              :style="`background-image: url(${test.image.fields.file.url})`"
             />
           </div>
         </div>
@@ -59,12 +59,12 @@
 
         <div class="block --full --mt-larger">
           <h2>Forberedelser</h2>
-          <p v-if="drug.prep" v-html="renderMarkDown(drug.prep)"></p>
+          <p v-if="test.prep" v-html="renderMarkDown(test.prep)"></p>
         </div>
 
         <div class="block --full --mt">
           <h2>Under rusen</h2>
-          <p v-if="drug.during" v-html="renderMarkDown(drug.during)"></p>
+          <p v-if="test.during" v-html="renderMarkDown(test.during)"></p>
         </div>
       </section>
     </div>
@@ -75,18 +75,18 @@
 import db from "@/database";
 
 export default {
-  name: "drug",
+  name: "test",
   store: ["loading"],
   mounted() {
     this.loading = true;
-    db.getEntryBySlug("drug", this.$route.params.slug).then(response => {
+    db.getEntryBySlug("test", this.$route.params.slug).then(response => {
       this.loading = false;
-      this.drug = response;
+      this.test = response;
     }); // Map fields from response and set av events
   },
   data() {
     return {
-      drug: {}
+      test: {}
     };
   }
 };

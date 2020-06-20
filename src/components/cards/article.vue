@@ -16,10 +16,15 @@
         {{ test.ingress }}
       </div>
       <div class="card-media-clip__link">
-        <a :href="test.link" target="_blank">
-          Les hele artikkelen
-          <i class="fas fa-external-link-alt"></i>
-        </a>
+        <router-link
+          :to="{ name: 'test', params: { slug: test.slug } }"
+          class="card"
+        >
+          <a :href="test.link" target="_blank">
+            Les hele artikkelen
+            <i class="fas fa-external-link-alt"></i>
+          </a>
+        </router-link>
       </div>
       <div class="block --mt --full">
         <span style="color: #bbbbbb" :key="tag.id" v-for="tag in test.tags">

@@ -26,7 +26,7 @@
               </article>
             </div>
             <div class="block --full --mb" v-if="tests.length < 1">
-              <h4>Ingen studier funnet.</h4>
+              <h4>Ingen artikler funnet.</h4>
             </div>
           </div>
           <div class="grid__item --m-12 --l-4">
