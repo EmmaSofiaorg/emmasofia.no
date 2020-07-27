@@ -16,6 +16,8 @@ import Jobs from "@/pages/jobs";
 import Job from "@/pages/jobs/job";
 import Faq from "@/pages/faq";
 import Articles from "@/pages/articles";
+import Article from "@/pages/articles/article";
+import Reform from "@/pages/reform";
 
 Vue.use(Router);
 
@@ -98,9 +100,19 @@ export default new Router({
       component: Faq
     },
     {
+      path: "/rusreform",
+      name: "reform",
+      component: Reform
+    },
+    {
       path: "/artikler",
       name: "articles",
       component: Articles
+    },
+    {
+      path: "/artikler/:slug",
+      name: "article",
+      component: Article
     }
   ],
   scrollBehavior(to, from, savedPosition) {

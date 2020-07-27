@@ -8,10 +8,10 @@
         <div class="container --narrow">
           <div class="block --full --mb-larger">
             <div class="hero__title">
-              <h1>{{ test.title }}</h1>
+              <h1>{{ page.title }}</h1>
             </div>
             <div class="hero__intro">
-              <h3>{{ test.ingress }}</h3>
+              <h3>{{ page.subtitle }}</h3>
             </div>
           </div>
         </div>
@@ -21,9 +21,9 @@
     <section class="block --mt-larger --mb-largest">
       <div class="container --narrow">
         <p
-          v-if="test.body"
+          v-if="page.body"
           class="markdown"
-          v-html="renderMarkDown(test.body)"
+          v-html="renderMarkDown(page.body)"
         ></p>
       </div>
     </section>
@@ -36,14 +36,14 @@ import db from "@/database";
 export default {
   store: ["loading"],
   created() {
-    db.getEntryBySlug("test", this.$route.params.slug).then(response => {
+    db.getEntryById("5qz2trB9GOxTEPXttljgCL").then(response => {
       this.loading = false;
-      this.test = response;
+      this.page = response;
     });
   },
   data() {
     return {
-      test: {}
+      page: {}
     };
   }
 };
