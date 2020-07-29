@@ -5,7 +5,7 @@
     <div class="hero">
       <div class="hero__background" />
       <div class="hero__wrapper">
-        <div class="container --narrow">
+        <div class="container">
           <div class="block --full --mb-larger">
             <div class="hero__title">
               <h1>{{ test.title }}</h1>
@@ -19,7 +19,7 @@
     </div>
 
     <section class="block --mt-larger --mb-largest">
-      <div class="container --narrow">
+      <div class="container">
         <p
           v-if="test.body"
           class="markdown"

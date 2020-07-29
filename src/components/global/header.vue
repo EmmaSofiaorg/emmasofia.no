@@ -21,6 +21,9 @@
             <router-link :to="{ name: 'media' }">Media</router-link>
           </li>
           <li class="header__nav-link">
+            <router-link :to="{ name: 'reform' }">Rusreform</router-link>
+          </li>
+          <li class="header__nav-link">
             <router-link :to="{ name: 'about-us' }">Om oss</router-link>
           </li>
           <li class="header__nav-link">
@@ -31,7 +34,7 @@
           </li>
           <li class="header__nav-link">
             <a href="https://mikrodosering.no" target="_blank">
-              Mikrodosering.no
+              Mikrodosering
               <i class="fas fa-external-link-alt"></i>
             </a>
           </li>

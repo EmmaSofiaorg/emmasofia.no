@@ -233,6 +233,41 @@ main {
       </div>
     </section> -->
 
+    <section class="block --pt-larger --pb-larger">
+      <div class="container --wide">
+        <div class="grid --space-between">
+          <div class="grid__item --s-12 --m-6">
+            <div class="block --mb">
+              <img class="img" src="../assets/img/rusreform.png" alt="" />
+            </div>
+          </div>
+          <div class="grid__item --s-12 --m-5">
+            <div class="block --full --mb-large">
+              <h2 class="text-primary">Rusreform</h2>
+              <p>
+                Regjeringen har vedtatt at det skal gjennomføres en rusreform i
+                denne Stortingsperioden, der ruspolitikken skal flyttes fra
+                justissektoren skal flyttes fra straff til helse. Et
+                regjeringsoppnevnt utvalg har foreslått å avkriminalisere bruk,
+                innehav og erverv av mindre mengder rusmidler til eget bruk, og
+                foreslått en modell for hvordan dette kan gjennomføres.
+              </p>
+              <p>
+                EmmaSofia støtter utvalgets forslag om avkriminalisering og
+                anbefalte modell. Vi mener dette er en viktig og nødvendig
+                reform for å redusere stigmatiseringen mange som bruker
+                psykedelika og MDMA føler på.
+              </p>
+              <br />
+              <router-link :to="{ name: 'reform' }" class="button">
+                Les mer om hva EmmaSofia mener om rusreformen.
+              </router-link>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section class="block --bg-light --pt-larger --pb-larger">
       <div class="container --wide">
         <div class="grid --space-between">
