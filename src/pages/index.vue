@@ -260,7 +260,7 @@ main {
               </p>
               <br />
               <router-link :to="{ name: 'reform' }" class="button">
-                Les mer om hva EmmaSofia mener om rusreformen
+                Les mer om hva EmmaSofia mener
               </router-link>
             </div>
           </div>
