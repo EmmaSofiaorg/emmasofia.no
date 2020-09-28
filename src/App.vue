@@ -8,14 +8,6 @@
       </keep-alive>
     </transition>
     <main-footer />
-
-    <cart-button v-show="cart.lineItems.length && !cartShown"
-                 :toggleCart="toggleCart.bind(this)" />
-
-    <cart-overlay v-show="cart.lineItems.length"
-                  :class="{'--hidden': !cartShown}"
-                  :toggleCart="toggleCart.bind(this)" />
-
   </div>
 </template>
 
@@ -26,30 +18,10 @@ import MainHeader from "@/components/global/header";
 import MainFooter from "@/components/global/footer";
 import Spinner from "@/components/global/spinner";
 
-import shop from "@/shopify";
-
-import CartOverlay from "@/components/cart/cart";
-import CartButton from "@/components/cart/cart-button";
-
 export default {
-  components: { MainHeader, MainFooter, Spinner, CartOverlay, CartButton },
-  store: ["loading", "cart", "cartShown", "cartId"],
-  name: "app",
-  async created() {
-    const cart = await shop.initCart();
-    this.cart = cart;
-    this.cartId = cart.id;
-  },
-  methods: {
-    toggleCart() {
-      const cartButton = document.getElementsByClassName(
-        "cart-button-fixed"
-      )[0];
-      cartButton.style.webkitAnimationName = "";
-      cartButton.style.animationName = "";
-      this.cartShown = !this.cartShown;
-    }
-  }
+  components: { MainHeader, MainFooter, Spinner },
+  store: ["loading"],
+  name: "app"
 };
 </script>
 

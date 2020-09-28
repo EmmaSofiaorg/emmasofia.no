@@ -32,12 +32,7 @@ new Vue({
   router,
   data: {
     store: {
-      loading: "",
-      cart: {
-        lineItems: []
-      },
-      cartId: "",
-      cartShown: false
+      loading: ""
     }
   },
   render: h => h(App)
